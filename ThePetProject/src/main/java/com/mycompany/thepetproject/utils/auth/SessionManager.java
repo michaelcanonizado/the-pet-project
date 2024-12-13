@@ -31,4 +31,9 @@ public class SessionManager {
             return false;
         }
     }
+    
+    // Check if someone is logged in
+    public boolean isLoggedIn() {
+        return isLoggedIn;
+    }
 }
