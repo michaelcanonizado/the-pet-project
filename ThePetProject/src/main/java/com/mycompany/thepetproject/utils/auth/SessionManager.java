@@ -8,16 +8,13 @@ package com.mycompany.thepetproject.utils.auth;
  *
  * @author lilac
  */
-enum Role {
-    ADMIN,
-    USER,
-    GUEST
-}
+
+import com.mycompany.thepetproject.utils.auth.SessionRole;
 
 public class SessionManager {
     private static SessionManager instance;
     private boolean isLoggedIn = false;
-    private Role role = Role.GUEST;
+    private SessionRole role = SessionRole.GUEST;
 
     private SessionManager() {};
     
@@ -30,7 +27,7 @@ public class SessionManager {
     }
     
     // Authenticate user or admin based on strategy
-    public boolean authenticate(Role role, String username, String password, AuthenticationStrategy strategy) {
+    public boolean authenticate(SessionRole role, String username, String password, AuthenticationStrategy strategy) {
         if (strategy.authenticate(username, password)) {
             isLoggedIn = true;
             this.role = role;
@@ -48,7 +45,7 @@ public class SessionManager {
     }
     
     // Get session role
-    public Role getRole() {
+    public SessionRole getRole() {
         return role;
     }
     
