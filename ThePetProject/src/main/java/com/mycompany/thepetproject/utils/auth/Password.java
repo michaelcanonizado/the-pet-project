@@ -14,6 +14,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
 public class Password {
+    // Hash a password
     public static String hash(String password) {
         try {
             // Get an instance of SHA-256 algorithm
@@ -25,5 +26,11 @@ public class Password {
         } catch (NoSuchAlgorithmException err) {
             throw new RuntimeException("Error hashing password", err);
         }
+    }
+    
+    // Compare an unhashed password to a hashed password
+    public static boolean verify(String unhashedPassword, String storedHash) {
+        String hashedPassword = hash(unhashedPassword);
+        return hashedPassword.equals(storedHash);
     }
 }
