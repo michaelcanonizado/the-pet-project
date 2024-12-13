@@ -8,12 +8,12 @@ package com.mycompany.thepetproject.frames;
  *
  * @author lilac
  */
-public class BrowsePets extends javax.swing.JFrame {
+public class PetGallery extends javax.swing.JFrame {
 
     /**
      * Creates new form BrowsePets
      */
-    public BrowsePets() {
+    public PetGallery() {
         initComponents();
     }
 
@@ -69,20 +69,21 @@ public class BrowsePets extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BrowsePets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PetGallery.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BrowsePets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PetGallery.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BrowsePets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PetGallery.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BrowsePets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PetGallery.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BrowsePets().setVisible(true);
+                new PetGallery().setVisible(true);
             }
         });
     }
