@@ -52,5 +52,6 @@ public class SessionManager {
     // Log current user/admin out
     public void logout() {
         isLoggedIn = false;
+        role = SessionRole.GUEST;
     }
 }
