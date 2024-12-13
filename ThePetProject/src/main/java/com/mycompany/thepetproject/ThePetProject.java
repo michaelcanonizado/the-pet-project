@@ -6,9 +6,9 @@ package com.mycompany.thepetproject;
  */
 
 import com.mycompany.thepetproject.frames.Home;
-import com.mycompany.thepetproject.utils.auth.Password;
-import com.mycompany.thepetproject.utils.seeders.AdminSeeder;
-import com.mycompany.thepetproject.utils.seeders.UsersSeeder;
+import com.mycompany.thepetproject.utils.csv.Csv;
+import java.util.Arrays;
+import java.util.List;
 
 public class ThePetProject {
 
@@ -18,17 +18,17 @@ public class ThePetProject {
             home.setVisible(true);
         });
        
-        String unhashedPassword = "123";
-        String storedHash = "2PuX6/z0BKlWbwmI5+aNm3hld4TA5fkBu3XHMklm5/A=";
-        byte[] storedSalt = Password.saltStringToByteArr("mqoSQtK1z1udcejyr34iAw==");
-        boolean isCorrectPassword = Password.verify(unhashedPassword, storedSalt, storedHash);
+        String username = "Sam";
+        String password = "qwerty123";
         
-        System.out.println(
-                unhashedPassword +
-                " == " +
-                storedHash +
-                " : " +
-                isCorrectPassword
-        );
+        Csv usersCsv = new Csv("data/users.csv");
+        usersCsv.displayRows();
+        int columnIndex = usersCsv.indexOfColumn("Username");
+        
+        System.out.println("\n\nResult for " + username + ": ");
+        List<String[]> searchResult = usersCsv.search(username, columnIndex);
+        for (String[] row : searchResult) {
+            System.out.println(Arrays.toString(row));
+        }
     }
 }
