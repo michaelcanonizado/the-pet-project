@@ -36,4 +36,9 @@ public class SessionManager {
     public boolean isLoggedIn() {
         return isLoggedIn;
     }
+    
+    // Log current user/admin out
+    public void logout() {
+        isLoggedIn = false;
+    }
 }
