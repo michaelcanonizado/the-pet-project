@@ -7,6 +7,8 @@ package com.mycompany.thepetproject;
 
 import com.mycompany.thepetproject.frames.Home;
 import com.mycompany.thepetproject.utils.auth.Password;
+import com.mycompany.thepetproject.utils.seeders.AdminSeeder;
+import com.mycompany.thepetproject.utils.seeders.UsersSeeder;
 
 public class ThePetProject {
 
@@ -16,10 +18,9 @@ public class ThePetProject {
             home.setVisible(true);
         });
        
-        
         String unhashedPassword = "123";
-        String storedHash = "IcLKMSh2WzAq2IokbC9TYWNpgGv3ioXikn+p+6/1OcA=";
-        byte[] storedSalt = Password.saltStringToByteArr("WWefjFR8+pEZIYPr7ffrPA==");
+        String storedHash = "2PuX6/z0BKlWbwmI5+aNm3hld4TA5fkBu3XHMklm5/A=";
+        byte[] storedSalt = Password.saltStringToByteArr("mqoSQtK1z1udcejyr34iAw==");
         boolean isCorrectPassword = Password.verify(unhashedPassword, storedSalt, storedHash);
         
         System.out.println(
