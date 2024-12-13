@@ -6,12 +6,6 @@ package com.mycompany.thepetproject;
  */
 
 import com.mycompany.thepetproject.frames.Home;
-import com.mycompany.thepetproject.utils.auth.AdminAuthentication;
-import com.mycompany.thepetproject.utils.auth.UserAuthentication;
-import com.mycompany.thepetproject.utils.auth.SessionManager;
-import com.mycompany.thepetproject.utils.auth.AuthenticationStrategy;
-import com.mycompany.thepetproject.utils.auth.SessionRole;
-
 import com.mycompany.thepetproject.utils.auth.Password;
 
 public class ThePetProject {
@@ -21,10 +15,12 @@ public class ThePetProject {
             Home home = new Home();
             home.setVisible(true);
         });
+       
         
         String unhashedPassword = "123";
-        String storedHash = "pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=";
-        boolean isCorrectPassword = Password.verify(unhashedPassword, storedHash);
+        String storedHash = "IcLKMSh2WzAq2IokbC9TYWNpgGv3ioXikn+p+6/1OcA=";
+        byte[] storedSalt = Password.saltStringToByteArr("WWefjFR8+pEZIYPr7ffrPA==");
+        boolean isCorrectPassword = Password.verify(unhashedPassword, storedSalt, storedHash);
         
         System.out.println(
                 unhashedPassword +
