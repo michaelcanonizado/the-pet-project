@@ -8,12 +8,12 @@ package com.mycompany.thepetproject.frames;
  *
  * @author deynklarys
  */
-public class petCard extends javax.swing.JPanel {
+public class PetCard extends javax.swing.JPanel {
 
     /**
      * Creates new form petCard
      */
-    public petCard() {
+    public PetCard() {
         initComponents();
     }
 
