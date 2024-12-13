@@ -8,6 +8,6 @@ package com.mycompany.thepetproject.utils.auth;
  *
  * @author lilac
  */
-interface AuthenticationStrategy {
+public interface AuthenticationStrategy {
     boolean authenticate(String username, String password);
 }

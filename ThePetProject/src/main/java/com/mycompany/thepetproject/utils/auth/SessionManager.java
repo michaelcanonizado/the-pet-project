@@ -47,6 +47,11 @@ public class SessionManager {
         return isLoggedIn;
     }
     
+    // Get session role
+    public Role getRole() {
+        return role;
+    }
+    
     // Log current user/admin out
     public void logout() {
         isLoggedIn = false;
