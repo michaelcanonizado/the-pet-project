@@ -12,7 +12,7 @@ import com.mycompany.thepetproject.utils.auth.SessionManager;
 import com.mycompany.thepetproject.utils.auth.AuthenticationStrategy;
 import com.mycompany.thepetproject.utils.auth.SessionRole;
 
-import com.mycompany.thepetproject.utils.seeders.UserSeeder;
+import com.mycompany.thepetproject.utils.auth.Password;
 
 public class ThePetProject {
 
@@ -22,6 +22,16 @@ public class ThePetProject {
             home.setVisible(true);
         });
         
-        UserSeeder.generateUsers("data/users.csv");
+        String unhashedPassword = "123";
+        String storedHash = "pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=";
+        boolean isCorrectPassword = Password.verify(unhashedPassword, storedHash);
+        
+        System.out.println(
+                unhashedPassword +
+                " == " +
+                storedHash +
+                " : " +
+                isCorrectPassword
+        );
     }
 }
