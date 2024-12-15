@@ -44,7 +44,7 @@ public class UserList implements Serializable {
     }
     
     // Method to check if a UUID already exists in the list
-    public static boolean isUserIdInList(UUID id) {
+    public static boolean isUserInList(UUID id) {
         for (User user : users) {
             if (user.getId().equals(id)) {
                 return true;

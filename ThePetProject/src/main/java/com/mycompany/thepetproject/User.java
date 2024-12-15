@@ -26,7 +26,7 @@ public class User implements Serializable {
         try {
             do {
                 this.id = UUID.randomUUID();
-            } while (UserList.isUserIdInList(this.id));
+            } while (UserList.isUserInList(this.id));
             this.username = username;
             this.unhashedPassword = unhashedPassword;
             byte[] salt = Password.generateSalt();
