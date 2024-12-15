@@ -4,6 +4,9 @@
  */
 package com.mycompany.thepetproject.utils.auth.strategies;
 import com.mycompany.thepetproject.utils.auth.strategies.AuthenticationStrategy;
+import com.mycompany.thepetproject.User;
+import com.mycompany.thepetproject.UserList;
+import com.mycompany.thepetproject.utils.auth.Password;
 
 /**
  *
@@ -12,12 +15,17 @@ import com.mycompany.thepetproject.utils.auth.strategies.AuthenticationStrategy;
 public class UserAuthentication implements AuthenticationStrategy {
 
     @Override
-    public boolean authenticate(String username, String password) {
-        // Simulate user authentication here
-        String userUsername = "user";
-        String userPassword = "123";
+    public User authenticate(String username, String password) {
+        // Get user via entered username (Check by username)
+        User user = UserList.getUser(username);
+        if (user == null) return null;
+        
+        // If username is valid and user object is found, check entered password (Check by password)
+        boolean isCorrectPassword = Password.verify(password, user.getPasswordSalt(), user.getHashedPassword());
+        if (isCorrectPassword) return user;
 
-        return username.equals(userUsername) && password.equals(userPassword);
+        // If username is correct but password is not, return null
+        return null;
     }
     
 }

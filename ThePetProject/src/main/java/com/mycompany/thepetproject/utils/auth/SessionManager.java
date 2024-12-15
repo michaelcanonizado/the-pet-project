@@ -17,6 +17,7 @@ public class SessionManager {
     private static SessionManager instance;
     private boolean isLoggedIn = false;
     private SessionRole role = SessionRole.GUEST;
+    private Account account = null;
 
     private SessionManager() {};
     
@@ -28,17 +29,21 @@ public class SessionManager {
         return instance;
     }
     
-    // Authenticate user or admin based on strategy
+    // Authenticate accounts based on strategy
     public boolean authenticate(SessionRole role, String username, String password, AuthenticationStrategy strategy) {
-        if (strategy.authenticate(username, password)) {
-            isLoggedIn = true;
-            this.role = role;
-            return true;
-        } else {
+        Account account = strategy.authenticate(username, password);
+        
+        if (account == null) {
             isLoggedIn = false;
             this.role = role.GUEST;
+            this.account = null;
             return false;
-        }
+        } 
+        
+        isLoggedIn = true;
+        this.role = role;
+        this.account = account;
+        return true;
     }
     
     // Check if someone is logged in
@@ -46,14 +51,18 @@ public class SessionManager {
         return isLoggedIn;
     }
     
-    // Get session role
+    // Getters
+    public Account getAccount() {
+        return account;
+    }
     public SessionRole getRole() {
         return role;
     }
     
-    // Log current user/admin out
+    // Log current account out
     public void logout() {
-        isLoggedIn = false;
-        role = SessionRole.GUEST;
+        this.account = null;
+        this.isLoggedIn = false;
+        this.role = SessionRole.GUEST;
     }
 }

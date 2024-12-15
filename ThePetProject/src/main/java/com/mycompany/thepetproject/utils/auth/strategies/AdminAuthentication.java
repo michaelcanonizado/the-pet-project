@@ -4,6 +4,9 @@
  */
 package com.mycompany.thepetproject.utils.auth.strategies;
 import com.mycompany.thepetproject.utils.auth.strategies.AuthenticationStrategy;
+import com.mycompany.thepetproject.Admin;
+import com.mycompany.thepetproject.AdminList;
+import com.mycompany.thepetproject.utils.auth.Password;
 
 /**
  *
@@ -12,12 +15,16 @@ import com.mycompany.thepetproject.utils.auth.strategies.AuthenticationStrategy;
 public class AdminAuthentication implements AuthenticationStrategy {
 
     @Override
-    public boolean authenticate(String username, String password) {
-        // Simulate admin authentication
-        // Verify admin username and password here
-        String adminUsername = "admin";
-        String adminPassword = "password123";
+    public Admin authenticate(String username, String password) {
+       // Get user via entered username (Check by username)
+        Admin admin = AdminList.getAdmin(username);
+        if (admin == null) return null;
+        
+        // If username is valid and user object is found, check entered password (Check by password)
+        boolean isCorrectPassword = Password.verify(password, admin.getPasswordSalt(), admin.getHashedPassword());
+        if (isCorrectPassword) return admin;
 
-        return username.equals(adminUsername) && password.equals(adminPassword);
+        // If username is correct but password is not, return null
+        return null;
     }
 }

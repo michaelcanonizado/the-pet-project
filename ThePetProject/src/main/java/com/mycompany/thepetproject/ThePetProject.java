@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 import com.mycompany.thepetproject.frames.Home;
 import com.mycompany.thepetproject.UserList;
+import com.mycompany.thepetproject.AdminList;
 import com.mycompany.thepetproject.utils.auth.SessionManager;
 import com.mycompany.thepetproject.utils.auth.SessionRole;
 import com.mycompany.thepetproject.utils.auth.strategies.AuthenticationStrategy;
@@ -23,11 +24,15 @@ public class ThePetProject {
             home.setVisible(true);
         });
         
-        // Get the Singleton instance of SessionManager
-        SessionManager sessionManager = SessionManager.getInstance();
+        UserList.deserializeUsers();
+        AdminList.deserializeAdmins();
 
         // Scanner for input
         Scanner scanner = new Scanner(System.in);
+        
+        while(true) {
+            // Get the Singleton instance of SessionManager
+        SessionManager sessionManager = SessionManager.getInstance();
 
         System.out.println("Welcome! Please log in.");
         System.out.print("Enter username: ");
@@ -62,9 +67,18 @@ public class ThePetProject {
         } else {
             System.out.println("Showing guest dashboard...");
         }
+        
+        Account account = sessionManager.getAccount();
+        if (account != null) {
+            System.out.println(account);
+        } else {
+            System.out.println("ACCOUNT DOES NOT EXIST IN SESSION MANAGER");
+        }
 
         // Simulate logout
         sessionManager.logout();
         System.out.println("Logged out. Current role: " + sessionManager.getRole());
+        System.out.println("-----------------------------------");
+        }
     }
 }
