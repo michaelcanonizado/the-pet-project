@@ -12,6 +12,8 @@ import java.security.NoSuchAlgorithmException;
 import java.io.FileWriter;
 import java.io.IOException;
 import com.mycompany.thepetproject.utils.auth.Password;
+import com.mycompany.thepetproject.UserList;
+import com.mycompany.thepetproject.User;
 
 /*
     WARNING! BE CAREFUL WHEN RESEEDING DATA 
@@ -24,27 +26,17 @@ public class UsersSeeder {
         "Alice", "Bob", "Charlie", "David", "Eva", "Frank", "Grace", "Hannah", "Ian", "Jack", 
         "Kathy", "Liam", "Mona", "Nina", "Oscar", "Paul", "Quincy", "Rachel", "Sam", "Tina"
     };
-    
     private static final String[] PASSWORDS = {
         "123", "password", "qwerty", "abc123", "hello", "letmein", "jams", "iloveyou", "admin", "password",
         "123abc", "home", "BSCS2A", "321", "987", "dragon", "apple", "key", "qwerty123", "pass"
     };
     
-    public static void generateUsers(String filename) throws NoSuchAlgorithmException {
-        try (FileWriter writer = new FileWriter(filename)) {
-            writer.append("Username,HashedPassword,UnhashedPassword,Salt\n");
-            for (int i = 0; i < USERNAMES.length; i++) {
-                String username = USERNAMES[i];
-                String unhashedPassword = PASSWORDS[i];
-                byte[] saltAsByteArr = Password.generateSalt();
-                String saltAsString = Password.saltBtyeArrToString(saltAsByteArr);
-                String hashedPassword = Password.hash(PASSWORDS[i], saltAsByteArr);
-                
-                writer.append(username).append(",").append(hashedPassword).append(",").append(unhashedPassword).append(",").append(saltAsString).append("\n");
-            }
-            System.out.println("CSV file of Users generated successfully.");
-        } catch (IOException e) {
-            e.printStackTrace();
+    public static void generateUsers(String fileName) {
+        for (int i = 0; i < USERNAMES.length; i++) {
+            String password = PASSWORDS[i] != null ? PASSWORDS[i]: "123";
+            User user = new User(USERNAMES[i], password);
+            UserList.addUser(user);
         }
+        UserList.serializeUsers();
     }
 }

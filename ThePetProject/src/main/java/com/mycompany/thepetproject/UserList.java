@@ -63,7 +63,6 @@ public class UserList implements Serializable {
             e.printStackTrace();
         }
     }
-    
     // Deserialize the static list of users from a file
     public static void deserializeUsers() {
         try (FileInputStream fileIn = new FileInputStream(FILE_NAME);
@@ -73,6 +72,10 @@ public class UserList implements Serializable {
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+    // Get the file name used by the class to serialize and deserialize
+    public static String getSerializationFilePath() {
+        return FILE_NAME;
     }
     
     // Method to print the list of users
