@@ -9,6 +9,7 @@ package com.mycompany.thepetproject.utils.auth;
  * @author lilac
  */
 
+import com.mycompany.thepetproject.utils.auth.strategies.AuthenticationStrategy;
 import com.mycompany.thepetproject.utils.auth.SessionRole;
 import com.mycompany.thepetproject.Account;
 

@@ -11,9 +11,9 @@ import com.mycompany.thepetproject.frames.Home;
 import com.mycompany.thepetproject.UserList;
 import com.mycompany.thepetproject.utils.auth.SessionManager;
 import com.mycompany.thepetproject.utils.auth.SessionRole;
-import com.mycompany.thepetproject.utils.auth.AuthenticationStrategy;
-import com.mycompany.thepetproject.utils.auth.AdminAuthentication;
-import com.mycompany.thepetproject.utils.auth.UserAuthentication;
+import com.mycompany.thepetproject.utils.auth.strategies.AuthenticationStrategy;
+import com.mycompany.thepetproject.utils.auth.strategies.AdminAuthentication;
+import com.mycompany.thepetproject.utils.auth.strategies.UserAuthentication;
 
 public class ThePetProject {
 
