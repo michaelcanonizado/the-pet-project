@@ -9,6 +9,7 @@ package com.mycompany.thepetproject;
  * @author lilac
  */
 import com.mycompany.thepetproject.utils.auth.Password;
+import com.mycompany.thepetproject.UserList;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
 
@@ -22,7 +23,9 @@ public class User {
     
     public User(String username, String unhashedPassword) {
         try {
-            this.id = UUID.randomUUID();
+            do {
+                this.id = UUID.randomUUID();
+            } while (UserList.isUserIdInList(this.id));
             this.username = username;
             this.unhashedPassword = unhashedPassword;
             byte[] salt = Password.generateSalt();

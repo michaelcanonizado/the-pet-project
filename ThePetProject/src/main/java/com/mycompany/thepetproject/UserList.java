@@ -13,6 +13,7 @@ import com.mycompany.thepetproject.utils.auth.Password;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class UserList implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -21,6 +22,34 @@ public class UserList implements Serializable {
     // Method to add user to list
     public static void addUser(User user) {
         users.add(user);
+    }
+    
+    // Get user methods
+    public static User getUser(UUID id) {
+        for (User user : users) {
+            if (user.getId().equals(id)) {
+                return user;
+            }
+        }
+        return null;
+    }
+    public static User getUser(String username) {
+        for (User user : users) {
+            if (user.getUsername().equals(username)) {
+                return user;
+            }
+        }
+        return null;
+    }
+    
+    // Method to check if a UUID already exists in the list
+    public static boolean isUserIdInList(UUID id) {
+        for (User user : users) {
+            if (user.getId().equals(id)) {
+                return true;
+            }
+        }
+        return false;
     }
     
     // Method to print the list of users
