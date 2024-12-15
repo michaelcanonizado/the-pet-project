@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.mycompany.thepetproject.frames;
+package com.mycompany.thepetproject.swing.components;
 
 /**
  *
@@ -50,7 +50,7 @@ public class petCard extends javax.swing.JPanel {
 
         labelImage.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         labelImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/thepetproject/frames/dog.png"))); // NOI18N
+        labelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/thepetproject/swing/dog.png"))); // NOI18N
 
         labelSetAge1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         labelSetAge1.setText("yrs old");
@@ -104,19 +104,12 @@ public class petCard extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel labelAge;
     private javax.swing.JLabel labelAge1;
     private javax.swing.JLabel labelImage;
-    private javax.swing.JLabel labelPetName;
     private javax.swing.JLabel labelPetName1;
-    private javax.swing.JLabel labelSetAge;
     private javax.swing.JLabel labelSetAge1;
-    private javax.swing.JLabel labelSetSex;
     private javax.swing.JLabel labelSetSex1;
-    private javax.swing.JLabel labelSex;
     private javax.swing.JLabel labelSex1;
-    private javax.swing.JPanel panelPetCard;
     private javax.swing.JPanel panelPetCard1;
     // End of variables declaration//GEN-END:variables
 }

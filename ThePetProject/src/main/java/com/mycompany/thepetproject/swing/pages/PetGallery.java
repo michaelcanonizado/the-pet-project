@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.thepetproject.frames;
+package com.mycompany.thepetproject.swing.pages;
 
 /**
  *
@@ -38,7 +38,6 @@ public class PetGallery extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(226, 70, 43));
-        setPreferredSize(new java.awt.Dimension(1000, 710));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(251, 244, 191));
@@ -77,7 +76,7 @@ public class PetGallery extends javax.swing.JFrame {
 
         labelImageCat.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         labelImageCat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelImageCat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/thepetproject/frames/cat.png"))); // NOI18N
+        labelImageCat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/thepetproject/swing/cat.png"))); // NOI18N
 
         labelCats.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         labelCats.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -85,7 +84,7 @@ public class PetGallery extends javax.swing.JFrame {
 
         labelImageDog.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         labelImageDog.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelImageDog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/thepetproject/frames/dog.png"))); // NOI18N
+        labelImageDog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/thepetproject/swing/dog.png"))); // NOI18N
 
         labelDogs.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         labelDogs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -203,10 +202,6 @@ public class PetGallery extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonLogIn;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelCats;
     private javax.swing.JLabel labelDogs;
@@ -214,8 +209,6 @@ public class PetGallery extends javax.swing.JFrame {
     private javax.swing.JLabel labelImageCat;
     private javax.swing.JLabel labelImageDog;
     private javax.swing.JLabel labelPetAdoption;
-    private javax.swing.JPanel panelDogOption1;
-    private javax.swing.JPanel panelDogOption2;
     private javax.swing.JScrollPane scrollPanePetCards;
     // End of variables declaration//GEN-END:variables
 }
