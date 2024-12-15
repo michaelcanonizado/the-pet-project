@@ -10,6 +10,7 @@ package com.mycompany.thepetproject.utils.auth;
  */
 
 import com.mycompany.thepetproject.utils.auth.SessionRole;
+import com.mycompany.thepetproject.Account;
 
 public class SessionManager {
     private static SessionManager instance;
