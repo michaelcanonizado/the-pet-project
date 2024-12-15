@@ -20,7 +20,7 @@ import com.mycompany.thepetproject.User;
     AS CODE MIGHT DEPEND ON THE CURRENT DATA SEEDED.
     RESEEDING MAY REQUIRE YOU TO UPDATE CODE!
 */
-public class UsersSeeder {
+public class UserSeeder {
     // Arrays of 20 first names and 20 simple passwords
     private static final String[] USERNAMES = {
         "Alice", "Bob", "Charlie", "David", "Eva", "Frank", "Grace", "Hannah", "Ian", "Jack", 

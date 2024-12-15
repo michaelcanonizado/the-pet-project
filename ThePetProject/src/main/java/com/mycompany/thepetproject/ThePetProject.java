@@ -8,7 +8,7 @@ package com.mycompany.thepetproject;
 import com.mycompany.thepetproject.frames.Home;
 import com.mycompany.thepetproject.User;
 import com.mycompany.thepetproject.UserList;
-import com.mycompany.thepetproject.utils.seeders.UsersSeeder;
+import com.mycompany.thepetproject.utils.seeders.UserSeeder;
 
 public class ThePetProject {
 
@@ -18,7 +18,7 @@ public class ThePetProject {
             home.setVisible(true);
         });
         
-        UsersSeeder.generateUsers(UserList.getSerializationFilePath());
+        UserSeeder.generateUsers(UserList.getSerializationFilePath());
         UserList.deserializeUsers();
         UserList.printUsers();
     }
