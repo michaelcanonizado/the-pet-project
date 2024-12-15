@@ -21,11 +21,11 @@ public class ThePetProject {
             home.setVisible(true);
         });
         
-        AdminSeeder.generateAdmins();
-        AdminList.deserializeAdmins();
-        AdminList.printAdmins();
-//        UserSeeder.generateUsers(UserList.getSerializationFilePath());
-//        UserList.deserializeUsers();
-//        UserList.printUsers();
+//        AdminSeeder.generateAdmins();
+//        AdminList.deserializeAdmins();
+//        AdminList.printAdmins();
+        UserSeeder.generateUsers(UserList.getSerializationFilePath());
+        UserList.deserializeUsers();
+        UserList.printUsers();
     }
 }
