@@ -37,7 +37,23 @@ public class User {
         }
     }
     
-     @Override
+    public UUID getId() {
+        return id;
+    }
+    public String getUsername() {
+        return username;
+    }
+    public String getUnhashedPassword() {
+        return unhashedPassword;
+    }
+    public String getHashedPassword() {
+        return hashedPassword;
+    }
+    public byte[] getPasswordSalt() {
+        return passwordSalt;
+    }
+    
+    @Override
     public String toString() {
         return "User {" +
                 "\n\t" + "id: " + id + "," +
