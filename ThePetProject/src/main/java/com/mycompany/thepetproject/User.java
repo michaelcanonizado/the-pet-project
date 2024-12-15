@@ -12,8 +12,9 @@ import com.mycompany.thepetproject.utils.auth.Password;
 import com.mycompany.thepetproject.UserList;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
+import java.io.Serializable;
 
-public class User {
+public class User implements Serializable {
     private UUID id;
     private String username;
     // REMOVE ATTRIBUTE WHEN IN PRODUCTION!!!

@@ -16,14 +16,10 @@ public class ThePetProject {
             Home home = new Home();
             home.setVisible(true);
         });
-       
-        User user1 = new User("mike", "abc");
-        User user2 = new User("john", "123");
-        User user3 = new User("jacob", "pass");
         
+        UserList.deserializeUsers();
+        User user1 = new User("jacob", "abc");        
         UserList.addUser(user1);
-        UserList.addUser(user2);
-        UserList.addUser(user3);
-        UserList.printUsers();
+        UserList.serializeUsers();
     }
 }

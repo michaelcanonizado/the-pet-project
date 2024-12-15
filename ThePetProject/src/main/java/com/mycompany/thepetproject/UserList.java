@@ -10,13 +10,14 @@ package com.mycompany.thepetproject;
  */
 import com.mycompany.thepetproject.User;
 import com.mycompany.thepetproject.utils.auth.Password;
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 public class UserList implements Serializable {
     private static final long serialVersionUID = 1L;
+    private static final String FILE_NAME = "data/users.ser";
     private static List<User> users = new ArrayList<>();
     
     // Method to add user to list
@@ -50,6 +51,28 @@ public class UserList implements Serializable {
             }
         }
         return false;
+    }
+    
+    // Serialize the static list of users to a file
+    public static void serializeUsers() {        
+        try (FileOutputStream fileOut = new FileOutputStream(FILE_NAME);
+            ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+            out.writeObject(users);
+            System.out.println("User list serialized to " + FILE_NAME);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    // Deserialize the static list of users from a file
+    public static void deserializeUsers() {
+        try (FileInputStream fileIn = new FileInputStream(FILE_NAME);
+            ObjectInputStream in = new ObjectInputStream(fileIn)) {
+            users = (List<User>)in.readObject();
+            System.out.println("User list deserialized from " + FILE_NAME);
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
     
     // Method to print the list of users
