@@ -3,13 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.thepetproject.utils.seeders;
-
-import com.mycompany.thepetproject.Admin;
-
 /**
  *
  * @author lilac
  */
+
+import com.mycompany.thepetproject.Admin;
+import com.mycompany.thepetproject.AdminList;
 
 /*
     WARNING! BE CAREFUL WHEN RESEEDING DATA 
@@ -20,6 +20,9 @@ public class AdminSeeder {
     private static final String USERNAME = "admin";
     private static final String PASSWORD = "123";
     
-    Admin admin = new Admin(USERNAME, PASSWORD);
-    
+    public static void generateAdmins() {
+        Admin admin = new Admin(USERNAME,PASSWORD);
+        AdminList.addAdmin(admin);
+        AdminList.serializeAdmins();
+    }
 }
