@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.mycompany.thepetproject.frames;
+package com.mycompany.thepetproject.swing.components;
 
 /**
  *
@@ -52,7 +52,7 @@ public class PetCard extends javax.swing.JPanel {
 
         labelImage.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         labelImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/thepetproject/frames/dog.png"))); // NOI18N
+        labelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/thepetproject/swing/dog.png"))); // NOI18N
 
         labelSetAge1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         labelSetAge1.setText("2 years");

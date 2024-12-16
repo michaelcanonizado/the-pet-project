@@ -20,6 +20,11 @@ public class Password {
     private static final int HASH_ITERATIONS = 65536;
     private static final int HASH_LENGTH = 256;
     
+    // Prevent class from being instantiated
+    private Password() {
+        throw new UnsupportedOperationException("Cannot instantiate Password class!");
+    }
+    
     // Generate salt
     public static byte[] generateSalt() throws NoSuchAlgorithmException {
         try {

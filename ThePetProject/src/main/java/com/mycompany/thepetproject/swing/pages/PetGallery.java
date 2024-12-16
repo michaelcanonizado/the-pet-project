@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.thepetproject.frames;
+package com.mycompany.thepetproject.swing.pages;
 
 /**
  *
@@ -26,23 +26,25 @@ public class PetGallery extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelTop = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         buttonLogIn = new javax.swing.JButton();
         labelHome = new javax.swing.JLabel();
-        jScrollPane = new javax.swing.JScrollPane();
-        panelBody = new javax.swing.JPanel();
         labelPetAdoption = new javax.swing.JLabel();
         labelImageCat = new javax.swing.JLabel();
         labelCats = new javax.swing.JLabel();
         labelImageDog = new javax.swing.JLabel();
         labelDogs = new javax.swing.JLabel();
-        panelPerCardContainer = new javax.swing.JPanel();
+        scrollPanePetCards = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(226, 70, 43));
         setResizable(false);
 
-        panelTop.setBackground(new java.awt.Color(248, 208, 70));
+        jPanel1.setBackground(new java.awt.Color(251, 244, 191));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1000, 710));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1000, 710));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 710));
 
         buttonLogIn.setBackground(new java.awt.Color(226, 70, 43));
         buttonLogIn.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
@@ -68,42 +70,13 @@ public class PetGallery extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout panelTopLayout = new javax.swing.GroupLayout(panelTop);
-        panelTop.setLayout(panelTopLayout);
-        panelTopLayout.setHorizontalGroup(
-            panelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelTopLayout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(buttonLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelHome, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(678, Short.MAX_VALUE))
-        );
-        panelTopLayout.setVerticalGroup(
-            panelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelTopLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonLogIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labelHome, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(panelTop, java.awt.BorderLayout.PAGE_START);
-
-        jScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane.setPreferredSize(new java.awt.Dimension(1000, 660));
-
-        panelBody.setBackground(new java.awt.Color(251, 244, 191));
-        panelBody.setPreferredSize(new java.awt.Dimension(1000, 660));
-
         labelPetAdoption.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
         labelPetAdoption.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelPetAdoption.setText("Pets For Adoption");
 
         labelImageCat.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         labelImageCat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelImageCat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/thepetproject/frames/cat.png"))); // NOI18N
+        labelImageCat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/thepetproject/swing/cat.png"))); // NOI18N
 
         labelCats.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         labelCats.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -111,88 +84,85 @@ public class PetGallery extends javax.swing.JFrame {
 
         labelImageDog.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         labelImageDog.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelImageDog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/thepetproject/frames/dog.png"))); // NOI18N
+        labelImageDog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/thepetproject/swing/dog.png"))); // NOI18N
 
         labelDogs.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         labelDogs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelDogs.setText("Dogs");
 
-        javax.swing.GroupLayout panelPerCardContainerLayout = new javax.swing.GroupLayout(panelPerCardContainer);
-        panelPerCardContainer.setLayout(panelPerCardContainerLayout);
-        panelPerCardContainerLayout.setHorizontalGroup(
-            panelPerCardContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 760, Short.MAX_VALUE)
-        );
-        panelPerCardContainerLayout.setVerticalGroup(
-            panelPerCardContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 504, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout panelBodyLayout = new javax.swing.GroupLayout(panelBody);
-        panelBody.setLayout(panelBodyLayout);
-        panelBodyLayout.setHorizontalGroup(
-            panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBodyLayout.createSequentialGroup()
-                .addContainerGap(117, Short.MAX_VALUE)
-                .addComponent(panelPerCardContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
-            .addGroup(panelBodyLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelPetAdoption)
-                .addGap(321, 321, 321))
-            .addGroup(panelBodyLayout.createSequentialGroup()
-                .addGap(444, 444, 444)
-                .addGroup(panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labelImageDog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labelDogs, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labelCats, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labelImageCat, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(buttonLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelHome, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(scrollPanePetCards, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(425, 425, 425)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelImageDog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelDogs, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelCats, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelImageCat, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(labelPetAdoption, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
         );
-        panelBodyLayout.setVerticalGroup(
-            panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBodyLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonLogIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelHome, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(labelPetAdoption, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelBodyLayout.createSequentialGroup()
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(labelImageDog, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(labelDogs))
-                    .addGroup(panelBodyLayout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(labelImageCat, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(labelCats)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelPerCardContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(scrollPanePetCards, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jScrollPane.setViewportView(panelBody);
-
-        getContentPane().add(jScrollPane, java.awt.BorderLayout.PAGE_END);
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void buttonLogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonLogInMouseClicked
-        UserLogin login = new UserLogin();
-        login.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_buttonLogInMouseClicked
-
-    private void buttonLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogInActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonLogInActionPerformed
 
     private void labelHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelHomeMouseClicked
         Home homePage = new Home();
         homePage.setVisible(true);
         dispose();
     }//GEN-LAST:event_labelHomeMouseClicked
+
+    private void buttonLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogInActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonLogInActionPerformed
+
+    private void buttonLogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonLogInMouseClicked
+        UserLogin login = new UserLogin();
+        login.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_buttonLogInMouseClicked
 
     /**
      * @param args the command line arguments
@@ -232,15 +202,13 @@ public class PetGallery extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonLogIn;
-    private javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelCats;
     private javax.swing.JLabel labelDogs;
     private javax.swing.JLabel labelHome;
     private javax.swing.JLabel labelImageCat;
     private javax.swing.JLabel labelImageDog;
     private javax.swing.JLabel labelPetAdoption;
-    private javax.swing.JPanel panelBody;
-    private javax.swing.JPanel panelPerCardContainer;
-    private javax.swing.JPanel panelTop;
+    private javax.swing.JScrollPane scrollPanePetCards;
     // End of variables declaration//GEN-END:variables
 }
