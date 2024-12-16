@@ -7,8 +7,8 @@ package com.mycompany.thepetproject;
 
 import java.util.Scanner;
 
-import com.mycompany.thepetproject.swing.pages.Home;
-import com.mycompany.thepetproject.swing.pages.TestHome;
+import com.mycompany.thepetproject.swing.pages.PagesController;
+
 import com.mycompany.thepetproject.UserList;
 import com.mycompany.thepetproject.AdminList;
 import com.mycompany.thepetproject.utils.auth.SessionManager;
@@ -21,8 +21,8 @@ public class ThePetProject {
 
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(() -> {
-            TestHome home = new TestHome();
-            home.setVisible(true);
+            PagesController pages = new PagesController();
+            pages.setVisible(true);
         });
         
         UserList.deserializeUsers();

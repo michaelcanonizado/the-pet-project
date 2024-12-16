@@ -21,6 +21,7 @@ public class TestUserLogin extends javax.swing.JPanel {
     public TestUserLogin(JTabbedPane pane) {
         initComponents();
         pageControllerTabbedPane = pane;
+        
         for (int i = 0; i < 4; i++) {
             StringBuilder header = new StringBuilder("Header ");
             StringBuilder description = new StringBuilder("Description ");
