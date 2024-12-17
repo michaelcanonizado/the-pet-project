@@ -44,6 +44,11 @@ public class PetList {
         return null;
     }
     
+    public static List<Pet> getPets() {
+        loadPets();
+        return pets;
+    }
+    
     public static List<Pet> filterPets(PetStatus status) {
         List<Pet> filteredPets = new ArrayList<>();
         for (Pet pet : pets) {

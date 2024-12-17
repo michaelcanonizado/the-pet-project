@@ -4,7 +4,10 @@
  */
 package com.mycompany.thepetproject.swing.pages;
 
+import com.mycompany.thepetproject.main.Pet;
+import com.mycompany.thepetproject.main.PetList;
 import com.mycompany.thepetproject.utils.pages.PageBlueprint;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -12,20 +15,36 @@ import javax.swing.table.DefaultTableModel;
  * @author lilac
  */
 public class Dashboard extends PageBlueprint {
+    private static DefaultTableModel model;
     /**
      * Creates new form Dashboard
      */
     public Dashboard() {
         initComponents();
+        this.model = (DefaultTableModel)petsTable.getModel();
+        update();
     }
     
     @Override
     public void update() {
-        
+        loadPetsToTable();
+    }
+    
+    private void loadPetsToTable() {
+        List<Pet> pets =  PetList.getPets();
+        for (Pet pet : pets) {
+            model.addRow(new Object[]{
+                pet.getName(),
+                String.valueOf(pet.getAge()),
+                pet.getType().toString(),
+                pet.getSex().toString(),
+                pet.getDescription()
+            });
+        }
     }
     
     public static void addRowToTable(Object[] dataRow) {
-        DefaultTableModel model = (DefaultTableModel)petsTable.getModel();
+        
         model.addRow(dataRow);
     }
 
