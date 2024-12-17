@@ -5,8 +5,8 @@
 package com.mycompany.thepetproject.main;
 
 import java.util.UUID;
-import com.mycompany.thepetproject.main.Type;
-import com.mycompany.thepetproject.main.Sex;
+import com.mycompany.thepetproject.main.PetType;
+import com.mycompany.thepetproject.main.PetSex;
 
 /**
  *
@@ -14,14 +14,14 @@ import com.mycompany.thepetproject.main.Sex;
  */
 public class Pet {
     private UUID id;
-    private Type type;
+    private PetType type;
     private String name;
     private int age;
-    private Sex sex;
+    private PetSex sex;
     private String description;
-    private Status status;
+    private PetStatus status;
     
-    public Pet(Type type, String name, int age, Sex sex, Status status, String description) {
+    public Pet(PetType type, String name, int age, PetSex sex, PetStatus status, String description) {
         do {
             this.id = UUID.randomUUID();
         } while (PetList.isPetInList(this.id));
@@ -36,7 +36,7 @@ public class Pet {
     public UUID getId() {
         return id;
     }
-    public Type getType() {
+    public PetType getType() {
         return type;
     }
     public String getName() {
@@ -45,10 +45,10 @@ public class Pet {
     public int getAge(){
         return age;
     }
-    public Sex getSex() {
+    public PetSex getSex() {
         return sex;
     }
-    public Status getStatus() {
+    public PetStatus getStatus() {
         return status;
     }
     public String getDescription() {

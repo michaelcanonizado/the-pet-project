@@ -8,7 +8,7 @@ package com.mycompany.thepetproject.main;
  *
  * @author lilac
  */
-public enum Sex {
-    Male,
-    Female
+public enum PetType {
+    Dog,
+    Cat
 }

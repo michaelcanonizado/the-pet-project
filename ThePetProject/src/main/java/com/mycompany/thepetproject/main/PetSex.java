@@ -8,8 +8,7 @@ package com.mycompany.thepetproject.main;
  *
  * @author lilac
  */
-public enum Status {
-    PENDING,
-    ADOPTED,
-    FOR_ADOPTION
+public enum PetSex {
+    MALE,
+    FEMALE
 }

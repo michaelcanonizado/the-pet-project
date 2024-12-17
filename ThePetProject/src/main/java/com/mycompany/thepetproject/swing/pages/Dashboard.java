@@ -4,19 +4,48 @@
  */
 package com.mycompany.thepetproject.swing.pages;
 
+import com.mycompany.thepetproject.main.Pet;
+import com.mycompany.thepetproject.main.PetList;
 import com.mycompany.thepetproject.utils.pages.PageBlueprint;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author lilac
  */
 public class Dashboard extends PageBlueprint {
-
+    private static DefaultTableModel model;
     /**
      * Creates new form Dashboard
      */
     public Dashboard() {
         initComponents();
+        this.model = (DefaultTableModel)petsTable.getModel();
+        update();
+    }
+    
+    @Override
+    public void update() {
+        loadPetsToTable();
+    }
+    
+    private void loadPetsToTable() {
+        List<Pet> pets =  PetList.getPets();
+        for (Pet pet : pets) {
+            model.addRow(new Object[]{
+                pet.getName(),
+                String.valueOf(pet.getAge()),
+                pet.getType().toString(),
+                pet.getSex().toString(),
+                pet.getDescription()
+            });
+        }
+    }
+    
+    public static void addRowToTable(Object[] dataRow) {
+        
+        model.addRow(dataRow);
     }
 
     /**
@@ -38,13 +67,14 @@ public class Dashboard extends PageBlueprint {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        addPetBtn = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel7 = new javax.swing.JPanel();
         panelRound1 = new com.mycompany.thepetproject.swing.components.PanelRound();
         jLabel3 = new javax.swing.JLabel();
         canvas1 = new java.awt.Canvas();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        petsTable = new javax.swing.JTable();
         jPanel8 = new javax.swing.JPanel();
         panelRound2 = new com.mycompany.thepetproject.swing.components.PanelRound();
         panelRound3 = new com.mycompany.thepetproject.swing.components.PanelRound();
@@ -132,6 +162,18 @@ public class Dashboard extends PageBlueprint {
             }
         });
 
+        addPetBtn.setText("Add pet");
+        addPetBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addPetBtnMouseClicked(evt);
+            }
+        });
+        addPetBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPetBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -146,6 +188,10 @@ public class Dashboard extends PageBlueprint {
                         .addComponent(jButton4)
                         .addComponent(jButton3)))
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(addPetBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,7 +200,9 @@ public class Dashboard extends PageBlueprint {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jButton1)
-                .addGap(63, 63, 63)
+                .addGap(18, 18, 18)
+                .addComponent(addPetBtn)
+                .addGap(22, 22, 22)
                 .addComponent(jButton2)
                 .addGap(65, 65, 65)
                 .addComponent(jButton3)
@@ -180,66 +228,24 @@ public class Dashboard extends PageBlueprint {
         panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 16, -1, -1));
         panelRound1.add(canvas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(522, 414, -1, -1));
 
-        jTable1.setForeground(new java.awt.Color(255, 255, 102));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        petsTable.setForeground(new java.awt.Color(0, 0, 0));
+        petsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Pet Name", "Age", "Species", "Gender", "Edit"
+                "Pet Name", "Age", "Type", "Sex", "Description"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(petsTable);
 
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 750, 490));
 
@@ -534,8 +540,21 @@ public class Dashboard extends PageBlueprint {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void addPetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPetBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addPetBtnActionPerformed
+
+    private void addPetBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPetBtnMouseClicked
+        AddPet addPet = new AddPet();
+        addPet.setVisible(true);
+        addPet.pack();
+        addPet.setLocationRelativeTo(null);
+        addPet.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_addPetBtnMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addPetBtn;
     private java.awt.Canvas canvas1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -557,17 +576,14 @@ public class Dashboard extends PageBlueprint {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private com.mycompany.thepetproject.swing.components.PanelRound panelRound1;
     private com.mycompany.thepetproject.swing.components.PanelRound panelRound2;
     private com.mycompany.thepetproject.swing.components.PanelRound panelRound3;
     private com.mycompany.thepetproject.swing.components.PanelRound panelRound4;
+    private static javax.swing.JTable petsTable;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void update() {
-       
-    }
+   
 }
