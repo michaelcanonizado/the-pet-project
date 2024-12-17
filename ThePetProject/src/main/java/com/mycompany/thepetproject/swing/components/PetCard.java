@@ -8,6 +8,14 @@ package com.mycompany.thepetproject.swing.components;
  *
  * @author deynklarys
  */
+
+/**
+ * name.setFont(fontBold20f);
+ * labelAge.setFont(fontBold20f);
+ * labelSex.setFont(fontBold14f);
+ * age.setFont(fontPlain14f);
+ * sex.setFont(fontPlain14f);
+ */
 public class PetCard extends javax.swing.JPanel {
 
     /**
@@ -48,23 +56,23 @@ public class PetCard extends javax.swing.JPanel {
         image.setText("image");
         image.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(38, 50, 56), 1, true));
 
-        name.setFont(fontBold20f);
+        name.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         name.setForeground(new java.awt.Color(38, 50, 56));
         name.setText("name");
 
-        labelAge.setFont(fontBold20f);
+        labelAge.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         labelAge.setForeground(new java.awt.Color(38, 50, 56));
         labelAge.setText("Age:");
 
-        labelSex.setFont(fontBold14f);
+        labelSex.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         labelSex.setForeground(new java.awt.Color(38, 50, 56));
         labelSex.setText("Sex:");
 
-        age.setFont(fontPlain14f);
+        age.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         age.setForeground(new java.awt.Color(38, 50, 56));
         age.setText("age");
 
-        sex.setFont(fontPlain14f);
+        sex.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         sex.setForeground(new java.awt.Color(38, 50, 56));
         sex.setText("sex");
 
@@ -107,14 +115,14 @@ public class PetCard extends javax.swing.JPanel {
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSex)
                     .addComponent(sex))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
