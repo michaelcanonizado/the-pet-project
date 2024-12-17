@@ -7,16 +7,22 @@ package com.mycompany.thepetproject.swing.components;
 
 /**
  * initialize
-    private Font displayFont;
-    private Font headingFont;
-    private Font bodyFont;
-    private Font labelFont;
+    private Font fontBold48f;
+    private Font fontBold36f;
+    private Font fontPlain24f;
+    private Font fontBold20f; for pet cards
+    private Font fontPlain18f;
+    private Font fontBold14f; for pet cards
+    private Font fontPlain14f; for pet cards
 *
 * must be added before ThePetProject initComponents()
-    displayFont = FontUtil.loadCustomFont("src/main/java/com/mycompany/thepetproject/swing/text/Inter.ttf", 48f, Font.BOLD);
-    headingFont = FontUtil.loadCustomFont("src/main/java/com/mycompany/thepetproject/swing/text/Inter.ttf", 36f, Font.BOLD);
-    bodyFont = FontUtil.loadCustomFont("src/main/java/com/mycompany/thepetproject/swing/text/Inter.ttf", 24f, Font.PLAIN);
-    labelFont = FontUtil.loadCustomFont("src/main/java/com/mycompany/thepetproject/swing/text/Inter.ttf", 18f, Font.PLAIN);
+    fontBold48f = FontUtil.loadCustomFont("src/main/java/com/mycompany/thepetproject/swing/text/Inter.ttf", 48f, Font.BOLD);
+    fontBold36f = FontUtil.loadCustomFont("src/main/java/com/mycompany/thepetproject/swing/text/Inter.ttf", 36f, Font.BOLD);
+    fontPlain24f = FontUtil.loadCustomFont("src/main/java/com/mycompany/thepetproject/swing/text/Inter.ttf", 24f, Font.PLAIN);
+    fontBold20f = FontUtil.loadCustomFont("src/main/java/com/mycompany/thepetproject/swing/text/Inter.ttf", 20f, Font.BOLD);
+    fontPlain18f = FontUtil.loadCustomFont("src/main/java/com/mycompany/thepetproject/swing/text/Inter.ttf", 18f, Font.PLAIN);
+    fontBold14f = FontUtil.loadCustomFont("src/main/java/com/mycompany/thepetproject/swing/text/Inter.ttf", 14f, Font.BOLD);
+    fontPlain14f = FontUtil.loadCustomFont("src/main/java/com/mycompany/thepetproject/swing/text/Inter.ttf", 14f, Font.PLAIN);
  */
 
 import java.awt.Font;
