@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import com.mycompany.thepetproject.main.pet.Pet;
+import com.mycompany.thepetproject.utils.csv.Csv;
 
 public class PetList {
     private static final String FILE_NAME = "data/pets.csv";
@@ -49,6 +50,49 @@ public class PetList {
             }
         }
         return false;
+    }
+    
+    public static void savePets() {
+        try (FileWriter writer = new FileWriter(FILE_NAME)) {
+            for (Pet pet : pets) {
+                writer.append("id,type,name,age,sex,description\n");
+                writer.append(pet.getId().toString()).append(",");
+                writer.append(pet.getType().toString()).append(",");
+                writer.append(pet.getName()).append(",");
+                writer.append(String.valueOf(pet.getAge())).append(",");
+                writer.append(pet.getSex().toString()).append(",");
+                writer.append(pet.getDescription()).append(",");
+                writer.append("\n");
+                System.out.println("Saved pet: "+pet.getName());
+            }
+        } catch (IOException e) {
+            System.err.println("An error occurred while writing to " + FILE_NAME + " : " + e.getMessage());
+        }
+    }
+    
+    public static void loadPets() {
+        Csv csv = new Csv(FILE_NAME);
+        for (int i = 1; i < csv.getNumberOfRows(); i++) {
+            String[] row = csv.getRow(i);
+            Type type = null;
+            if (row[1].equals("Cat")) {
+                type = Type.CAT;
+            } else if (row[1].equals("Dog")) {
+                type = Type.DOG;
+            }
+            String name = row[2];
+            int age = Integer.parseInt(row[3]);
+            Sex sex = null;
+            if (row[4].equals("M")) {
+                sex = Sex.Male;
+            } else if (row[4].equals("F")) {
+                sex = Sex.Female;
+            }
+            String description = row[5];
+            
+            Pet pet = new Pet(type, name, age, sex, description);
+            pets.add(pet);
+        }
     }
     
     // Get the file name used by the class to serialize and deserialize

@@ -67,4 +67,11 @@ public class Csv {
             System.out.println(Arrays.toString(row));
         }
     }
+    
+    public int getNumberOfRows() {
+        return data.size();
+    }
+    public String[] getRow(int index) {
+        return data.get(index);
+    }
 }
