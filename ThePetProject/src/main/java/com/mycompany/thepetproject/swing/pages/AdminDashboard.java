@@ -10,11 +10,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JButton;
 
-<<<<<<< HEAD
-=======
 //simon simon simon
 
->>>>>>> 56d264f11435e0fb819de6fea6e6d2b4c8ef596a
 /**
  *
  * @author lilac
