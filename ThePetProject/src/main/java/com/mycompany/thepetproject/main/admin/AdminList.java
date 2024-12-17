@@ -13,30 +13,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import com.mycompany.thepetproject.main.admin.Admin;
+import com.mycompany.thepetproject.main.admin.Pet;
 import com.mycompany.thepetproject.utils.auth.Password;
 
 public class AdminList implements Serializable {
     private static final long serialVersionUID = 1L;
     private static final String FILE_NAME = "data/admins.ser";
-    private static List<Admin> admins = new ArrayList<>();
+    private static List<Pet> admins = new ArrayList<>();
     
     // Method to add admin to list
-    public static void addAdmin(Admin admin) {
+    public static void addAdmin(Pet admin) {
         admins.add(admin);
     }
     
     // Get admin methods
-    public static Admin getAdmin(UUID id) {
-        for (Admin admin : admins) {
+    public static Pet getAdmin(UUID id) {
+        for (Pet admin : admins) {
             if (admin.getId().equals(id)) {
                 return admin;
             }
         }
         return null;
     }
-    public static Admin getAdmin(String username) {
-        for (Admin admin : admins) {
+    public static Pet getAdmin(String username) {
+        for (Pet admin : admins) {
             if (admin.getUsername().equals(username)) {
                 return admin;
             }
@@ -46,7 +46,7 @@ public class AdminList implements Serializable {
     
     // Method to check if a UUID already exists in the list
     public static boolean isAdminInList(UUID id) {
-        for (Admin admin : admins) {
+        for (Pet admin : admins) {
             if (admin.getId().equals(id)) {
                 return true;
             }
@@ -68,7 +68,7 @@ public class AdminList implements Serializable {
     public static void deserializeAdmins() {
         try (FileInputStream fileIn = new FileInputStream(FILE_NAME);
             ObjectInputStream in = new ObjectInputStream(fileIn)) {
-            admins = (List<Admin>)in.readObject();
+            admins = (List<Pet>)in.readObject();
             System.out.println("Admin list deserialized from " + FILE_NAME);
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -83,7 +83,7 @@ public class AdminList implements Serializable {
     public static void printAdmins() {
         StringBuilder compiledAdminStrings = new StringBuilder();
         compiledAdminStrings.append("AdminList [");
-        for (Admin admin : admins) {
+        for (Pet admin : admins) {
             String adminString = "\n{" +
                 "\n\t" + "id: " + admin.getId() + "," +
                 "\n\t" + "username: " + admin.getUsername() + "," +

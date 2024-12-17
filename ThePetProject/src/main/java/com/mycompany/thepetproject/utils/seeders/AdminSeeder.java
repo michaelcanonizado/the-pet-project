@@ -8,7 +8,7 @@ package com.mycompany.thepetproject.utils.seeders;
  * @author lilac
  */
 
-import com.mycompany.thepetproject.main.admin.Admin;
+import com.mycompany.thepetproject.main.admin.Pet;
 import com.mycompany.thepetproject.main.admin.AdminList;
 
 /*
@@ -21,7 +21,7 @@ public class AdminSeeder {
     private static final String PASSWORD = "123";
     
     public static void generateAdmins() {
-        Admin admin = new Admin(USERNAME,PASSWORD);
+        Pet admin = new Pet(USERNAME,PASSWORD);
         AdminList.addAdmin(admin);
         AdminList.serializeAdmins();
     }

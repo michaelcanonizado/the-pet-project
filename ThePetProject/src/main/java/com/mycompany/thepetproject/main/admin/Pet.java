@@ -15,8 +15,8 @@ import java.util.UUID;
  *
  * @author lilac
  */
-public class Admin extends Account {
-    public Admin(String username, String unhashedPassword) {
+public class Pet extends Account {
+    public Pet(String username, String unhashedPassword) {
         try {
             do {
                 this.setId(UUID.randomUUID());

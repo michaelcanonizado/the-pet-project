@@ -29,7 +29,7 @@ public class Pet {
         this.description = description;
     }
     
-    public UUID getID() {
+    public UUID getId() {
         return id;
     }
     public Type getType() {
