@@ -70,7 +70,6 @@ public class AuthPage extends PageBlueprint {
         passwordField1 = new javax.swing.JPasswordField();
         panelAdmin = new javax.swing.JPanel();
         panelLoginCard = new javax.swing.JPanel();
-        textFieldPassword = new javax.swing.JTextField();
         labelUserSignUp = new javax.swing.JLabel();
         labelWelcome = new javax.swing.JLabel();
         labelUsername = new javax.swing.JLabel();
@@ -82,6 +81,7 @@ public class AuthPage extends PageBlueprint {
         panelLoginAdmin = new com.mycompany.thepetproject.swing.components.PanelRound();
         labelLoginAdmin = new javax.swing.JLabel();
         textFieldUsername = new javax.swing.JTextField();
+        passwordField2 = new javax.swing.JPasswordField();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -415,6 +415,11 @@ public class AuthPage extends PageBlueprint {
         );
 
         passwordField1.setText("jPasswordField1");
+        passwordField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passwordField1FocusGained(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelLoginCard1Layout = new javax.swing.GroupLayout(panelLoginCard1);
         panelLoginCard1.setLayout(panelLoginCard1Layout);
@@ -498,17 +503,6 @@ public class AuthPage extends PageBlueprint {
         panelLoginCard.setMaximumSize(new java.awt.Dimension(361, 426));
         panelLoginCard.setMinimumSize(new java.awt.Dimension(361, 426));
         panelLoginCard.setName(""); // NOI18N
-
-        textFieldPassword.setBackground(new java.awt.Color(255, 255, 255));
-        textFieldPassword.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textFieldPassword.setForeground(new java.awt.Color(38, 50, 56));
-        textFieldPassword.setText("Enter password");
-        textFieldPassword.setPreferredSize(new java.awt.Dimension(297, 37));
-        textFieldPassword.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                textFieldPasswordFocusGained(evt);
-            }
-        });
 
         labelUserSignUp.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelUserSignUp.setForeground(new java.awt.Color(251, 245, 222));
@@ -611,6 +605,13 @@ public class AuthPage extends PageBlueprint {
             }
         });
 
+        passwordField2.setText("jPasswordField1");
+        passwordField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passwordField2FocusGained(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelLoginCardLayout = new javax.swing.GroupLayout(panelLoginCard);
         panelLoginCard.setLayout(panelLoginCardLayout);
         panelLoginCardLayout.setHorizontalGroup(
@@ -620,7 +621,9 @@ public class AuthPage extends PageBlueprint {
                     .addGroup(panelLoginCardLayout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addGroup(panelLoginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelLoginCardLayout.createSequentialGroup()
+                                .addComponent(passwordField2)
+                                .addGap(250, 250, 250))
                             .addComponent(labelUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panelLoginCardLayout.createSequentialGroup()
@@ -657,8 +660,8 @@ public class AuthPage extends PageBlueprint {
                         .addGap(18, 18, 18)
                         .addComponent(labelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
+                        .addComponent(passwordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
                         .addComponent(panelLoginAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelLoginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -700,7 +703,7 @@ public class AuthPage extends PageBlueprint {
     }//GEN-LAST:event_labelAdmin1MouseClicked
 
     private void textFieldUsername2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldUsername2FocusGained
-        textFieldUsername.setText("");
+        textFieldUsername2.setText("");
     }//GEN-LAST:event_textFieldUsername2FocusGained
 
     private void textFieldUsername2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldUsername2ActionPerformed
@@ -729,7 +732,7 @@ public class AuthPage extends PageBlueprint {
     }//GEN-LAST:event_signUpBackBtnMouseClicked
 
     private void textFieldUsername1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldUsername1FocusGained
-        textFieldUsername.setText("");
+        textFieldUsername1.setText("");
     }//GEN-LAST:event_textFieldUsername1FocusGained
 
     private void textFieldUsername1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldUsername1ActionPerformed
@@ -752,10 +755,6 @@ public class AuthPage extends PageBlueprint {
     private void panelLoginCard1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelLoginCard1FocusGained
         textFieldUsername.setText("");
     }//GEN-LAST:event_panelLoginCard1FocusGained
-
-    private void textFieldPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldPasswordFocusGained
-        textFieldPassword.setText("");
-    }//GEN-LAST:event_textFieldPasswordFocusGained
 
     private void labelUserSignUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelUserSignUpMouseClicked
         tabbedAuthPage.setSelectedIndex(0);
@@ -810,6 +809,14 @@ public class AuthPage extends PageBlueprint {
         
     }//GEN-LAST:event_panelRound1MouseClicked
 
+    private void passwordField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordField1FocusGained
+        passwordField1.setText("");
+    }//GEN-LAST:event_passwordField1FocusGained
+
+    private void passwordField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordField2FocusGained
+        passwordField2.setText("");
+    }//GEN-LAST:event_passwordField2FocusGained
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton adminBackBtn;
@@ -849,10 +856,10 @@ public class AuthPage extends PageBlueprint {
     private javax.swing.JPanel panelSignUp;
     private javax.swing.JPanel panelSignUpCard;
     private javax.swing.JPasswordField passwordField1;
+    private javax.swing.JPasswordField passwordField2;
     private javax.swing.JButton signUpBackBtn;
     private javax.swing.JTabbedPane tabbedAuthPage;
     private javax.swing.JTextField textFieldConfirmPassword;
-    private javax.swing.JTextField textFieldPassword;
     private javax.swing.JTextField textFieldPassword2;
     private javax.swing.JTextField textFieldUsername;
     private javax.swing.JTextField textFieldUsername1;

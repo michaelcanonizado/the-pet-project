@@ -59,6 +59,7 @@ public class Index extends javax.swing.JFrame {
         getContentPane().add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -38, 1000, 750));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabbedPaneStateChanged
