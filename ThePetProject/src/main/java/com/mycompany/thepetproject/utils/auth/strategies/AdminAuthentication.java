@@ -4,8 +4,8 @@
  */
 package com.mycompany.thepetproject.utils.auth.strategies;
 import com.mycompany.thepetproject.utils.auth.strategies.AuthenticationStrategy;
-import com.mycompany.thepetproject.Admin;
-import com.mycompany.thepetproject.AdminList;
+import com.mycompany.thepetproject.main.admin.Admin;
+import com.mycompany.thepetproject.main.admin.AdminList;
 import com.mycompany.thepetproject.utils.auth.Password;
 
 /**

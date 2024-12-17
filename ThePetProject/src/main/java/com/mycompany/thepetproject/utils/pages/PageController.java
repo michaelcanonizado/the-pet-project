@@ -42,7 +42,6 @@ public class PageController {
         if (pages.isEmpty()) {
             currentPage = page;
         }
-        
         pages.add(page);
         tabbedPane.add(page.getName(), page.getPanel());
     }
@@ -53,9 +52,15 @@ public class PageController {
                 tabbedPane.setSelectedIndex(page.getIndex());
                 previousPage = currentPage;
                 currentPage = page;
-                System.out.println("Page "+name+" found!");
             }
         }
-        System.out.println("Page "+name+" not found!");
+        System.out.println("Current page: " + currentPage.getName());
+        System.out.println("Previous page: " + previousPage.getName());
+    }
+    
+    public void goToPreviousPage() {
+        tabbedPane.setSelectedIndex(previousPage.getIndex());
+        currentPage = previousPage;
+        previousPage = null;
     }
 }

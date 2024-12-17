@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.thepetproject;
+package com.mycompany.thepetproject.main.admin;
 
 /**
  *
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import com.mycompany.thepetproject.Admin;
+import com.mycompany.thepetproject.main.admin.Admin;
 import com.mycompany.thepetproject.utils.auth.Password;
 
 public class AdminList implements Serializable {
@@ -55,7 +55,7 @@ public class AdminList implements Serializable {
     }
     
     // Serialize the static list of admins to a file
-    public static void serializeAdmins() {        
+    public static void saveAdmins() {        
         try (FileOutputStream fileOut = new FileOutputStream(FILE_NAME);
             ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
             out.writeObject(admins);
@@ -65,7 +65,7 @@ public class AdminList implements Serializable {
         }
     }
     // Deserialize the static list of admins from a file
-    public static void deserializeAdmins() {
+    public static void loadAdmins() {
         try (FileInputStream fileIn = new FileInputStream(FILE_NAME);
             ObjectInputStream in = new ObjectInputStream(fileIn)) {
             admins = (List<Admin>)in.readObject();
