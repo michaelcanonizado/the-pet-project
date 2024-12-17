@@ -4,7 +4,7 @@
  */
 package com.mycompany.thepetproject.swing.pages;
 import com.mycompany.thepetproject.swing.pages.Home;
-import com.mycompany.thepetproject.swing.pages.Authentication;
+import com.mycompany.thepetproject.swing.pages.AuthPage;
 import com.mycompany.thepetproject.swing.pages.Dashboard;
 import com.mycompany.thepetproject.swing.pages.TempPetGallery;
 import com.mycompany.thepetproject.utils.pages.PageController;
@@ -27,7 +27,7 @@ public class Index extends javax.swing.JFrame {
         this.pageController = PageController.getInstance();
         pageController.setTabbedPane(tabbedPane);
         pageController.addPage(new Page(0, "Home", new Home()));
-        pageController.addPage(new Page(1, "Authentication", new Authentication()));
+        pageController.addPage(new Page(1, "Authentication", new AuthPage()));
         pageController.addPage(new Page(2, "AdminDashboard", new Dashboard()));
         pageController.addPage(new Page(3, "TempPetGallery", new TempPetGallery()));
     }

@@ -1,10 +1,9 @@
- /*
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.mycompany.thepetproject.swing.pages;
 
-import com.mycompany.thepetproject.main.UserList;
 import com.mycompany.thepetproject.utils.auth.SessionManager;
 import com.mycompany.thepetproject.utils.auth.SessionRole;
 import com.mycompany.thepetproject.utils.auth.strategies.UserAuthentication;
@@ -13,16 +12,16 @@ import com.mycompany.thepetproject.utils.pages.PageController;
 
 /**
  *
- * @author lilac
+ * @author drioj
  */
-public class Authentication extends PageBlueprint {
+public class AuthPage extends PageBlueprint {
     private PageController pageController;
     private SessionManager sessionManager;
 
     /**
      * Creates new form Authentication
      */
-    public Authentication() {
+    public AuthPage() {
         initComponents();
         this.pageController = PageController.getInstance();
         tabbedAuthPage.setSelectedIndex(1);    
@@ -58,9 +57,6 @@ public class Authentication extends PageBlueprint {
         panelLogin = new javax.swing.JPanel();
         panelLoginCard1 = new javax.swing.JPanel();
         textFieldUsername1 = new javax.swing.JTextField();
-
-        labelForgotPassword1 = new javax.swing.JLabel();
-        loginSubmitBtn = new javax.swing.JButton();
         labelDontHave = new javax.swing.JLabel();
         labelSignUp = new javax.swing.JLabel();
         labelLogin = new javax.swing.JLabel();
@@ -69,9 +65,9 @@ public class Authentication extends PageBlueprint {
         labelAdmin = new javax.swing.JLabel();
         labelOrLoginAs = new javax.swing.JLabel();
         loginBackBtn = new javax.swing.JButton();
-
+        panelRound1 = new com.mycompany.thepetproject.swing.components.PanelRound();
+        labelLoginAdmin1 = new javax.swing.JLabel();
         passwordField1 = new javax.swing.JPasswordField();
-
         panelAdmin = new javax.swing.JPanel();
         panelLoginCard = new javax.swing.JPanel();
         textFieldPassword = new javax.swing.JTextField();
@@ -81,15 +77,13 @@ public class Authentication extends PageBlueprint {
         labelPassword = new javax.swing.JLabel();
         labelUserLogin = new javax.swing.JLabel();
         labelOrGoBack = new javax.swing.JLabel();
-
-        adminSubmitBtn = new javax.swing.JPanel();
-        labelLoginButton = new javax.swing.JLabel();
-
         adminBackBtn = new javax.swing.JButton();
         labelLoginButton = new javax.swing.JLabel();
         panelLoginAdmin = new com.mycompany.thepetproject.swing.components.PanelRound();
         labelLoginAdmin = new javax.swing.JLabel();
         textFieldUsername = new javax.swing.JTextField();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -104,7 +98,6 @@ public class Authentication extends PageBlueprint {
         panelSignUpCard.setBackground(new java.awt.Color(251, 245, 222));
         panelSignUpCard.setMaximumSize(new java.awt.Dimension(361, 426));
         panelSignUpCard.setMinimumSize(new java.awt.Dimension(361, 426));
-        panelSignUpCard.setPreferredSize(new java.awt.Dimension(361, 426));
 
         labelSignUp1.setBackground(new java.awt.Color(251, 245, 222));
         labelSignUp1.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
@@ -145,14 +138,6 @@ public class Authentication extends PageBlueprint {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 textFieldUsername2FocusGained(evt);
             }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                textFieldUsername2FocusLost(evt);
-            }
-        });
-        textFieldUsername2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                textFieldUsername2MouseClicked(evt);
-            }
         });
         textFieldUsername2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,12 +150,9 @@ public class Authentication extends PageBlueprint {
         textFieldPassword2.setForeground(new java.awt.Color(38, 50, 56));
         textFieldPassword2.setText("Enter password");
         textFieldPassword2.setPreferredSize(new java.awt.Dimension(297, 37));
-        textFieldPassword2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                textFieldPassword2MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                textFieldPassword2MouseEntered(evt);
+        textFieldPassword2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textFieldPassword2FocusGained(evt);
             }
         });
 
@@ -192,9 +174,9 @@ public class Authentication extends PageBlueprint {
         textFieldConfirmPassword.setForeground(new java.awt.Color(38, 50, 56));
         textFieldConfirmPassword.setText("Confirm password");
         textFieldConfirmPassword.setPreferredSize(new java.awt.Dimension(297, 37));
-        textFieldConfirmPassword.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                textFieldConfirmPasswordMouseClicked(evt);
+        textFieldConfirmPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textFieldConfirmPasswordFocusGained(evt);
             }
         });
         textFieldConfirmPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -222,6 +204,11 @@ public class Authentication extends PageBlueprint {
         labelLoginAdmin3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelLoginAdmin3.setText("Sign Up");
         labelLoginAdmin3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        labelLoginAdmin3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelLoginAdmin3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
         panelRound2.setLayout(panelRound2Layout);
@@ -284,7 +271,7 @@ public class Authentication extends PageBlueprint {
                 .addComponent(textFieldPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textFieldConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelSignUpCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -310,7 +297,7 @@ public class Authentication extends PageBlueprint {
             .addGroup(panelSignUpLayout.createSequentialGroup()
                 .addGap(171, 171, 171)
                 .addComponent(panelSignUpCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
 
         tabbedAuthPage.addTab("tab3", panelSignUp);
@@ -321,7 +308,11 @@ public class Authentication extends PageBlueprint {
         panelLoginCard1.setMaximumSize(new java.awt.Dimension(361, 426));
         panelLoginCard1.setMinimumSize(new java.awt.Dimension(361, 426));
         panelLoginCard1.setName(""); // NOI18N
-        panelLoginCard1.setPreferredSize(new java.awt.Dimension(361, 426));
+        panelLoginCard1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                panelLoginCard1FocusGained(evt);
+            }
+        });
 
         textFieldUsername1.setBackground(new java.awt.Color(255, 255, 255));
         textFieldUsername1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -329,30 +320,14 @@ public class Authentication extends PageBlueprint {
         textFieldUsername1.setText("Enter username");
         textFieldUsername1.setAutoscrolls(false);
         textFieldUsername1.setPreferredSize(new java.awt.Dimension(297, 37));
-        textFieldUsername1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                textFieldUsername1MouseClicked(evt);
+        textFieldUsername1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textFieldUsername1FocusGained(evt);
             }
         });
         textFieldUsername1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFieldUsername1ActionPerformed(evt);
-            }
-        });
-
-
-        labelForgotPassword1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        labelForgotPassword1.setForeground(new java.awt.Color(226, 70, 43));
-        labelForgotPassword1.setText("Forgot Password?");
-
-        loginSubmitBtn.setBackground(new java.awt.Color(38, 50, 56));
-        loginSubmitBtn.setForeground(new java.awt.Color(251, 245, 222));
-        loginSubmitBtn.setText("Login");
-        loginSubmitBtn.setPreferredSize(new java.awt.Dimension(297, 91));
-        loginSubmitBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginSubmitBtnMouseClicked(evt);
-
             }
         });
 
@@ -405,47 +380,69 @@ public class Authentication extends PageBlueprint {
             }
         });
 
+        panelRound1.setBackground(java.awt.Color.black);
+        panelRound1.setForeground(java.awt.Color.black);
+        panelRound1.setRoundBottomLeft(20);
+        panelRound1.setRoundBottomRight(20);
+        panelRound1.setRoundTopLeft(20);
+        panelRound1.setRoundTopRight(20);
+        panelRound1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelRound1MouseClicked(evt);
+            }
+        });
+
+        labelLoginAdmin1.setBackground(java.awt.Color.white);
+        labelLoginAdmin1.setForeground(java.awt.Color.white);
+        labelLoginAdmin1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelLoginAdmin1.setText("Login");
+        labelLoginAdmin1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        labelLoginAdmin1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelLoginAdmin1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
+        panelRound1.setLayout(panelRound1Layout);
+        panelRound1Layout.setHorizontalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelLoginAdmin1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        panelRound1Layout.setVerticalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelLoginAdmin1, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+        );
 
         passwordField1.setText("jPasswordField1");
-
 
         javax.swing.GroupLayout panelLoginCard1Layout = new javax.swing.GroupLayout(panelLoginCard1);
         panelLoginCard1.setLayout(panelLoginCard1Layout);
         panelLoginCard1Layout.setHorizontalGroup(
             panelLoginCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(panelLoginCard1Layout.createSequentialGroup()
-
-                .addGroup(panelLoginCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-
+                .addGap(16, 16, 16)
+                .addComponent(loginBackBtn))
+            .addGroup(panelLoginCard1Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(panelLoginCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textFieldUsername1, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                    .addComponent(labelUsername1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelLoginCard1Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(panelLoginCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(loginSubmitBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                            .addComponent(textFieldUsername1, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                            .addComponent(labelUsername1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addGroup(panelLoginCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelLoginCard1Layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addGroup(panelLoginCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelLoginCard1Layout.createSequentialGroup()
-                                        .addComponent(labelOrLoginAs)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(labelAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(panelLoginCard1Layout.createSequentialGroup()
-                                        .addComponent(labelDontHave, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(labelSignUp))))
+                                .addComponent(labelOrLoginAs)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelLoginCard1Layout.createSequentialGroup()
-
-                                .addGap(6, 6, 6)
-                                .addComponent(labelForgotPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(passwordField1)))
-                    .addGroup(panelLoginCard1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(loginBackBtn)))
-                .addGap(50, 50, 50))
-
+                                .addComponent(labelDontHave, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelSignUp))))
+                    .addComponent(passwordField1)))
         );
         panelLoginCard1Layout.setVerticalGroup(
             panelLoginCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -461,12 +458,10 @@ public class Authentication extends PageBlueprint {
                 .addGap(18, 18, 18)
                 .addComponent(labelPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passwordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(labelForgotPassword1)
-                .addGap(18, 18, 18)
-                .addComponent(loginSubmitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(passwordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelLoginCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelDontHave)
                     .addComponent(labelSignUp))
@@ -482,7 +477,7 @@ public class Authentication extends PageBlueprint {
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLoginLayout.createSequentialGroup()
                 .addGap(332, 332, 332)
-                .addComponent(panelLoginCard1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelLoginCard1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         panelLoginLayout.setVerticalGroup(
@@ -509,9 +504,9 @@ public class Authentication extends PageBlueprint {
         textFieldPassword.setForeground(new java.awt.Color(38, 50, 56));
         textFieldPassword.setText("Enter password");
         textFieldPassword.setPreferredSize(new java.awt.Dimension(297, 37));
-        textFieldPassword.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                textFieldPasswordMouseClicked(evt);
+        textFieldPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textFieldPasswordFocusGained(evt);
             }
         });
 
@@ -553,14 +548,10 @@ public class Authentication extends PageBlueprint {
         labelOrGoBack.setForeground(new java.awt.Color(38, 50, 56));
         labelOrGoBack.setText("Or go back to");
 
-
-        adminSubmitBtn.setBackground(new java.awt.Color(38, 50, 56));
-        adminSubmitBtn.setForeground(new java.awt.Color(255, 255, 255));
-        adminSubmitBtn.setMaximumSize(new java.awt.Dimension(297, 91));
-        adminSubmitBtn.setMinimumSize(new java.awt.Dimension(297, 91));
-        adminSubmitBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        adminBackBtn.setText("Back");
+        adminBackBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                adminSubmitBtnMouseClicked(evt);
+                adminBackBtnMouseClicked(evt);
             }
         });
 
@@ -568,28 +559,39 @@ public class Authentication extends PageBlueprint {
         labelLoginButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelLoginButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelLoginButton.setText("Login");
-        labelLoginButton.setOpaque(true);
-        labelLoginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+
+        panelLoginAdmin.setBackground(java.awt.Color.black);
+        panelLoginAdmin.setForeground(java.awt.Color.black);
+        panelLoginAdmin.setRoundBottomLeft(20);
+        panelLoginAdmin.setRoundBottomRight(20);
+        panelLoginAdmin.setRoundTopLeft(20);
+        panelLoginAdmin.setRoundTopRight(20);
+        panelLoginAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelLoginButtonMouseClicked(evt);
+                panelLoginAdminMouseClicked(evt);
             }
         });
 
+        labelLoginAdmin.setBackground(java.awt.Color.white);
+        labelLoginAdmin.setForeground(java.awt.Color.white);
+        labelLoginAdmin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelLoginAdmin.setText("Login");
+        labelLoginAdmin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        labelLoginAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelLoginAdminMouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout adminSubmitBtnLayout = new javax.swing.GroupLayout(adminSubmitBtn);
-        adminSubmitBtn.setLayout(adminSubmitBtnLayout);
-        adminSubmitBtnLayout.setHorizontalGroup(
-            adminSubmitBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(adminSubmitBtnLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(labelLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout panelLoginAdminLayout = new javax.swing.GroupLayout(panelLoginAdmin);
+        panelLoginAdmin.setLayout(panelLoginAdminLayout);
+        panelLoginAdminLayout.setHorizontalGroup(
+            panelLoginAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelLoginAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
         );
-        adminSubmitBtnLayout.setVerticalGroup(
-            adminSubmitBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(adminSubmitBtnLayout.createSequentialGroup()
-                .addComponent(labelLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+        panelLoginAdminLayout.setVerticalGroup(
+            panelLoginAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelLoginAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
         );
 
         textFieldUsername.setBackground(new java.awt.Color(255, 255, 255));
@@ -598,9 +600,9 @@ public class Authentication extends PageBlueprint {
         textFieldUsername.setText("Enter username");
         textFieldUsername.setAutoscrolls(false);
         textFieldUsername.setPreferredSize(new java.awt.Dimension(297, 37));
-        textFieldUsername.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                textFieldUsernameMouseClicked(evt);
+        textFieldUsername.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textFieldUsernameFocusGained(evt);
             }
         });
         textFieldUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -630,9 +632,10 @@ public class Authentication extends PageBlueprint {
                                 .addComponent(labelUserSignUp))
                             .addComponent(labelWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panelLoginCardLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(labelForgotPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(adminSubmitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(panelLoginAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(textFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelLoginCardLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(adminBackBtn)))
@@ -644,25 +647,28 @@ public class Authentication extends PageBlueprint {
                 .addGap(26, 26, 26)
                 .addComponent(adminBackBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(labelUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(textFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(labelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
-                .addComponent(labelForgotPassword)
-                .addGap(16, 16, 16)
-                .addComponent(adminSubmitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelLoginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelOrGoBack)
-                    .addComponent(labelUserLogin)
-                    .addComponent(labelUserSignUp))
-                .addGap(71, 71, 71))
+                .addGroup(panelLoginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLoginCardLayout.createSequentialGroup()
+                        .addComponent(labelWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(labelUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(textFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(labelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(panelLoginAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelLoginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelOrGoBack)
+                            .addComponent(labelUserLogin)
+                            .addComponent(labelUserSignUp))
+                        .addGap(71, 71, 71))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLoginCardLayout.createSequentialGroup()
+                        .addComponent(labelLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(88, 88, 88))))
         );
 
         javax.swing.GroupLayout panelAdminLayout = new javax.swing.GroupLayout(panelAdmin);
@@ -679,50 +685,52 @@ public class Authentication extends PageBlueprint {
             .addGroup(panelAdminLayout.createSequentialGroup()
                 .addGap(171, 171, 171)
                 .addComponent(panelLoginCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         tabbedAuthPage.addTab("tab1", panelAdmin);
 
         jPanel1.add(tabbedAuthPage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -34, -1, 830));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1096, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1096, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 796, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelAdmin1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAdmin1MouseClicked
         tabbedAuthPage.setSelectedIndex(2);
     }//GEN-LAST:event_labelAdmin1MouseClicked
 
+    private void textFieldUsername2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldUsername2FocusGained
+        textFieldUsername.setText("");
+    }//GEN-LAST:event_textFieldUsername2FocusGained
+
     private void textFieldUsername2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldUsername2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldUsername2ActionPerformed
+
+    private void textFieldPassword2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldPassword2FocusGained
+        textFieldPassword2.setText("");
+    }//GEN-LAST:event_textFieldPassword2FocusGained
 
     private void labelLogin1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogin1MouseClicked
         tabbedAuthPage.setSelectedIndex(1);
     }//GEN-LAST:event_labelLogin1MouseClicked
 
+    private void textFieldConfirmPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldConfirmPasswordFocusGained
+        textFieldConfirmPassword.setText("");
+    }//GEN-LAST:event_textFieldConfirmPasswordFocusGained
+
     private void textFieldConfirmPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldConfirmPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldConfirmPasswordActionPerformed
+
+    private void signUpBackBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpBackBtnMouseClicked
+        pageController.goToPreviousPage();
+        tabbedAuthPage.setSelectedIndex(1);
+    }//GEN-LAST:event_signUpBackBtnMouseClicked
+
+    private void textFieldUsername1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldUsername1FocusGained
+        textFieldUsername.setText("");
+    }//GEN-LAST:event_textFieldUsername1FocusGained
 
     private void textFieldUsername1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldUsername1ActionPerformed
         // TODO add your handling code here:
@@ -736,9 +744,18 @@ public class Authentication extends PageBlueprint {
         tabbedAuthPage.setSelectedIndex(2);
     }//GEN-LAST:event_labelAdminMouseClicked
 
-    private void textFieldUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldUsernameActionPerformed
+    private void loginBackBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBackBtnMouseClicked
+        pageController.goToPreviousPage();
+        tabbedAuthPage.setSelectedIndex(1);
+    }//GEN-LAST:event_loginBackBtnMouseClicked
+
+    private void panelLoginCard1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelLoginCard1FocusGained
+        textFieldUsername.setText("");
+    }//GEN-LAST:event_panelLoginCard1FocusGained
+
+    private void textFieldPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldPasswordFocusGained
+        textFieldPassword.setText("");
+    }//GEN-LAST:event_textFieldPasswordFocusGained
 
     private void labelUserSignUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelUserSignUpMouseClicked
         tabbedAuthPage.setSelectedIndex(0);
@@ -748,23 +765,34 @@ public class Authentication extends PageBlueprint {
         tabbedAuthPage.setSelectedIndex(1);
     }//GEN-LAST:event_labelUserLoginMouseClicked
 
-    private void signUpBackBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpBackBtnMouseClicked
-        pageController.goToPreviousPage();
-        tabbedAuthPage.setSelectedIndex(1);
-    }//GEN-LAST:event_signUpBackBtnMouseClicked
-
     private void adminBackBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminBackBtnMouseClicked
         pageController.goToPreviousPage();
         tabbedAuthPage.setSelectedIndex(1);
     }//GEN-LAST:event_adminBackBtnMouseClicked
 
-    private void loginBackBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBackBtnMouseClicked
-        pageController.goToPreviousPage();
-        tabbedAuthPage.setSelectedIndex(1);
-    }//GEN-LAST:event_loginBackBtnMouseClicked
+    private void textFieldUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldUsernameFocusGained
+        textFieldUsername.setText("");
+    }//GEN-LAST:event_textFieldUsernameFocusGained
 
-    private void loginSubmitBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginSubmitBtnMouseClicked
+    private void textFieldUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldUsernameActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldUsernameActionPerformed
+
+    private void labelLoginAdmin3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLoginAdmin3MouseClicked
+        
+    }//GEN-LAST:event_labelLoginAdmin3MouseClicked
+
+    private void labelLoginAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLoginAdminMouseClicked
+       pageController.changePage("AdminDashboard");
+    }//GEN-LAST:event_labelLoginAdminMouseClicked
+
+    private void panelLoginAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelLoginAdminMouseClicked
+        // TODO add your handling code here:
+         pageController.changePage("AdminDashboard");
+    }//GEN-LAST:event_panelLoginAdminMouseClicked
+
+    private void labelLoginAdmin1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLoginAdmin1MouseClicked
+        System.out.println("CLICK USER LOGIN");
         String usernameLogin = textFieldUsername1.getText().trim();
         String passwordLogin = new String(passwordField1.getPassword());
         
@@ -776,16 +804,11 @@ public class Authentication extends PageBlueprint {
         if (isAuthenticated) {
             pageController.changePage("TempPetGallery");
         }
-    }//GEN-LAST:event_loginSubmitBtnMouseClicked
+    }//GEN-LAST:event_labelLoginAdmin1MouseClicked
 
-    private void adminSubmitBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminSubmitBtnMouseClicked
-        pageController.changePage("AdminDashboard");
-        System.out.println("Submit admin creds");
-    }//GEN-LAST:event_adminSubmitBtnMouseClicked
-
-    private void labelLoginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLoginButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_labelLoginButtonMouseClicked
+    private void panelRound1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound1MouseClicked
+        
+    }//GEN-LAST:event_panelRound1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -816,10 +839,9 @@ public class Authentication extends PageBlueprint {
     private javax.swing.JLabel labelUsername2;
     private javax.swing.JLabel labelWelcome;
     private javax.swing.JButton loginBackBtn;
-    private javax.swing.JButton loginSubmitBtn;
     private javax.swing.JPanel panelAdmin;
     private javax.swing.JPanel panelLogin;
-
+    private com.mycompany.thepetproject.swing.components.PanelRound panelLoginAdmin;
     private javax.swing.JPanel panelLoginCard;
     private javax.swing.JPanel panelLoginCard1;
     private com.mycompany.thepetproject.swing.components.PanelRound panelRound1;
