@@ -3,20 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.mycompany.thepetproject.swing.pages;
+import com.mycompany.thepetproject.utils.pages.PageController;
 import javax.swing.JTabbedPane;
 /**
  *
  * @author lilac
  */
 public class Home extends javax.swing.JPanel {
-    private JTabbedPane tabbedPane;
-
+    private PageController pageController;
     /**
      * Creates new form Home
      */
-    public Home(JTabbedPane tabbedPane) {
+    public Home() {
         initComponents();
-        this.tabbedPane = tabbedPane;
+        PageController pageController = new PageController();
+        this.pageController = pageController;
     }
 
     /**
@@ -112,11 +113,12 @@ public class Home extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseClicked
-        tabbedPane.setSelectedIndex(2);
+        pageController.changePage("UserLogin");
+        System.out.println("Changing page to login");
     }//GEN-LAST:event_loginBtnMouseClicked
 
     private void viewPetsBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewPetsBtnMouseClicked
-        tabbedPane.setSelectedIndex(1);
+        pageController.changePage("PetGallery");
     }//GEN-LAST:event_viewPetsBtnMouseClicked
 
 

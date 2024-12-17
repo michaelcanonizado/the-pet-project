@@ -7,7 +7,7 @@ package com.mycompany.thepetproject;
 
 import java.util.Scanner;
 
-import com.mycompany.thepetproject.swing.pages.PagesController;
+import com.mycompany.thepetproject.swing.pages.Index;
 
 import com.mycompany.thepetproject.UserList;
 import com.mycompany.thepetproject.AdminList;
@@ -21,7 +21,7 @@ public class ThePetProject {
 
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(() -> {
-            PagesController pages = new PagesController();
+            Index pages = new Index();
             pages.setVisible(true);
         });
         

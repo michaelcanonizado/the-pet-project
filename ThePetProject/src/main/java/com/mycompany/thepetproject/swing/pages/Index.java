@@ -5,22 +5,25 @@
 package com.mycompany.thepetproject.swing.pages;
 import com.mycompany.thepetproject.swing.pages.Home;
 import com.mycompany.thepetproject.swing.pages.UserLogin;
+import com.mycompany.thepetproject.utils.pages.PageController;
+import com.mycompany.thepetproject.utils.pages.Page;
 
 /**
  *
  * @author lilac
  */
-public class PagesController extends javax.swing.JFrame {
+public class Index extends javax.swing.JFrame {
 
     /**
      * Creates new form PagesController
      */
-    public PagesController() {
+    public Index() {
         initComponents();
         
-        tabbedPane.add("Home", new Home(tabbedPane));
-        tabbedPane.add("Home", new Home(tabbedPane));
-        tabbedPane.add("UserLogin", new UserLogin(tabbedPane));
+        PageController pageController = PageController.getInstance();
+        pageController.setTabbedPane(tabbedPane);
+        pageController.addPage(new Page(0, "Home", new Home()));
+        pageController.addPage(new Page(1, "UserLogin", new UserLogin()));
     }
 
     /**
@@ -64,20 +67,21 @@ public class PagesController extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PagesController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PagesController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PagesController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PagesController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PagesController().setVisible(true);
+                new Index().setVisible(true);
             }
         });
     }

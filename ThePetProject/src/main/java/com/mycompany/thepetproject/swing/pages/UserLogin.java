@@ -4,6 +4,7 @@
  */
 package com.mycompany.thepetproject.swing.pages;
 
+import com.mycompany.thepetproject.utils.pages.PageController;
 import javax.swing.JTabbedPane;
 
 /**
@@ -11,15 +12,15 @@ import javax.swing.JTabbedPane;
  * @author lilac
  */
 public class UserLogin extends javax.swing.JPanel {
-    private JTabbedPane tabbedPane;
-
+    private PageController pageController;
+    
     /**
      * Creates new form UserLogin
      */
-    public UserLogin(JTabbedPane tabbedPane) {
+    public UserLogin() {
         initComponents();
-        
-        this.tabbedPane = tabbedPane;
+        PageController pageController = new PageController();
+        this.pageController = pageController;
     }
 
     /**
