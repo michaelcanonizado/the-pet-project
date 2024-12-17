@@ -75,6 +75,7 @@ public class Authentication extends javax.swing.JPanel {
         panelLoginBox = new javax.swing.JPanel();
         labelLoginButton = new javax.swing.JLabel();
         adminBackBtn = new javax.swing.JButton();
+        submitBtn = new javax.swing.JButton();
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -484,6 +485,11 @@ public class Authentication extends javax.swing.JPanel {
         labelLoginButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelLoginButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelLoginButton.setText("Login");
+        labelLoginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelLoginButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelLoginBoxLayout = new javax.swing.GroupLayout(panelLoginBox);
         panelLoginBox.setLayout(panelLoginBoxLayout);
@@ -565,6 +571,13 @@ public class Authentication extends javax.swing.JPanel {
                 .addGap(71, 71, 71))
         );
 
+        submitBtn.setText("Temp Submit");
+        submitBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                submitBtnMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelAdminLayout = new javax.swing.GroupLayout(panelAdmin);
         panelAdmin.setLayout(panelAdminLayout);
         panelAdminLayout.setHorizontalGroup(
@@ -572,13 +585,20 @@ public class Authentication extends javax.swing.JPanel {
             .addGroup(panelAdminLayout.createSequentialGroup()
                 .addGap(338, 338, 338)
                 .addComponent(panelLoginCard, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(422, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(224, Short.MAX_VALUE))
         );
         panelAdminLayout.setVerticalGroup(
             panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAdminLayout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addComponent(panelLoginCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAdminLayout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(panelLoginCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelAdminLayout.createSequentialGroup()
+                        .addGap(263, 263, 263)
+                        .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(219, Short.MAX_VALUE))
         );
 
@@ -663,6 +683,14 @@ public class Authentication extends javax.swing.JPanel {
         tabbedAuthPage.setSelectedIndex(1);
     }//GEN-LAST:event_loginBackBtnMouseClicked
 
+    private void labelLoginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLoginButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_labelLoginButtonMouseClicked
+
+    private void submitBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitBtnMouseClicked
+        pageController.changePage("AdminDashboard");
+    }//GEN-LAST:event_submitBtnMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton adminBackBtn;
@@ -701,6 +729,7 @@ public class Authentication extends javax.swing.JPanel {
     private javax.swing.JPanel panelSignUp;
     private javax.swing.JPanel panelSignUpCard;
     private javax.swing.JButton signUpBackBtn;
+    private javax.swing.JButton submitBtn;
     private javax.swing.JTabbedPane tabbedAuthPage;
     private javax.swing.JTextField textFieldConfirmPassword;
     private javax.swing.JTextField textFieldPassword;
