@@ -1,22 +1,27 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.mycompany.thepetproject.swing.pages;
+
+import com.mycompany.thepetproject.utils.pages.PageBlueprint;
+import com.mycompany.thepetproject.utils.pages.PageController;
 import com.mycompany.thepetproject.swing.components.PetCard;
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Dimension;
+import javax.swing.JPanel;
 
 /**
  *
- * @author lilac
+ * @author drioj
  */
-public class PetGallery extends javax.swing.JFrame {
+public class PetGallery extends PageBlueprint {
+    
+    private PageController pageController;
 
     private JPanel cardContainer;
 
     /**
-     * Creates new form BrowsePets
+     * Creates new form PetGall
      */
     public PetGallery() {
         initComponents();
@@ -66,6 +71,7 @@ public class PetGallery extends javax.swing.JFrame {
         panelBody.revalidate();
         panelBody.repaint();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -87,19 +93,16 @@ public class PetGallery extends javax.swing.JFrame {
         labelCats = new javax.swing.JLabel();
         labelDogs = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(226, 70, 43));
         setMaximumSize(new java.awt.Dimension(1000, 710));
         setMinimumSize(new java.awt.Dimension(1000, 710));
-        setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setPreferredSize(new java.awt.Dimension(1000, 710));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelTop.setBackground(new java.awt.Color(248, 208, 70));
 
         panelLogin.setBackground(new java.awt.Color(226, 70, 43));
         panelLogin.setMaximumSize(new java.awt.Dimension(72, 22));
         panelLogin.setMinimumSize(new java.awt.Dimension(72, 22));
-        panelLogin.setPreferredSize(new java.awt.Dimension(72, 22));
         panelLogin.setRoundBottomLeft(20);
         panelLogin.setRoundBottomRight(20);
         panelLogin.setRoundTopLeft(20);
@@ -107,6 +110,11 @@ public class PetGallery extends javax.swing.JFrame {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Login");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelLoginLayout = new javax.swing.GroupLayout(panelLogin);
         panelLogin.setLayout(panelLoginLayout);
@@ -153,7 +161,7 @@ public class PetGallery extends javax.swing.JFrame {
             panelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTopLayout.createSequentialGroup()
                 .addGap(130, 130, 130)
-                .addComponent(panelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -164,14 +172,13 @@ public class PetGallery extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(panelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16))
         );
 
         panelBody.setBackground(new java.awt.Color(251, 244, 191));
         panelBody.setMaximumSize(new java.awt.Dimension(950, 660));
         panelBody.setMinimumSize(new java.awt.Dimension(950, 660));
-        panelBody.setPreferredSize(new java.awt.Dimension(950, 660));
 
         labelPetAdoption.setBackground(new java.awt.Color(255, 0, 102));
         labelPetAdoption.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
@@ -191,7 +198,7 @@ public class PetGallery extends javax.swing.JFrame {
         panelBodyLayout.setHorizontalGroup(
             panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBodyLayout.createSequentialGroup()
-                .addContainerGap(315, Short.MAX_VALUE)
+                .addContainerGap(331, Short.MAX_VALUE)
                 .addGroup(panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBodyLayout.createSequentialGroup()
                         .addComponent(labelDogs, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,51 +239,17 @@ public class PetGallery extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(PanelBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        pack();
-        setLocationRelativeTo(null);
+        add(PanelBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelHomeMouseClicked
 
     }//GEN-LAST:event_labelHomeMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PetGallery.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PetGallery.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PetGallery.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PetGallery.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        pageController.changePage("Authentication");
+    }//GEN-LAST:event_jLabel1MouseClicked
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PetGallery().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelBack;
@@ -291,4 +264,8 @@ public class PetGallery extends javax.swing.JFrame {
     private com.mycompany.thepetproject.swing.components.PanelRound panelRound1;
     private javax.swing.JPanel panelTop;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update() {
+    }
 }
