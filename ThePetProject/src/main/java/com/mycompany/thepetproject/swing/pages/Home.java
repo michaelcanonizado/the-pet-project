@@ -14,9 +14,9 @@ public class Home extends javax.swing.JPanel {
     /**
      * Creates new form Home
      */
-    public Home(JTabbedPane pane) {
+    public Home(JTabbedPane tabbedPane) {
         initComponents();
-        tabbedPane = pane;
+        this.tabbedPane = tabbedPane;
     }
 
     /**

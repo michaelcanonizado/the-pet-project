@@ -4,6 +4,7 @@
  */
 package com.mycompany.thepetproject.swing.pages;
 import com.mycompany.thepetproject.swing.pages.Home;
+import com.mycompany.thepetproject.swing.pages.UserLogin;
 
 /**
  *
@@ -18,6 +19,8 @@ public class PagesController extends javax.swing.JFrame {
         initComponents();
         
         tabbedPane.add("Home", new Home(tabbedPane));
+        tabbedPane.add("Home", new Home(tabbedPane));
+        tabbedPane.add("UserLogin", new UserLogin(tabbedPane));
     }
 
     /**
