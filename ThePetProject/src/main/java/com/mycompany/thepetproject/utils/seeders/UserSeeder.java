@@ -37,6 +37,6 @@ public class UserSeeder {
             User user = new User(USERNAMES[i], password);
             UserList.addUser(user);
         }
-        UserList.serializeUsers();
+        UserList.saveUsers();
     }
 }

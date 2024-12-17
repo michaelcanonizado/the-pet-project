@@ -54,7 +54,7 @@ public class UserList implements Serializable {
     }
     
     // Serialize the static list of users to a file
-    public static void serializeUsers() {        
+    public static void saveUsers() {        
         try (FileOutputStream fileOut = new FileOutputStream(FILE_NAME);
             ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
             out.writeObject(users);
@@ -64,7 +64,7 @@ public class UserList implements Serializable {
         }
     }
     // Deserialize the static list of users from a file
-    public static void deserializeUsers() {
+    public static void loadUsers() {
         try (FileInputStream fileIn = new FileInputStream(FILE_NAME);
             ObjectInputStream in = new ObjectInputStream(fileIn)) {
             users = (List<User>)in.readObject();
