@@ -54,4 +54,17 @@ public class Pet {
     public String getDescription() {
         return description;
     }
+    
+    @Override
+    public String toString() {
+        return "Pet {" +
+                "\n\t" + "id: " + id + "," +
+                "\n\t" + "name: " + name + "," +
+                "\n\t" + "type: " + type + "," +
+                "\n\t" + "age: " + age + "," +
+                "\n\t" + "sex: " + sex + "," +
+                "\n\t" + "status: " + status + "," +
+                "\n\t" + "description: " + description + "," +
+                "\n}";
+    }
 }

@@ -33,7 +33,7 @@ public class ThePetProject {
         PetList.savePets();
         List<Pet> pets = PetList.filterPets(Status.ADOPTED);
         for (Pet pet : pets) {
-            System.out.println(pet.getName());
+            System.out.println(pet);
         }
     }
 }

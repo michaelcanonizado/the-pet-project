@@ -74,7 +74,6 @@ public class PetList {
                 writer.append(pet.getStatus().toString()).append(",");
                 writer.append(pet.getDescription()).append(",");
                 writer.append("\n");
-                System.out.println("Saved pet: "+pet.getName());
             }
         } catch (IOException e) {
             System.err.println("An error occurred while writing to " + FILE_NAME + " : " + e.getMessage());
@@ -111,7 +110,6 @@ public class PetList {
             
             Pet pet = new Pet(type, name, age, sex, status, description);
             pets.add(pet);
-            System.out.println("Loaded pet: " + name);
         }
     }
     
