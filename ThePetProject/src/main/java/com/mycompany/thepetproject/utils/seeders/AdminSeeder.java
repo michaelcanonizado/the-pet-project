@@ -3,16 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.thepetproject.utils.seeders;
-
-import com.mycompany.thepetproject.utils.auth.Password;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
-
 /**
  *
  * @author lilac
  */
+
+import com.mycompany.thepetproject.Admin;
+import com.mycompany.thepetproject.AdminList;
 
 /*
     WARNING! BE CAREFUL WHEN RESEEDING DATA 
@@ -23,20 +20,9 @@ public class AdminSeeder {
     private static final String USERNAME = "admin";
     private static final String PASSWORD = "123";
     
-    public static void generateAdmin(String filename) throws NoSuchAlgorithmException {
-        try (FileWriter writer = new FileWriter(filename)) {
-            writer.append("Username,HashedPassword,UnhashedPassword,Salt\n");
-            String username = USERNAME;
-            String unhashedPassword = PASSWORD;
-            byte[] saltAsByteArr = Password.generateSalt();
-            String saltAsString = Password.saltBtyeArrToString(saltAsByteArr);
-            String hashedPassword = Password.hash(PASSWORD, saltAsByteArr);
-                
-            writer.append(username).append(",").append(hashedPassword).append(",").append(unhashedPassword).append(",").append(saltAsString).append("\n");
-            
-            System.out.println("CSV file of Admin generated successfully.");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void generateAdmins() {
+        Admin admin = new Admin(USERNAME,PASSWORD);
+        AdminList.addAdmin(admin);
+        AdminList.serializeAdmins();
     }
 }
