@@ -46,6 +46,8 @@ public class UserSignUp extends javax.swing.JPanel {
         backBtn = new javax.swing.JButton();
 
         panelRedBg.setBackground(new java.awt.Color(226, 71, 42));
+        panelRedBg.setMaximumSize(new java.awt.Dimension(1000, 710));
+        panelRedBg.setMinimumSize(new java.awt.Dimension(1000, 710));
 
         panelSignUpCard.setBackground(new java.awt.Color(251, 245, 222));
         panelSignUpCard.setPreferredSize(new java.awt.Dimension(361, 426));
@@ -196,9 +198,9 @@ public class UserSignUp extends javax.swing.JPanel {
         panelRedBgLayout.setVerticalGroup(
             panelRedBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRedBgLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
+                .addGap(170, 170, 170)
                 .addComponent(panelSignUpCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(134, 134, 134))
+                .addGap(289, 289, 289))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -214,7 +216,7 @@ public class UserSignUp extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 710, Short.MAX_VALUE)
+            .addGap(0, 925, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
