@@ -31,21 +31,27 @@ public class AdminLogin extends javax.swing.JFrame {
         textFieldUsername = new javax.swing.JTextField();
         textFieldPassword = new javax.swing.JTextField();
         labelForgotPassword = new javax.swing.JLabel();
-        buttonLogin = new javax.swing.JButton();
         labelUserSignUp = new javax.swing.JLabel();
         labelWelcome = new javax.swing.JLabel();
         labelUsername = new javax.swing.JLabel();
         labelPassword = new javax.swing.JLabel();
         labelUserLogin = new javax.swing.JLabel();
         labelOrGoBack = new javax.swing.JLabel();
+        panelLoginBox = new javax.swing.JPanel();
+        labelLoginButton = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1000, 710));
+        setMinimumSize(new java.awt.Dimension(1000, 710));
+        setPreferredSize(new java.awt.Dimension(1000, 710));
         setResizable(false);
 
         panelWhiteBg.setBackground(new java.awt.Color(251, 245, 222));
         panelWhiteBg.setPreferredSize(new java.awt.Dimension(1000, 710));
 
         panelLoginCard.setBackground(new java.awt.Color(226, 71, 42));
+        panelLoginCard.setMaximumSize(new java.awt.Dimension(361, 426));
+        panelLoginCard.setMinimumSize(new java.awt.Dimension(361, 426));
         panelLoginCard.setName(""); // NOI18N
         panelLoginCard.setPreferredSize(new java.awt.Dimension(361, 426));
 
@@ -70,11 +76,6 @@ public class AdminLogin extends javax.swing.JFrame {
         labelForgotPassword.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelForgotPassword.setForeground(new java.awt.Color(226, 70, 43));
         labelForgotPassword.setText("Forgot Password?");
-
-        buttonLogin.setBackground(new java.awt.Color(38, 50, 56));
-        buttonLogin.setForeground(new java.awt.Color(251, 245, 222));
-        buttonLogin.setText("Login");
-        buttonLogin.setPreferredSize(new java.awt.Dimension(297, 91));
 
         labelUserSignUp.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelUserSignUp.setForeground(new java.awt.Color(251, 245, 222));
@@ -103,31 +104,57 @@ public class AdminLogin extends javax.swing.JFrame {
         labelOrGoBack.setForeground(new java.awt.Color(38, 50, 56));
         labelOrGoBack.setText("Or go back to");
 
+        panelLoginBox.setBackground(new java.awt.Color(38, 50, 56));
+        panelLoginBox.setForeground(new java.awt.Color(255, 255, 255));
+        panelLoginBox.setMaximumSize(new java.awt.Dimension(297, 91));
+        panelLoginBox.setMinimumSize(new java.awt.Dimension(297, 91));
+        panelLoginBox.setPreferredSize(new java.awt.Dimension(297, 91));
+
+        labelLoginButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        labelLoginButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelLoginButton.setText("Login");
+
+        javax.swing.GroupLayout panelLoginBoxLayout = new javax.swing.GroupLayout(panelLoginBox);
+        panelLoginBox.setLayout(panelLoginBoxLayout);
+        panelLoginBoxLayout.setHorizontalGroup(
+            panelLoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLoginBoxLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(labelLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelLoginBoxLayout.setVerticalGroup(
+            panelLoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLoginBoxLayout.createSequentialGroup()
+                .addComponent(labelLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout panelLoginCardLayout = new javax.swing.GroupLayout(panelLoginCard);
         panelLoginCard.setLayout(panelLoginCardLayout);
         panelLoginCardLayout.setHorizontalGroup(
             panelLoginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLoginCardLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addGroup(panelLoginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panelLoginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelLoginCardLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(labelOrGoBack)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelUserLogin)
+                        .addGap(0, 0, 0)
+                        .addComponent(labelUserSignUp))
                     .addComponent(labelWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelLoginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(buttonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(textFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(textFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(panelLoginCardLayout.createSequentialGroup()
                             .addGap(6, 6, 6)
                             .addComponent(labelForgotPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panelLoginCardLayout.createSequentialGroup()
-                            .addGap(44, 44, 44)
-                            .addComponent(labelOrGoBack)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(labelUserLogin)
-                            .addGap(0, 0, 0)
-                            .addComponent(labelUserSignUp))))
-                .addGap(58, 58, 58))
+                        .addComponent(panelLoginBox, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelLoginCardLayout.setVerticalGroup(
             panelLoginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,9 +171,9 @@ public class AdminLogin extends javax.swing.JFrame {
                 .addComponent(textFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
                 .addComponent(labelForgotPassword)
-                .addGap(18, 18, 18)
-                .addComponent(buttonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(16, 16, 16)
+                .addComponent(panelLoginBox, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelLoginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelOrGoBack)
                     .addComponent(labelUserLogin)
@@ -176,14 +203,16 @@ public class AdminLogin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(panelWhiteBg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(panelWhiteBg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -229,14 +258,15 @@ public class AdminLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonLogin;
     private javax.swing.JLabel labelForgotPassword;
+    private javax.swing.JLabel labelLoginButton;
     private javax.swing.JLabel labelOrGoBack;
     private javax.swing.JLabel labelPassword;
     private javax.swing.JLabel labelUserLogin;
     private javax.swing.JLabel labelUserSignUp;
     private javax.swing.JLabel labelUsername;
     private javax.swing.JLabel labelWelcome;
+    private javax.swing.JPanel panelLoginBox;
     private javax.swing.JPanel panelLoginCard;
     private javax.swing.JPanel panelWhiteBg;
     private javax.swing.JTextField textFieldPassword;
