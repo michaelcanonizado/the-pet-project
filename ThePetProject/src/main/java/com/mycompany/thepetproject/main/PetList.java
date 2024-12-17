@@ -88,6 +88,9 @@ public class PetList {
     }
     
     public static void loadPets() {
+        // Reset list
+        pets = new ArrayList<>();
+        
         Csv csv = new Csv(FILE_NAME);
         for (int i = 1; i < csv.getNumberOfRows(); i++) {
             String[] row = csv.getRow(i);
