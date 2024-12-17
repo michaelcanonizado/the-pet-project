@@ -8,8 +8,8 @@ package com.mycompany.thepetproject.main.user;
  *
  * @author lilac
  */
-import com.mycompany.thepetproject.Account;
-import com.mycompany.thepetproject.Account;
+import com.mycompany.thepetproject.main.Account;
+import com.mycompany.thepetproject.main.Account;
 import com.mycompany.thepetproject.utils.auth.Password;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;

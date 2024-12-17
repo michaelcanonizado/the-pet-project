@@ -11,7 +11,7 @@ package com.mycompany.thepetproject.utils.auth;
 
 import com.mycompany.thepetproject.utils.auth.strategies.AuthenticationStrategy;
 import com.mycompany.thepetproject.utils.auth.SessionRole;
-import com.mycompany.thepetproject.Account;
+import com.mycompany.thepetproject.main.Account;
 
 public class SessionManager {
     private static SessionManager instance;
