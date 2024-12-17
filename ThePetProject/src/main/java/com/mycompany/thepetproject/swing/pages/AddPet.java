@@ -10,8 +10,6 @@ import com.mycompany.thepetproject.main.PetSex;
 import com.mycompany.thepetproject.main.PetStatus;
 import javax.swing.JOptionPane;
 import com.mycompany.thepetproject.main.PetType;
-import com.mycompany.thepetproject.main.PetSex;
-import com.mycompany.thepetproject.main.PetStatus;
 
 /**
  *
@@ -205,15 +203,7 @@ public class AddPet extends javax.swing.JFrame {
         
         String name = nameField.getText();
         String description = descriptionField.getText();
-    
-        Dashboard.addRowToTable(new Object[]{
-            name,
-            age,
-            typeComboBox.getSelectedItem().toString(),
-            sexComboBox.getSelectedItem().toString(),
-            description
-        });
-//        com.mycompany.thepetproject.main.PetType type, String name, int age, PetSex sex, PetStatus status, String description
+
         PetType type = PetType.Dog;
         if (typeComboBox.getSelectedItem().toString().equals("Dog")) {
             type = PetType.Dog;
@@ -229,7 +219,16 @@ public class AddPet extends javax.swing.JFrame {
         }
 
         Pet pet = new Pet(type,name,age,sex,PetStatus.FOR_ADOPTION,description);
-        PetList.addPet(pet);
+        PetList.addPet(pet);  
+
+        Dashboard.addRowToTable(new Object[]{
+            pet.getId().toString(),
+            name,
+            age,
+            typeComboBox.getSelectedItem().toString(),
+            sexComboBox.getSelectedItem().toString(),
+            description
+        });
         
         nameField.setText("");
         ageField.setText("");
