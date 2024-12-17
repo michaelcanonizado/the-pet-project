@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fedf2b10-9d64-47a5-bc58-4422df13c24a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/components/FontUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/AdminLogin.form" beforeDir="false" afterPath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/AdminLogin.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/AdminLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/AdminLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/AuthenticationPage.form" beforeDir="false" afterPath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/AuthenticationPage.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/AuthenticationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/AuthenticationPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/UserSignUp.form" beforeDir="false" afterPath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/UserSignUp.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/UserSignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/UserSignUp.java" afterDir="false" />
-    </list>
+    <list default="true" id="fedf2b10-9d64-47a5-bc58-4422df13c24a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +25,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging main",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>

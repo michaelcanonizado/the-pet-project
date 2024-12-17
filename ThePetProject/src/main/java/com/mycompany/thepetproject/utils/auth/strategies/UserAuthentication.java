@@ -4,8 +4,8 @@
  */
 package com.mycompany.thepetproject.utils.auth.strategies;
 import com.mycompany.thepetproject.utils.auth.strategies.AuthenticationStrategy;
-import com.mycompany.thepetproject.main.user.User;
-import com.mycompany.thepetproject.main.user.UserList;
+import com.mycompany.thepetproject.main.User;
+import com.mycompany.thepetproject.main.UserList;
 import com.mycompany.thepetproject.utils.auth.Password;
 
 /**
@@ -16,6 +16,7 @@ public class UserAuthentication implements AuthenticationStrategy {
 
     @Override
     public User authenticate(String username, String password) {
+        UserList.loadUsers();
         // Get user via entered username (Check by username)
         User user = UserList.getUser(username);
         if (user == null) return null;
