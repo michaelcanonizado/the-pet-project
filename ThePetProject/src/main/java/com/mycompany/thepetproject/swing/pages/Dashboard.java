@@ -7,6 +7,8 @@ package com.mycompany.thepetproject.swing.pages;
 import com.mycompany.thepetproject.main.Pet;
 import com.mycompany.thepetproject.main.PetList;
 import com.mycompany.thepetproject.utils.pages.PageBlueprint;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -30,10 +32,23 @@ public class Dashboard extends PageBlueprint {
         loadPetsToTable();
     }
     
+    private void handleRowClick(int row) {
+        // Get the data from the selected row
+        String petName = (String) model.getValueAt(row, 1);
+        System.out.println("Row " + row + " clicked. Pet Name: " + petName);
+        EditPet editPet = new EditPet();
+        editPet.setVisible(true);
+        editPet.pack();
+        editPet.setLocationRelativeTo(null);
+        editPet.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
+
+    }
+
     private void loadPetsToTable() {
         List<Pet> pets =  PetList.getPets();
         for (Pet pet : pets) {
             model.addRow(new Object[]{
+                pet.getId().toString(),
                 pet.getName(),
                 String.valueOf(pet.getAge()),
                 pet.getType().toString(),
@@ -48,6 +63,19 @@ public class Dashboard extends PageBlueprint {
         model.addRow(dataRow);
     }
 
+//    private void addTableMouseListener() {
+//        petsTable.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseClicked(MouseEvent e) {
+//                int row = petsTable.rowAtPoint(e.getPoint());
+//                int col = petsTable.columnAtPoint(e.getPoint());
+//                if (row >= 0 && col >= 0) {
+//                    // Handle the row click event
+//                    handleRowClick(row);
+//                }
+//            }
+//        });
+//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -287,15 +315,20 @@ public class Dashboard extends PageBlueprint {
 
             },
             new String [] {
-                "Pet Name", "Age", "Type", "Sex", "Description"
+                "ID", "Pet Name", "Age", "Type", "Sex", "Description"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        petsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                petsTableMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(petsTable);
@@ -629,6 +662,16 @@ public class Dashboard extends PageBlueprint {
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void petsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_petsTableMouseClicked
+        int row = petsTable.rowAtPoint(evt.getPoint());
+        int col = petsTable.columnAtPoint(evt.getPoint());
+        if (row >= 0 && col >= 0) {
+            // Handle the row click event
+            handleRowClick(row);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_petsTableMouseClicked
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
