@@ -746,7 +746,7 @@
                                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                                               <Component id="labelForgotPassword" min="-2" pref="115" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="panelLoginBox" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
+                                          <Component id="adminSubmitBtn" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -776,7 +776,7 @@
                               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                               <Component id="labelForgotPassword" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                              <Component id="panelLoginBox" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="adminSubmitBtn" min="-2" pref="43" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="labelOrGoBack" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -920,7 +920,7 @@
                         <Property name="text" type="java.lang.String" value="Or go back to"/>
                       </Properties>
                     </Component>
-                    <Container class="javax.swing.JPanel" name="panelLoginBox">
+                    <Container class="javax.swing.JPanel" name="adminSubmitBtn">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="38" green="32" red="26" type="rgb"/>
@@ -935,6 +935,9 @@
                           <Dimension value="[297, 91]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="adminSubmitBtnMouseClicked"/>
+                      </Events>
 
                       <Layout>
                         <DimensionLayout dim="0">
@@ -963,7 +966,11 @@
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="Login"/>
+                            <Property name="opaque" type="boolean" value="true"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelLoginButtonMouseClicked"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>
