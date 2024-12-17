@@ -112,12 +112,11 @@ public class Home extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseClicked
-        pageController.changePage("UserLogin");
-        System.out.println("Changing page to login");
+        pageController.changePage("Authentication");
     }//GEN-LAST:event_loginBtnMouseClicked
 
     private void viewPetsBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewPetsBtnMouseClicked
-        pageController.changePage("PetGallery");
+//        pageController.changePage("PetGallery");
     }//GEN-LAST:event_viewPetsBtnMouseClicked
 
 

@@ -217,11 +217,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        // TODO add youPetGallery browsePets = new PetGallery();
 
-        UserLogin userLogin = new UserLogin();
-        userLogin.setVisible(true);
-        dispose();
 
     }//GEN-LAST:event_jButton2MouseClicked
 
@@ -230,9 +226,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        PetGallery browsePets = new PetGallery();
-        browsePets.setVisible(true);
-        dispose();
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
