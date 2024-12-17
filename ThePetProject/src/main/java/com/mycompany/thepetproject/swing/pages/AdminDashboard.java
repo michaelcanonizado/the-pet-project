@@ -4,13 +4,14 @@
  */
 package com.mycompany.thepetproject.swing.pages;
 
+import com.mycompany.thepetproject.utils.pages.PageBlueprint;
 import com.mycompany.thepetproject.utils.pages.PageController;
 
 /**
  *
  * @author lilac
  */
-public class AdminDashboard extends javax.swing.JPanel {
+public class AdminDashboard extends PageBlueprint {
     private PageController pageController;
     
     /**
@@ -292,4 +293,9 @@ public class AdminDashboard extends javax.swing.JPanel {
     private javax.swing.JTable jTable1;
     private com.mycompany.thepetproject.swing.components.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update() {
+        
+    }
 }

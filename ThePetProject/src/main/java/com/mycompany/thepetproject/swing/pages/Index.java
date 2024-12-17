@@ -6,14 +6,17 @@ package com.mycompany.thepetproject.swing.pages;
 import com.mycompany.thepetproject.swing.pages.Home;
 import com.mycompany.thepetproject.swing.pages.Authentication;
 import com.mycompany.thepetproject.swing.pages.AdminDashboard;
+import com.mycompany.thepetproject.swing.pages.TempPetGallery;
 import com.mycompany.thepetproject.utils.pages.PageController;
 import com.mycompany.thepetproject.utils.pages.Page;
+import java.util.List;
 
 /**
  *
  * @author lilac
  */
 public class Index extends javax.swing.JFrame {
+    private PageController pageController;
 
     /**
      * Creates new form PagesController
@@ -21,11 +24,12 @@ public class Index extends javax.swing.JFrame {
     public Index() {
         initComponents();
         
-        PageController pageController = PageController.getInstance();
+        this.pageController = PageController.getInstance();
         pageController.setTabbedPane(tabbedPane);
         pageController.addPage(new Page(0, "Home", new Home()));
         pageController.addPage(new Page(1, "Authentication", new Authentication()));
         pageController.addPage(new Page(2, "AdminDashboard", new AdminDashboard()));
+        pageController.addPage(new Page(3, "TempPetGallery", new TempPetGallery()));
     }
 
     /**
@@ -47,10 +51,22 @@ public class Index extends javax.swing.JFrame {
 
         tabbedPane.setMaximumSize(new java.awt.Dimension(1000, 710));
         tabbedPane.setMinimumSize(new java.awt.Dimension(1000, 710));
+        tabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tabbedPaneStateChanged(evt);
+            }
+        });
         getContentPane().add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -38, 1000, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabbedPaneStateChanged
+        List<Page> pages = pageController.getPages();
+        for (Page page : pages) {
+            page.getPanel().update();
+        }
+    }//GEN-LAST:event_tabbedPaneStateChanged
 
     /**
      * @param args the command line arguments

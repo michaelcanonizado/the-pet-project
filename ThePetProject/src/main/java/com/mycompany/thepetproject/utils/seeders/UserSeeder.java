@@ -12,8 +12,8 @@ import java.security.NoSuchAlgorithmException;
 import java.io.FileWriter;
 import java.io.IOException;
 import com.mycompany.thepetproject.utils.auth.Password;
-import com.mycompany.thepetproject.main.user.UserList;
-import com.mycompany.thepetproject.main.user.User;
+import com.mycompany.thepetproject.main.UserList;
+import com.mycompany.thepetproject.main.User;
 
 /*
     WARNING! BE CAREFUL WHEN RESEEDING DATA 
@@ -31,7 +31,7 @@ public class UserSeeder {
         "123abc", "home", "BSCS2A", "321", "987", "dragon", "apple", "key", "qwerty123", "pass"
     };
     
-    public static void generateUsers(String fileName) {
+    public static void generateUsers() {
         for (int i = 0; i < USERNAMES.length; i++) {
             String password = PASSWORDS[i] != null ? PASSWORDS[i]: "123";
             User user = new User(USERNAMES[i], password);

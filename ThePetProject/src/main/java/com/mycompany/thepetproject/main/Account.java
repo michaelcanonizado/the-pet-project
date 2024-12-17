@@ -4,8 +4,6 @@
  */
 package com.mycompany.thepetproject.main;
 
-import java.security.NoSuchAlgorithmException;
-import com.mycompany.thepetproject.utils.auth.Password;
 import java.util.UUID;
 import java.io.Serializable;
 
@@ -14,6 +12,7 @@ import java.io.Serializable;
  * @author lilac
  */
 public abstract class Account implements Serializable {
+    private static final long serialVersionUID = 1L;
     private UUID id;
     private String username;
     // REMOVE ATTRIBUTE WHEN IN PRODUCTION!!!
