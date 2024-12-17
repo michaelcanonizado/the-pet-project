@@ -36,8 +36,6 @@ public class Home extends PageBlueprint {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1000, 710));
@@ -80,15 +78,7 @@ public class Home extends PageBlueprint {
 
         jPanel2.setBackground(new java.awt.Color(38, 50, 56));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/thepetproject/swing/components/hawtdogs.png"))); // NOI18N
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
-
-        jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 1090, 220));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/thepetproject/swing/components/doge.png"))); // NOI18N
-        jLabel4.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 610, 650));
+        jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 1000, 130));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 29)); // NOI18N
@@ -112,14 +102,12 @@ public class Home extends PageBlueprint {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JButton loginBtn;
     private javax.swing.JButton viewPetsBtn;
     // End of variables declaration//GEN-END:variables
-URL imageUrl1 = getClass().getResource("com/mycompany/thepetproject/swing/components/avatars.png");
+    URL imageUrl1 = getClass().getResource("com/mycompany/thepetproject/swing/components/avatars.png");
 
     @Override
     public void update() {
