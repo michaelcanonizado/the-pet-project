@@ -4,6 +4,15 @@
  */
 package com.mycompany.thepetproject.swing.pages;
 
+import com.mycompany.thepetproject.main.Pet;
+import com.mycompany.thepetproject.main.PetList;
+import com.mycompany.thepetproject.main.PetSex;
+import com.mycompany.thepetproject.main.PetStatus;
+import javax.swing.JOptionPane;
+import com.mycompany.thepetproject.main.PetType;
+import com.mycompany.thepetproject.main.PetSex;
+import com.mycompany.thepetproject.main.PetStatus;
+
 /**
  *
  * @author lilac
@@ -50,6 +59,12 @@ public class AddPet extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Add Pet");
 
+        nameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameFieldActionPerformed(evt);
+            }
+        });
+
         jLabel2.setText("Name");
 
         jLabel3.setText("Age");
@@ -75,6 +90,11 @@ public class AddPet extends javax.swing.JFrame {
         });
 
         addPetBtn.setText("Add Pet");
+        addPetBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addPetBtnMouseClicked(evt);
+            }
+        });
         addPetBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addPetBtnActionPerformed(evt);
@@ -173,6 +193,52 @@ public class AddPet extends javax.swing.JFrame {
     private void addPetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPetBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addPetBtnActionPerformed
+
+    private void addPetBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPetBtnMouseClicked
+        int age = 0;
+        try {
+            age = Integer.parseInt(ageField.getText());
+        } catch (NumberFormatException err) {
+            JOptionPane.showMessageDialog(null, "Invalid age! Please enter a valid number.", "Error", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        
+        String name = nameField.getText();
+        String description = descriptionField.getText();
+    
+        Dashboard.addRowToTable(new Object[]{
+            name,
+            age,
+            typeComboBox.getSelectedItem().toString(),
+            sexComboBox.getSelectedItem().toString(),
+            description
+        });
+//        com.mycompany.thepetproject.main.PetType type, String name, int age, PetSex sex, PetStatus status, String description
+        PetType type = PetType.Dog;
+        if (typeComboBox.getSelectedItem().toString().equals("Dog")) {
+            type = PetType.Dog;
+        } else if (typeComboBox.getSelectedItem().toString().equals("Cat")) {
+            type = PetType.Cat;
+        }
+        
+        PetSex sex = PetSex.MALE;
+        if (sexComboBox.getSelectedItem().toString().equals("MALE")) {
+            sex = PetSex.MALE;
+        } else if (typeComboBox.getSelectedItem().toString().equals("FEMALE")) {
+            sex = PetSex.FEMALE;
+        }
+
+        Pet pet = new Pet(type,name,age,sex,PetStatus.FOR_ADOPTION,description);
+        PetList.addPet(pet);
+        
+        nameField.setText("");
+        ageField.setText("");
+        descriptionField.setText("");
+    }//GEN-LAST:event_addPetBtnMouseClicked
+
+    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameFieldActionPerformed
 
     /**
      * @param args the command line arguments

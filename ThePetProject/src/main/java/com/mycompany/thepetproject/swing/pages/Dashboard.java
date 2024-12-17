@@ -5,18 +5,28 @@
 package com.mycompany.thepetproject.swing.pages;
 
 import com.mycompany.thepetproject.utils.pages.PageBlueprint;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author lilac
  */
 public class Dashboard extends PageBlueprint {
-
     /**
      * Creates new form Dashboard
      */
     public Dashboard() {
         initComponents();
+    }
+    
+    @Override
+    public void update() {
+        
+    }
+    
+    public static void addRowToTable(Object[] dataRow) {
+        DefaultTableModel model = (DefaultTableModel)petsTable.getModel();
+        model.addRow(dataRow);
     }
 
     /**
@@ -45,7 +55,7 @@ public class Dashboard extends PageBlueprint {
         jLabel3 = new javax.swing.JLabel();
         canvas1 = new java.awt.Canvas();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        petsTable = new javax.swing.JTable();
         jPanel8 = new javax.swing.JPanel();
         panelRound2 = new com.mycompany.thepetproject.swing.components.PanelRound();
         panelRound3 = new com.mycompany.thepetproject.swing.components.PanelRound();
@@ -199,66 +209,24 @@ public class Dashboard extends PageBlueprint {
         panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 16, -1, -1));
         panelRound1.add(canvas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(522, 414, -1, -1));
 
-        jTable1.setForeground(new java.awt.Color(255, 255, 102));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        petsTable.setForeground(new java.awt.Color(0, 0, 0));
+        petsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Pet Name", "Age", "Species", "Gender", "Edit"
+                "Pet Name", "Age", "Type", "Sex", "Description"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(petsTable);
 
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 750, 490));
 
@@ -560,6 +528,9 @@ public class Dashboard extends PageBlueprint {
     private void addPetBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPetBtnMouseClicked
         AddPet addPet = new AddPet();
         addPet.setVisible(true);
+        addPet.pack();
+        addPet.setLocationRelativeTo(null);
+        addPet.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_addPetBtnMouseClicked
 
 
@@ -586,17 +557,14 @@ public class Dashboard extends PageBlueprint {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private com.mycompany.thepetproject.swing.components.PanelRound panelRound1;
     private com.mycompany.thepetproject.swing.components.PanelRound panelRound2;
     private com.mycompany.thepetproject.swing.components.PanelRound panelRound3;
     private com.mycompany.thepetproject.swing.components.PanelRound panelRound4;
+    private static javax.swing.JTable petsTable;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void update() {
-       
-    }
+   
 }

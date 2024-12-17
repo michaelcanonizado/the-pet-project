@@ -13,7 +13,7 @@ import com.mycompany.thepetproject.main.UserList;
 import com.mycompany.thepetproject.main.AdminList;
 import com.mycompany.thepetproject.main.PetList;
 import com.mycompany.thepetproject.main.Pet;
-import com.mycompany.thepetproject.main.Status;
+import com.mycompany.thepetproject.main.PetStatus;
 import com.mycompany.thepetproject.utils.auth.SessionManager;
 import com.mycompany.thepetproject.utils.auth.SessionRole;
 import com.mycompany.thepetproject.utils.auth.strategies.AuthenticationStrategy;
@@ -35,7 +35,7 @@ public class ThePetProject {
         
 //        PetList.loadPets();
 //        PetList.savePets();
-//        List<Pet> pets = PetList.filterPets(Status.ADOPTED);
+//        List<Pet> pets = PetList.filterPets(PetStatus.ADOPTED);
 //        for (Pet pet : pets) {
 //            System.out.println(pet);
 //        }

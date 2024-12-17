@@ -21,7 +21,9 @@ public class PetList {
     
     // Method to add pet to list
     public static void addPet(Pet pet) {
+        loadPets();
         pets.add(pet);
+        savePets();
     }
     
     // Get pet methods
@@ -42,7 +44,7 @@ public class PetList {
         return null;
     }
     
-    public static List<Pet> filterPets(Status status) {
+    public static List<Pet> filterPets(PetStatus status) {
         List<Pet> filteredPets = new ArrayList<>();
         for (Pet pet : pets) {
             if (pet.getStatus().equals(status)) {
@@ -84,27 +86,27 @@ public class PetList {
         Csv csv = new Csv(FILE_NAME);
         for (int i = 1; i < csv.getNumberOfRows(); i++) {
             String[] row = csv.getRow(i);
-            Type type = null;
+            PetType type = null;
             if (row[1].equals("Cat")) {
-                type = Type.CAT;
+                type = PetType.Cat;
             } else if (row[1].equals("Dog")) {
-                type = Type.DOG;
+                type = PetType.Dog;
             }
             String name = row[2];
             int age = Integer.parseInt(row[3]);
-            Sex sex = null;
-            if (row[4].equals("M")) {
-                sex = Sex.Male;
-            } else if (row[4].equals("F")) {
-                sex = Sex.Female;
+            PetSex sex = null;
+            if (row[4].equals("MALE")) {
+                sex = PetSex.MALE;
+            } else if (row[4].equals("FEMALE")) {
+                sex = PetSex.FEMALE;
             }
-            Status status = null;
+            PetStatus status = null;
             if (row[5].equals("PENDING")) {
-                status = Status.PENDING;
+                status = PetStatus.PENDING;
             } else if (row[5].equals("ADOPTED")) {
-                status = Status.ADOPTED;
+                status = PetStatus.ADOPTED;
             } else if (row[5].equals("FOR_ADOPTION")) {
-                status = Status.FOR_ADOPTION;
+                status = PetStatus.FOR_ADOPTION;
             }
             String description = row[6];
             
