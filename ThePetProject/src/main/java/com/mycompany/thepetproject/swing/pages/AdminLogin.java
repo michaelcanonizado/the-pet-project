@@ -47,6 +47,8 @@ public class AdminLogin extends javax.swing.JFrame {
         setResizable(false);
 
         panelWhiteBg.setBackground(new java.awt.Color(251, 245, 222));
+        panelWhiteBg.setMaximumSize(new java.awt.Dimension(1000, 710));
+        panelWhiteBg.setMinimumSize(new java.awt.Dimension(1000, 710));
         panelWhiteBg.setPreferredSize(new java.awt.Dimension(1000, 710));
 
         panelLoginCard.setBackground(new java.awt.Color(226, 71, 42));
@@ -100,6 +102,11 @@ public class AdminLogin extends javax.swing.JFrame {
         labelUserLogin.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelUserLogin.setForeground(new java.awt.Color(251, 245, 222));
         labelUserLogin.setText("User Login");
+        labelUserLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelUserLoginMouseClicked(evt);
+            }
+        });
 
         labelOrGoBack.setForeground(new java.awt.Color(38, 50, 56));
         labelOrGoBack.setText("Or go back to");
@@ -149,11 +156,10 @@ public class AdminLogin extends javax.swing.JFrame {
                         .addGap(0, 0, 0)
                         .addComponent(labelUserSignUp))
                     .addComponent(labelWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelLoginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panelLoginCardLayout.createSequentialGroup()
-                            .addGap(6, 6, 6)
-                            .addComponent(labelForgotPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(panelLoginBox, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelLoginCardLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(labelForgotPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelLoginBox, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelLoginCardLayout.setVerticalGroup(
@@ -186,41 +192,40 @@ public class AdminLogin extends javax.swing.JFrame {
         panelWhiteBgLayout.setHorizontalGroup(
             panelWhiteBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelWhiteBgLayout.createSequentialGroup()
-                .addGap(332, 332, 332)
+                .addGap(338, 338, 338)
                 .addComponent(panelLoginCard, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(332, 332, 332))
+                .addContainerGap(326, Short.MAX_VALUE))
         );
         panelWhiteBgLayout.setVerticalGroup(
             panelWhiteBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelWhiteBgLayout.createSequentialGroup()
+            .addGroup(panelWhiteBgLayout.createSequentialGroup()
                 .addGap(142, 142, 142)
                 .addComponent(panelLoginCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(142, 142, 142))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelWhiteBg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(panelWhiteBg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelWhiteBg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(panelWhiteBg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void textFieldUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldUsernameActionPerformed
+
+    private void labelUserLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelUserLoginMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_labelUserLoginMouseClicked
 
     /**
      * @param args the command line arguments
