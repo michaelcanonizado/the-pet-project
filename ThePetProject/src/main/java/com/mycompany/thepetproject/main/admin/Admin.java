@@ -2,10 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.thepetproject;
+package com.mycompany.thepetproject.main.admin;
 
 import com.mycompany.thepetproject.Account;
-import com.mycompany.thepetproject.AdminList;
+import com.mycompany.thepetproject.Account;
+import com.mycompany.thepetproject.main.admin.AdminList;
 import com.mycompany.thepetproject.utils.auth.Password;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;

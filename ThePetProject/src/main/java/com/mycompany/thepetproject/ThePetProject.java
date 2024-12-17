@@ -10,7 +10,7 @@ import java.util.Scanner;
 import com.mycompany.thepetproject.swing.pages.Index;
 
 import com.mycompany.thepetproject.main.user.UserList;
-import com.mycompany.thepetproject.AdminList;
+import com.mycompany.thepetproject.main.admin.AdminList;
 import com.mycompany.thepetproject.utils.auth.SessionManager;
 import com.mycompany.thepetproject.utils.auth.SessionRole;
 import com.mycompany.thepetproject.utils.auth.strategies.AuthenticationStrategy;

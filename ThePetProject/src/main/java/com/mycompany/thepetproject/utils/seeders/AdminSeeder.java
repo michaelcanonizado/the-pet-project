@@ -8,8 +8,8 @@ package com.mycompany.thepetproject.utils.seeders;
  * @author lilac
  */
 
-import com.mycompany.thepetproject.Admin;
-import com.mycompany.thepetproject.AdminList;
+import com.mycompany.thepetproject.main.admin.Admin;
+import com.mycompany.thepetproject.main.admin.AdminList;
 
 /*
     WARNING! BE CAREFUL WHEN RESEEDING DATA 
