@@ -7,7 +7,7 @@ package com.mycompany.thepetproject.swing.pages;
 import com.mycompany.thepetproject.main.Pet;
 import com.mycompany.thepetproject.main.PetList;
 import com.mycompany.thepetproject.main.PetSex;
-import com.mycompany.thepetproject.main.PetStatus;
+import java.util.UUID;
 import javax.swing.JOptionPane;
 import com.mycompany.thepetproject.main.PetType;
 
@@ -16,12 +16,30 @@ import com.mycompany.thepetproject.main.PetType;
  * @author lilac
  */
 public class EditPet extends javax.swing.JFrame {
+    private UUID petId;
 
     /**
      * Creates new form AddPet
      */
     public EditPet() {
         initComponents();
+    }
+
+    public void setPetDetails(UUID id, String name, int age, PetType type, PetSex sex, String description) {
+        this.petId = id;
+        nameField.setText(name);
+        ageField.setText(Integer.toString(age));
+        if (type == PetType.Dog) {
+            typeComboBox.setSelectedItem("Dog");
+        } else if (type == PetType.Cat) {
+            typeComboBox.setSelectedItem("Cat");
+        }
+        if (sex == PetSex.FEMALE) {
+            sexComboBox.setSelectedItem("Female");
+        } else if (sex == PetSex.MALE) {
+            sexComboBox.setSelectedItem("Male");
+        }
+        descriptionField.setText(description);
     }
 
     /**
@@ -218,21 +236,29 @@ public class EditPet extends javax.swing.JFrame {
             sex = PetSex.FEMALE;
         }
 
-        Pet pet = new Pet(type,name,age,sex,PetStatus.FOR_ADOPTION,description);
-        PetList.addPet(pet);  
-
-        Dashboard.addRowToTable(new Object[]{
-            pet.getId().toString(),
-            name,
-            age,
-            typeComboBox.getSelectedItem().toString(),
-            sexComboBox.getSelectedItem().toString(),
-            description
-        });
+        // Update the pet details in the PetList
+        Pet pet = PetList.getPet(this.petId);
+        if (pet != null) {
+            pet.setName(name);
+            pet.setAge(age);
+            pet.setType(type);
+            pet.setSex(sex);
+            pet.setDescription(description);
         
-        nameField.setText("");
-        ageField.setText("");
-        descriptionField.setText("");
+            // Update the corresponding row in the Dashboard table
+            Dashboard.updateRowInTable(this.petId, new Object[]{
+                pet.getId().toString(),
+                name,
+                age,
+                type.toString(),
+                sex.toString(),
+                description
+            });
+        } else {
+            JOptionPane.showMessageDialog(null, "Pet not found!", "Error", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        this.dispose();
     }//GEN-LAST:event_addPetBtnMouseClicked
 
     private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
