@@ -9,11 +9,8 @@ import com.mycompany.thepetproject.main.PetList;
 import com.mycompany.thepetproject.utils.pages.PageBlueprint;
 import com.mycompany.thepetproject.utils.pages.PageController;
 import com.mycompany.thepetproject.swing.components.PetCard;
-import java.awt.CardLayout;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.List;
-import javax.swing.JPanel;
 
 /**
  *
@@ -21,9 +18,6 @@ import javax.swing.JPanel;
  */
 public class PetGallery extends PageBlueprint {
     private PageController pageController;
-    public static CardLayout cards = new CardLayout();
-
-    private JPanel cardContainer;
 
     /**
      * Creates new form PetGall
@@ -32,16 +26,27 @@ public class PetGallery extends PageBlueprint {
         initComponents();
         this.pageController = PageController.getInstance();
         loadPetCards();
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        
     }
     private void loadPetCards() {
         List<Pet> pets = PetList.getPets();
         cardsContainer.setLayout(new GridLayout(0,4, 0, 40));
         for (int i = 0; i < pets.size(); i++) {
             Pet pet = pets.get(i);
-            PetCard card = new PetCard(pet.getName(), String.valueOf(pet.getAge()), pet.getSex().toString());
+//            String id, String name, PetSex sex, PetType type, int age, String description
+            PetCard card = new PetCard(
+                    pet.getId().toString(), 
+                    pet.getName(), 
+                    pet.getSex(),
+                    pet.getType(),
+                    pet.getAge(), 
+                    pet.getDescription()
+            );
             cardsContainer.add(card);
         }
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,6 +57,7 @@ public class PetGallery extends PageBlueprint {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        modalContainer = new javax.swing.JPanel();
         PanelBack = new javax.swing.JPanel();
         panelTop = new javax.swing.JPanel();
         panelLogin = new com.mycompany.thepetproject.swing.components.PanelRound();
@@ -66,6 +72,22 @@ public class PetGallery extends PageBlueprint {
         setMaximumSize(new java.awt.Dimension(1000, 710));
         setMinimumSize(new java.awt.Dimension(1000, 710));
         setPreferredSize(new java.awt.Dimension(1000, 710));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        modalContainer.setOpaque(false);
+
+        javax.swing.GroupLayout modalContainerLayout = new javax.swing.GroupLayout(modalContainer);
+        modalContainer.setLayout(modalContainerLayout);
+        modalContainerLayout.setHorizontalGroup(
+            modalContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1000, Short.MAX_VALUE)
+        );
+        modalContainerLayout.setVerticalGroup(
+            modalContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 710, Short.MAX_VALUE)
+        );
+
+        add(modalContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, -1, 1000, 710));
 
         panelTop.setBackground(new java.awt.Color(248, 208, 70));
 
@@ -221,16 +243,7 @@ public class PetGallery extends PageBlueprint {
                     .addContainerGap()))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        add(PanelBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelHomeMouseClicked
@@ -249,6 +262,7 @@ public class PetGallery extends PageBlueprint {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelHome;
     private javax.swing.JLabel labelPetAdoption;
+    public static javax.swing.JPanel modalContainer;
     private javax.swing.JPanel panelBody;
     private com.mycompany.thepetproject.swing.components.PanelRound panelLogin;
     private com.mycompany.thepetproject.swing.components.PanelRound panelRound1;
