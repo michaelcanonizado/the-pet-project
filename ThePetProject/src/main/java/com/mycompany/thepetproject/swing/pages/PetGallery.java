@@ -149,9 +149,7 @@ public class PetGallery extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelHomeMouseClicked
-        Home homePage = new Home();
-        homePage.setVisible(true);
-        dispose();
+
     }//GEN-LAST:event_labelHomeMouseClicked
 
     private void buttonLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogInActionPerformed
@@ -159,7 +157,7 @@ public class PetGallery extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonLogInActionPerformed
 
     private void buttonLogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonLogInMouseClicked
-        UserLogin login = new UserLogin();
+        UserLogin1 login = new UserLogin1();
         login.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonLogInMouseClicked
