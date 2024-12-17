@@ -308,6 +308,10 @@
                           <Dimension value="[297, 37]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="textFieldPassword2MouseClicked"/>
+                        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="textFieldPassword2MouseEntered"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="labelAlreadyHave">
                       <Properties>
@@ -351,6 +355,7 @@
                         </Property>
                       </Properties>
                       <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="textFieldConfirmPasswordMouseClicked"/>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldConfirmPasswordActionPerformed"/>
                       </Events>
                     </Component>
@@ -545,6 +550,7 @@
                         </Property>
                       </Properties>
                       <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="textFieldUsername1MouseClicked"/>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldUsername1ActionPerformed"/>
                       </Events>
                     </Component>
@@ -564,6 +570,9 @@
                           <Dimension value="[297, 37]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="textFieldPassword1MouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="labelDontHave">
                       <Properties>
@@ -857,6 +866,9 @@
                           <Dimension value="[297, 37]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="textFieldPasswordMouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="labelUserSignUp">
                       <Properties>
@@ -1020,6 +1032,7 @@
                         </Property>
                       </Properties>
                       <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="textFieldUsernameMouseClicked"/>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldUsernameActionPerformed"/>
                       </Events>
                     </Component>

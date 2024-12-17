@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
@@ -151,6 +151,14 @@ public class Authentication extends javax.swing.JPanel {
         textFieldPassword2.setForeground(new java.awt.Color(38, 50, 56));
         textFieldPassword2.setText("Enter password");
         textFieldPassword2.setPreferredSize(new java.awt.Dimension(297, 37));
+        textFieldPassword2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                textFieldPassword2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                textFieldPassword2MouseEntered(evt);
+            }
+        });
 
         labelAlreadyHave.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelAlreadyHave.setForeground(new java.awt.Color(38, 50, 56));
@@ -170,6 +178,11 @@ public class Authentication extends javax.swing.JPanel {
         textFieldConfirmPassword.setForeground(new java.awt.Color(38, 50, 56));
         textFieldConfirmPassword.setText("Confirm password");
         textFieldConfirmPassword.setPreferredSize(new java.awt.Dimension(297, 37));
+        textFieldConfirmPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                textFieldConfirmPasswordMouseClicked(evt);
+            }
+        });
         textFieldConfirmPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFieldConfirmPasswordActionPerformed(evt);
@@ -302,6 +315,11 @@ public class Authentication extends javax.swing.JPanel {
         textFieldUsername1.setText("Enter username");
         textFieldUsername1.setAutoscrolls(false);
         textFieldUsername1.setPreferredSize(new java.awt.Dimension(297, 37));
+        textFieldUsername1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                textFieldUsername1MouseClicked(evt);
+            }
+        });
         textFieldUsername1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFieldUsername1ActionPerformed(evt);
@@ -313,6 +331,11 @@ public class Authentication extends javax.swing.JPanel {
         textFieldPassword1.setForeground(new java.awt.Color(38, 50, 56));
         textFieldPassword1.setText("Enter password");
         textFieldPassword1.setPreferredSize(new java.awt.Dimension(297, 37));
+        textFieldPassword1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                textFieldPassword1MouseClicked(evt);
+            }
+        });
 
         labelDontHave.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelDontHave.setForeground(new java.awt.Color(38, 50, 56));
@@ -475,6 +498,11 @@ public class Authentication extends javax.swing.JPanel {
         textFieldPassword.setForeground(new java.awt.Color(38, 50, 56));
         textFieldPassword.setText("Enter password");
         textFieldPassword.setPreferredSize(new java.awt.Dimension(297, 37));
+        textFieldPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                textFieldPasswordMouseClicked(evt);
+            }
+        });
 
         labelUserSignUp.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelUserSignUp.setForeground(new java.awt.Color(251, 245, 222));
@@ -556,6 +584,11 @@ public class Authentication extends javax.swing.JPanel {
         textFieldUsername.setText("Enter username");
         textFieldUsername.setAutoscrolls(false);
         textFieldUsername.setPreferredSize(new java.awt.Dimension(297, 37));
+        textFieldUsername.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                textFieldUsernameMouseClicked(evt);
+            }
+        });
         textFieldUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFieldUsernameActionPerformed(evt);
@@ -721,16 +754,44 @@ public class Authentication extends javax.swing.JPanel {
     }//GEN-LAST:event_loginBackBtnMouseClicked
 
     private void textFieldUsername2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textFieldUsername2MouseClicked
-   
+        textFieldUsername2.setText("");
     }//GEN-LAST:event_textFieldUsername2MouseClicked
 
     private void textFieldUsername2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldUsername2FocusGained
-        textFieldUsername2.setText("");
+
     }//GEN-LAST:event_textFieldUsername2FocusGained
 
     private void textFieldUsername2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldUsername2FocusLost
 
     }//GEN-LAST:event_textFieldUsername2FocusLost
+
+    private void textFieldPassword2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textFieldPassword2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldPassword2MouseClicked
+
+    private void textFieldPassword2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textFieldPassword2MouseEntered
+        textFieldPassword2.setText("");
+    }//GEN-LAST:event_textFieldPassword2MouseEntered
+
+    private void textFieldConfirmPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textFieldConfirmPasswordMouseClicked
+        textFieldConfirmPassword.setText("");
+    }//GEN-LAST:event_textFieldConfirmPasswordMouseClicked
+
+    private void textFieldUsername1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textFieldUsername1MouseClicked
+        textFieldUsername1.setText("");
+    }//GEN-LAST:event_textFieldUsername1MouseClicked
+
+    private void textFieldPassword1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textFieldPassword1MouseClicked
+        textFieldPassword1.setText("");
+    }//GEN-LAST:event_textFieldPassword1MouseClicked
+
+    private void textFieldUsernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textFieldUsernameMouseClicked
+        textFieldUsername.setText("");
+    }//GEN-LAST:event_textFieldUsernameMouseClicked
+
+    private void textFieldPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textFieldPasswordMouseClicked
+        textFieldUsername.setText("");
+    }//GEN-LAST:event_textFieldPasswordMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
