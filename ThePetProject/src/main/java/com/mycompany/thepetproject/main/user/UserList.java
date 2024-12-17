@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.thepetproject;
+package com.mycompany.thepetproject.main.user;
 
 /**
  *
  * @author lilac
  */
-import com.mycompany.thepetproject.User;
+import com.mycompany.thepetproject.main.user.User;
 import com.mycompany.thepetproject.utils.auth.Password;
 import java.io.*;
 import java.util.ArrayList;
@@ -54,7 +54,7 @@ public class UserList implements Serializable {
     }
     
     // Serialize the static list of users to a file
-    public static void serializeUsers() {        
+    public static void saveUsers() {        
         try (FileOutputStream fileOut = new FileOutputStream(FILE_NAME);
             ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
             out.writeObject(users);
@@ -64,7 +64,7 @@ public class UserList implements Serializable {
         }
     }
     // Deserialize the static list of users from a file
-    public static void deserializeUsers() {
+    public static void loadUsers() {
         try (FileInputStream fileIn = new FileInputStream(FILE_NAME);
             ObjectInputStream in = new ObjectInputStream(fileIn)) {
             users = (List<User>)in.readObject();

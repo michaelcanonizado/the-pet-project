@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
 package com.mycompany.thepetproject.utils.auth.strategies;
-import com.mycompany.thepetproject.Account;
+import com.mycompany.thepetproject.main.Account;
 
 /**
  *

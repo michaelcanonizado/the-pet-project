@@ -12,8 +12,8 @@ import java.security.NoSuchAlgorithmException;
 import java.io.FileWriter;
 import java.io.IOException;
 import com.mycompany.thepetproject.utils.auth.Password;
-import com.mycompany.thepetproject.UserList;
-import com.mycompany.thepetproject.User;
+import com.mycompany.thepetproject.main.user.UserList;
+import com.mycompany.thepetproject.main.user.User;
 
 /*
     WARNING! BE CAREFUL WHEN RESEEDING DATA 
@@ -37,6 +37,6 @@ public class UserSeeder {
             User user = new User(USERNAMES[i], password);
             UserList.addUser(user);
         }
-        UserList.serializeUsers();
+        UserList.saveUsers();
     }
 }
