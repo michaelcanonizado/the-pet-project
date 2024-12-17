@@ -55,7 +55,7 @@ public class AdminList implements Serializable {
     }
     
     // Serialize the static list of admins to a file
-    public static void serializeAdmins() {        
+    public static void saveAdmins() {        
         try (FileOutputStream fileOut = new FileOutputStream(FILE_NAME);
             ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
             out.writeObject(admins);
@@ -65,7 +65,7 @@ public class AdminList implements Serializable {
         }
     }
     // Deserialize the static list of admins from a file
-    public static void deserializeAdmins() {
+    public static void loadAdmins() {
         try (FileInputStream fileIn = new FileInputStream(FILE_NAME);
             ObjectInputStream in = new ObjectInputStream(fileIn)) {
             admins = (List<Admin>)in.readObject();

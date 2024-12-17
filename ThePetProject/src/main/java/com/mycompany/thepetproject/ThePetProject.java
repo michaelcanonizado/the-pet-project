@@ -26,9 +26,9 @@ public class ThePetProject {
             pages.setVisible(true);
         });
         
-        UserList.deserializeUsers();
-        AdminList.deserializeAdmins();
-        PetList.loadPets();
-        PetList.savePets();
+//        UserList.deserializeUsers();
+//        AdminList.deserializeAdmins();
+//        PetList.loadPets();
+//        PetList.savePets();
     }
 }

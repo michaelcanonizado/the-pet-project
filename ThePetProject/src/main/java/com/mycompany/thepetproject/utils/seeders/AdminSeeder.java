@@ -23,6 +23,6 @@ public class AdminSeeder {
     public static void generateAdmins() {
         Admin admin = new Admin(USERNAME,PASSWORD);
         AdminList.addAdmin(admin);
-        AdminList.serializeAdmins();
+        AdminList.saveAdmins();
     }
 }
