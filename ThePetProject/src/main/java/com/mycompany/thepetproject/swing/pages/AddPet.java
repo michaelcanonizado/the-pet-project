@@ -34,6 +34,7 @@ public class AddPet extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel5 = new javax.swing.JLabel();
+        panelRound1 = new com.mycompany.thepetproject.swing.components.PanelRound();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         nameField = new javax.swing.JTextField();
@@ -46,9 +47,21 @@ public class AddPet extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         typeComboBox = new javax.swing.JComboBox<>();
-        addPetBtn = new javax.swing.JButton();
+        panelRound2 = new com.mycompany.thepetproject.swing.components.PanelRound();
+        label1 = new java.awt.Label();
 
         jLabel5.setText("jLabel5");
+
+        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
+        panelRound1.setLayout(panelRound1Layout);
+        panelRound1Layout.setHorizontalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        panelRound1Layout.setVerticalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,27 +107,45 @@ public class AddPet extends javax.swing.JFrame {
             }
         });
 
-        addPetBtn.setText("Add Pet");
-        addPetBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        panelRound2.setBackground(new java.awt.Color(248, 202, 70));
+        panelRound2.setRoundBottomLeft(30);
+        panelRound2.setRoundBottomRight(30);
+        panelRound2.setRoundTopLeft(30);
+        panelRound2.setRoundTopRight(30);
+        panelRound2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addPetBtnMouseClicked(evt);
+                panelRound2MouseClicked(evt);
             }
         });
-        addPetBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addPetBtnActionPerformed(evt);
+
+        label1.setAlignment(java.awt.Label.CENTER);
+        label1.setForeground(new java.awt.Color(30, 30, 30));
+        label1.setText("Add Pet");
+        label1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label1MouseClicked(evt);
             }
         });
+
+        javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
+        panelRound2.setLayout(panelRound2Layout);
+        panelRound2Layout.setHorizontalGroup(
+            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRound2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelRound2Layout.setVerticalGroup(
+            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(addPetBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -139,13 +170,17 @@ public class AddPet extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(138, 138, 138))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(45, 45, 45)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -167,9 +202,9 @@ public class AddPet extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(typeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addComponent(addPetBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
+                .addGap(42, 42, 42)
+                .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -194,11 +229,11 @@ public class AddPet extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_typeComboBoxActionPerformed
 
-    private void addPetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPetBtnActionPerformed
+    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addPetBtnActionPerformed
+    }//GEN-LAST:event_nameFieldActionPerformed
 
-    private void addPetBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPetBtnMouseClicked
+    private void panelRound2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound2MouseClicked
         int age = 0;
         try {
             age = Integer.parseInt(ageField.getText());
@@ -239,11 +274,50 @@ public class AddPet extends javax.swing.JFrame {
         nameField.setText("");
         ageField.setText("");
         descriptionField.setText("");
-    }//GEN-LAST:event_addPetBtnMouseClicked
+    }//GEN-LAST:event_panelRound2MouseClicked
 
-    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameFieldActionPerformed
+    private void label1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label1MouseClicked
+        int age = 0;
+        try {
+            age = Integer.parseInt(ageField.getText());
+        } catch (NumberFormatException err) {
+            JOptionPane.showMessageDialog(null, "Invalid age! Please enter a valid number.", "Error", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        
+        String name = nameField.getText();
+        String description = descriptionField.getText();
+
+        PetType type = PetType.Dog;
+        if (typeComboBox.getSelectedItem().toString().equals("Dog")) {
+            type = PetType.Dog;
+        } else if (typeComboBox.getSelectedItem().toString().equals("Cat")) {
+            type = PetType.Cat;
+        }
+        
+        PetSex sex = PetSex.MALE;
+        if (sexComboBox.getSelectedItem().toString().equals("MALE")) {
+            sex = PetSex.MALE;
+        } else if (typeComboBox.getSelectedItem().toString().equals("FEMALE")) {
+            sex = PetSex.FEMALE;
+        }
+
+        Pet pet = new Pet(type,name,age,sex,PetStatus.FOR_ADOPTION,description);
+        PetList.addPet(pet);  
+
+        Dashboard.addRowToTable(new Object[]{
+            pet.getId().toString(),
+            name,
+            age,
+            typeComboBox.getSelectedItem().toString(),
+            sexComboBox.getSelectedItem().toString(),
+            description
+        });
+        
+        nameField.setText("");
+        ageField.setText("");
+        descriptionField.setText("");
+    }//GEN-LAST:event_label1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -281,7 +355,6 @@ public class AddPet extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addPetBtn;
     private javax.swing.JTextField ageField;
     private javax.swing.JTextField descriptionField;
     private javax.swing.JLabel jLabel1;
@@ -292,7 +365,10 @@ public class AddPet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private java.awt.Label label1;
     private javax.swing.JTextField nameField;
+    private com.mycompany.thepetproject.swing.components.PanelRound panelRound1;
+    private com.mycompany.thepetproject.swing.components.PanelRound panelRound2;
     private javax.swing.JComboBox<String> sexComboBox;
     private javax.swing.JComboBox<String> typeComboBox;
     // End of variables declaration//GEN-END:variables
