@@ -52,6 +52,7 @@ public class PageController {
                 tabbedPane.setSelectedIndex(page.getIndex());
                 previousPage = currentPage;
                 currentPage = page;
+                break;
             }
         }
         System.out.println("Current page: " + currentPage.getName());
@@ -62,5 +63,13 @@ public class PageController {
         tabbedPane.setSelectedIndex(previousPage.getIndex());
         currentPage = previousPage;
         previousPage = null;
+    }
+    
+    public Page getCurrentPage() {
+        return currentPage;
+    }
+    
+    public List<Page> getPages() {
+        return pages;
     }
 }

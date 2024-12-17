@@ -3,13 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.mycompany.thepetproject.swing.pages;
+import com.mycompany.thepetproject.utils.pages.PageBlueprint;
 import com.mycompany.thepetproject.utils.pages.PageController;
 import javax.swing.JTabbedPane;
 /**
  *
  * @author lilac
  */
-public class Home extends javax.swing.JPanel {
+public class Home extends PageBlueprint {
     private PageController pageController;
     /**
      * Creates new form Home
@@ -137,4 +138,9 @@ public class Home extends javax.swing.JPanel {
     private javax.swing.JButton loginBtn;
     private javax.swing.JButton viewPetsBtn;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update() {
+        
+    }
 }

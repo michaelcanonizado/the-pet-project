@@ -12,15 +12,20 @@ import javax.swing.JPanel;
 public class Page {
     private int index;
     private String name;
-    private JPanel panel;
+    private PageBlueprint panel;
     
-    public Page(int index, String name, JPanel panel) {
+    public Page(int index, String name, PageBlueprint panel) {
         this.index = index;
         this.name = name;
         this.panel = panel;
     }
     
-    public JPanel getPanel() {
+    public void repaint() {
+        panel.revalidate();
+        panel.repaint();
+    }
+    
+    public PageBlueprint getPanel() {
         return panel;
     }
     

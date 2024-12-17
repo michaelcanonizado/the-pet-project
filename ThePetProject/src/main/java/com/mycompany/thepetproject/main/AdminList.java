@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.thepetproject.main.admin;
+package com.mycompany.thepetproject.main;
 
 /**
  *
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import com.mycompany.thepetproject.main.admin.Admin;
+import com.mycompany.thepetproject.main.Admin;
 import com.mycompany.thepetproject.utils.auth.Password;
 
 public class AdminList implements Serializable {

@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.thepetproject.main.user;
+package com.mycompany.thepetproject.main;
 
 /**
  *
  * @author lilac
  */
-import com.mycompany.thepetproject.main.user.User;
+import com.mycompany.thepetproject.main.User;
 import com.mycompany.thepetproject.utils.auth.Password;
 import java.io.*;
 import java.util.ArrayList;

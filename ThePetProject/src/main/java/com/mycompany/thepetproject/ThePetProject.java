@@ -9,16 +9,18 @@ import java.util.Scanner;
 
 import com.mycompany.thepetproject.swing.pages.Index;
 
-import com.mycompany.thepetproject.main.user.UserList;
-import com.mycompany.thepetproject.main.admin.AdminList;
-import com.mycompany.thepetproject.main.pet.PetList;
-import com.mycompany.thepetproject.main.pet.Pet;
-import com.mycompany.thepetproject.main.pet.Status;
+import com.mycompany.thepetproject.main.UserList;
+import com.mycompany.thepetproject.main.AdminList;
+import com.mycompany.thepetproject.main.PetList;
+import com.mycompany.thepetproject.main.Pet;
+import com.mycompany.thepetproject.main.Status;
 import com.mycompany.thepetproject.utils.auth.SessionManager;
 import com.mycompany.thepetproject.utils.auth.SessionRole;
 import com.mycompany.thepetproject.utils.auth.strategies.AuthenticationStrategy;
 import com.mycompany.thepetproject.utils.auth.strategies.AdminAuthentication;
 import com.mycompany.thepetproject.utils.auth.strategies.UserAuthentication;
+import com.mycompany.thepetproject.utils.seeders.AdminSeeder;
+import com.mycompany.thepetproject.utils.seeders.UserSeeder;
 import java.util.List;
 
 public class ThePetProject {
@@ -29,11 +31,13 @@ public class ThePetProject {
             pages.setVisible(true);
         });
         
-        PetList.loadPets();
-        PetList.savePets();
-        List<Pet> pets = PetList.filterPets(Status.ADOPTED);
-        for (Pet pet : pets) {
-            System.out.println(pet);
-        }
+        UserList.loadUsers();
+        
+//        PetList.loadPets();
+//        PetList.savePets();
+//        List<Pet> pets = PetList.filterPets(Status.ADOPTED);
+//        for (Pet pet : pets) {
+//            System.out.println(pet);
+//        }
     }
 }
