@@ -42,6 +42,16 @@ public class PetList {
         return null;
     }
     
+    public static List<Pet> filterPets(Status status) {
+        List<Pet> filteredPets = new ArrayList<>();
+        for (Pet pet : pets) {
+            if (pet.getStatus().equals(status)) {
+                filteredPets.add(pet);
+            }
+        }
+        return filteredPets;
+    }
+    
     // Method to check if a UUID already exists in the list
     public static boolean isPetInList(UUID id) {
         for (Pet pet : pets) {
