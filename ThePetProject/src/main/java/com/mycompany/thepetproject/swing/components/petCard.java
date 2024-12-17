@@ -8,12 +8,12 @@ package com.mycompany.thepetproject.swing.components;
  *
  * @author deynklarys
  */
-public class petCard extends javax.swing.JPanel {
+public class PetCard extends javax.swing.JPanel {
 
     /**
      * Creates new form petCard
      */
-    public petCard() {
+    public PetCard() {
         initComponents();
     }
 
@@ -44,41 +44,44 @@ public class petCard extends javax.swing.JPanel {
 
         labelSex1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         labelSex1.setText("Sex: ");
+        labelSex1.setPreferredSize(new java.awt.Dimension(30, 15));
 
         labelAge1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         labelAge1.setText("Age:");
+        labelAge1.setPreferredSize(new java.awt.Dimension(30, 15));
 
         labelImage.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         labelImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/thepetproject/swing/dog.png"))); // NOI18N
 
         labelSetAge1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        labelSetAge1.setText("yrs old");
+        labelSetAge1.setText("2 years");
 
         labelSetSex1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         labelSetSex1.setText("female");
+        labelSetSex1.setPreferredSize(new java.awt.Dimension(40, 15));
 
         javax.swing.GroupLayout panelPetCard1Layout = new javax.swing.GroupLayout(panelPetCard1);
         panelPetCard1.setLayout(panelPetCard1Layout);
         panelPetCard1Layout.setHorizontalGroup(
             panelPetCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPetCard1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPetCard1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(panelPetCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPetCard1Layout.createSequentialGroup()
-                        .addComponent(labelImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPetCard1Layout.createSequentialGroup()
+                        .addComponent(labelImage, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
                         .addGap(12, 12, 12))
                     .addGroup(panelPetCard1Layout.createSequentialGroup()
-                        .addGroup(panelPetCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelPetCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panelPetCard1Layout.createSequentialGroup()
+                                .addComponent(labelSex1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelSetSex1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(labelPetName1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panelPetCard1Layout.createSequentialGroup()
-                                .addComponent(labelSex1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelAge1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelSetSex1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelPetCard1Layout.createSequentialGroup()
-                                .addComponent(labelAge1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelSetAge1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(labelSetAge1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         panelPetCard1Layout.setVerticalGroup(
@@ -86,17 +89,17 @@ public class petCard extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPetCard1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(labelImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelPetName1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelPetCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelAge1)
+                    .addComponent(labelAge1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelSetAge1))
-                .addGap(4, 4, 4)
+                .addGap(2, 2, 2)
                 .addGroup(panelPetCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelSex1)
-                    .addComponent(labelSetSex1))
-                .addGap(12, 12, 12))
+                    .addComponent(labelSex1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelSetSex1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         add(panelPetCard1, java.awt.BorderLayout.CENTER);
