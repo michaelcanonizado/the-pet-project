@@ -52,7 +52,6 @@ public class PetCard extends javax.swing.JPanel {
         panelRound1.setPreferredSize(new java.awt.Dimension(150, 130));
 
         image.setForeground(new java.awt.Color(38, 50, 56));
-        image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/thepetproject/swing/components/dog.png"))); // NOI18N
         image.setText("image");
         image.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(38, 50, 56), 1, true));
 
