@@ -86,6 +86,11 @@ public class UserLogin extends javax.swing.JPanel {
         labelSignUp.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelSignUp.setForeground(new java.awt.Color(226, 70, 43));
         labelSignUp.setText("Sign Up");
+        labelSignUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelSignUpMouseClicked(evt);
+            }
+        });
 
         labelLogin.setBackground(new java.awt.Color(251, 245, 222));
         labelLogin.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
@@ -213,6 +218,10 @@ public class UserLogin extends javax.swing.JPanel {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         pageController.goToPreviousPage();
     }//GEN-LAST:event_backBtnActionPerformed
+
+    private void labelSignUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelSignUpMouseClicked
+        pageController.changePage("UserSignUp");
+    }//GEN-LAST:event_labelSignUpMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
