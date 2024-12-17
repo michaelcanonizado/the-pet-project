@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.thepetproject;
+package com.mycompany.thepetproject.main.pet;
 
 import java.util.UUID;
-import com.mycompany.thepetproject.Type;
-import com.mycompany.thepetproject.Sex;
+import com.mycompany.thepetproject.main.pet.Type;
+import com.mycompany.thepetproject.main.pet.Sex;
 
 /**
  *
