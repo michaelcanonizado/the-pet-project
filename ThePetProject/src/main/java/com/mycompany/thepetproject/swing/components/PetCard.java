@@ -48,23 +48,23 @@ public class PetCard extends javax.swing.JPanel {
         image.setText("image");
         image.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(38, 50, 56), 1, true));
 
-        name.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        name.setFont(fontBold20f);
         name.setForeground(new java.awt.Color(38, 50, 56));
         name.setText("name");
 
-        labelAge.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        labelAge.setFont(fontBold20f);
         labelAge.setForeground(new java.awt.Color(38, 50, 56));
         labelAge.setText("Age:");
 
-        labelSex.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        labelSex.setFont(fontBold14f);
         labelSex.setForeground(new java.awt.Color(38, 50, 56));
         labelSex.setText("Sex:");
 
-        age.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        age.setFont(fontPlain14f);
         age.setForeground(new java.awt.Color(38, 50, 56));
         age.setText("age");
 
-        sex.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        sex.setFont(fontPlain14f);
         sex.setForeground(new java.awt.Color(38, 50, 56));
         sex.setText("sex");
 
