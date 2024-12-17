@@ -1,30 +1,28 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.thepetproject.swing.pages;
-
-import com.mycompany.thepetproject.utils.pages.PageBlueprint;
 import com.mycompany.thepetproject.utils.pages.PageController;
 import javax.swing.JOptionPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JButton;
+import com.mycompany.thepetproject.utils.pages.PageBlueprint;
 
-//simon simon simon
 
 /**
  *
- * @author lilac
+ * @author deynklarys
+ *
  */
+
+
 public class AdminDashboard extends PageBlueprint {
-    private PageController pageController;
-    
+    private PageController pageController = new PageController(); // Example initialization
+
     /**
      * Creates new form AdminDashboard
      */
     public AdminDashboard() {
         initComponents();
-        this.pageController = PageController.getInstance();
     }
 
     /**
@@ -65,7 +63,11 @@ public class AdminDashboard extends PageBlueprint {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1000, 710));
+        setMinimumSize(new java.awt.Dimension(1000, 710));
+        setPreferredSize(new java.awt.Dimension(1000, 710));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(241, 232, 206));
         jPanel3.setForeground(new java.awt.Color(226, 70, 43));
@@ -501,21 +503,24 @@ public class AdminDashboard extends PageBlueprint {
 
         jPanel3.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 100, 780, 690));
 
-//        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, -1));
-//
-//        pack();
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, -1));
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {                                      
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
 
         int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to log out?", "Log Out", JOptionPane.YES_NO_OPTION);
         if (confirm == JOptionPane.YES_OPTION) {
             pageController.changePage("Home");
             System.out.println("Redirecting to Home page");
-            pageController.changePage("Home");
+
         }
-    }                                     
+
+        // Add your other methods, variables, etc.
+
+    }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -549,7 +554,40 @@ public class AdminDashboard extends PageBlueprint {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AdminDashboard().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Canvas canvas1;
@@ -583,7 +621,5 @@ public class AdminDashboard extends PageBlueprint {
     // End of variables declaration//GEN-END:variables
 
     @Override
-    public void update() {
-        
-    }
+    public void update() {}
 }
