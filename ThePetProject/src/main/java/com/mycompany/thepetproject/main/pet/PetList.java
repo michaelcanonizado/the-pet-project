@@ -54,13 +54,14 @@ public class PetList {
     
     public static void savePets() {
         try (FileWriter writer = new FileWriter(FILE_NAME)) {
+            writer.append("id,type,name,age,sex,status,description\n");
             for (Pet pet : pets) {
-                writer.append("id,type,name,age,sex,description\n");
                 writer.append(pet.getId().toString()).append(",");
                 writer.append(pet.getType().toString()).append(",");
                 writer.append(pet.getName()).append(",");
                 writer.append(String.valueOf(pet.getAge())).append(",");
                 writer.append(pet.getSex().toString()).append(",");
+                writer.append(pet.getStatus().toString()).append(",");
                 writer.append(pet.getDescription()).append(",");
                 writer.append("\n");
                 System.out.println("Saved pet: "+pet.getName());
@@ -88,10 +89,19 @@ public class PetList {
             } else if (row[4].equals("F")) {
                 sex = Sex.Female;
             }
-            String description = row[5];
+            Status status = null;
+            if (row[5].equals("PENDING")) {
+                status = Status.PENDING;
+            } else if (row[5].equals("ADOPTED")) {
+                status = Status.ADOPTED;
+            } else if (row[5].equals("FOR_ADOPTION")) {
+                status = Status.FOR_ADOPTION;
+            }
+            String description = row[6];
             
-            Pet pet = new Pet(type, name, age, sex, description);
+            Pet pet = new Pet(type, name, age, sex, status, description);
             pets.add(pet);
+            System.out.println("Loaded pet: " + name);
         }
     }
     

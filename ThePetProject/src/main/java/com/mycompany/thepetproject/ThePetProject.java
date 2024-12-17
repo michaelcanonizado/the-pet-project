@@ -28,7 +28,7 @@ public class ThePetProject {
         
 //        UserList.deserializeUsers();
 //        AdminList.deserializeAdmins();
-//        PetList.loadPets();
-//        PetList.savePets();
+        PetList.loadPets();
+        PetList.savePets();
     }
 }

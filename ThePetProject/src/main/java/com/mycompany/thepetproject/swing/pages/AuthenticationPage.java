@@ -8,12 +8,12 @@ package com.mycompany.thepetproject.swing.pages;
  *
  * @author drioj
  */
-public class AuthPage extends javax.swing.JPanel {
+public class AuthenticationPage extends javax.swing.JPanel {
 
     /**
      * Creates new form AuthPage
      */
-    public AuthPage() {
+    public AuthenticationPage() {
         initComponents();
     }
 

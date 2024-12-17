@@ -19,8 +19,9 @@ public class Pet {
     private int age;
     private Sex sex;
     private String description;
+    private Status status;
     
-    public Pet(Type type, String name, int age, Sex sex, String description) {
+    public Pet(Type type, String name, int age, Sex sex, Status status, String description) {
         do {
             this.id = UUID.randomUUID();
         } while (PetList.isPetInList(this.id));
@@ -29,6 +30,7 @@ public class Pet {
         this.age = age;
         this.sex = sex;
         this.description = description;
+        this.status = status;
     }
     
     public UUID getId() {
@@ -45,6 +47,9 @@ public class Pet {
     }
     public Sex getSex() {
         return sex;
+    }
+    public Status getStatus() {
+        return status;
     }
     public String getDescription() {
         return description;
