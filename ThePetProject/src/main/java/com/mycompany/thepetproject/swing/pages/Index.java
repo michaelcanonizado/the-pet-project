@@ -23,8 +23,8 @@ public class Index extends javax.swing.JFrame {
      */
     public Index() {
         initComponents();
-        
         this.pageController = PageController.getInstance();
+        
         pageController.setTabbedPane(tabbedPane);
         pageController.addPage(new Page(0, "Home", new Home()));
         pageController.addPage(new Page(1, "Authentication", new AuthPage()));
