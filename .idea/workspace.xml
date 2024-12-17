@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fedf2b10-9d64-47a5-bc58-4422df13c24a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/frames/Home.form" beforeDir="false" afterPath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/frames/Home.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/frames/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/frames/Home.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/components/FontUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/AdminLogin.form" beforeDir="false" afterPath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/AdminLogin.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/AdminLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/AdminLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/AuthenticationPage.form" beforeDir="false" afterPath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/AuthenticationPage.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/AuthenticationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/AuthenticationPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/UserSignUp.form" beforeDir="false" afterPath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/UserSignUp.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/UserSignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/ThePetProject/src/main/java/com/mycompany/thepetproject/swing/pages/UserSignUp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,10 +21,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2q9QjSTjyhiczG606Rn506v0TPn" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -28,7 +33,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
