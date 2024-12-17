@@ -15,12 +15,12 @@ import com.mycompany.thepetproject.main.PetType;
  *
  * @author lilac
  */
-public class AddPet extends javax.swing.JFrame {
+public class EditPet extends javax.swing.JFrame {
 
     /**
      * Creates new form AddPet
      */
-    public AddPet() {
+    public EditPet() {
         initComponents();
     }
 
@@ -55,7 +55,7 @@ public class AddPet extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Add Pet");
+        jLabel1.setText("Edit a Pet");
 
         nameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +87,7 @@ public class AddPet extends javax.swing.JFrame {
             }
         });
 
-        addPetBtn.setText("Add Pet");
+        addPetBtn.setText("Edit");
         addPetBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addPetBtnMouseClicked(evt);
