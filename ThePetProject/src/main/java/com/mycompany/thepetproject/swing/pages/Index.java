@@ -6,7 +6,7 @@ package com.mycompany.thepetproject.swing.pages;
 import com.mycompany.thepetproject.swing.pages.Home;
 import com.mycompany.thepetproject.swing.pages.AuthPage;
 import com.mycompany.thepetproject.swing.pages.Dashboard;
-import com.mycompany.thepetproject.swing.pages.TempPetGallery;
+import com.mycompany.thepetproject.swing.pages.PetGallery;
 import com.mycompany.thepetproject.utils.pages.PageController;
 import com.mycompany.thepetproject.utils.pages.Page;
 import java.util.List;
@@ -29,7 +29,7 @@ public class Index extends javax.swing.JFrame {
         pageController.addPage(new Page(0, "Home", new Home()));
         pageController.addPage(new Page(1, "Authentication", new AuthPage()));
         pageController.addPage(new Page(2, "AdminDashboard", new Dashboard()));
-        pageController.addPage(new Page(3, "TempPetGallery", new TempPetGallery()));
+        pageController.addPage(new Page(3, "PetGallery", new PetGallery()));
     }
 
     /**

@@ -25,6 +25,7 @@ public class PetGallery extends PageBlueprint {
      */
     public PetGallery() {
         initComponents();
+        this.pageController = PageController.getInstance();
         addCustomComponents();
     }
     private void addCustomComponents() {
@@ -243,7 +244,7 @@ public class PetGallery extends PageBlueprint {
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelHomeMouseClicked
-
+        pageController.changePage("Home");
     }//GEN-LAST:event_labelHomeMouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
