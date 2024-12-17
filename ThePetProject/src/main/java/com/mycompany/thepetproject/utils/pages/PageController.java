@@ -57,4 +57,10 @@ public class PageController {
         System.out.println("Current page: " + currentPage.getName());
         System.out.println("Previous page: " + previousPage.getName());
     }
+    
+    public void goToPreviousPage() {
+        tabbedPane.setSelectedIndex(previousPage.getIndex());
+        currentPage = previousPage;
+        previousPage = null;
+    }
 }

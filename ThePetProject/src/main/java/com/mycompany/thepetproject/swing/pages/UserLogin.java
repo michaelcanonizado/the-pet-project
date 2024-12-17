@@ -44,6 +44,7 @@ public class UserLogin extends javax.swing.JPanel {
         labelPassword = new javax.swing.JLabel();
         labelAdmin = new javax.swing.JLabel();
         labelOrLoginAs = new javax.swing.JLabel();
+        backBtn = new javax.swing.JButton();
 
         panelRedBg.setBackground(new java.awt.Color(226, 71, 42));
 
@@ -109,6 +110,13 @@ public class UserLogin extends javax.swing.JPanel {
         labelOrLoginAs.setForeground(new java.awt.Color(38, 50, 56));
         labelOrLoginAs.setText("Or Login as");
 
+        backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelLoginCardLayout = new javax.swing.GroupLayout(panelLoginCard);
         panelLoginCard.setLayout(panelLoginCardLayout);
         panelLoginCardLayout.setHorizontalGroup(
@@ -136,11 +144,16 @@ public class UserLogin extends javax.swing.JPanel {
                     .addGroup(panelLoginCardLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(labelForgotPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(panelLoginCardLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(backBtn))
         );
         panelLoginCardLayout.setVerticalGroup(
             panelLoginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLoginCardLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(17, 17, 17)
+                .addComponent(backBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(labelUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -197,8 +210,13 @@ public class UserLogin extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldUsernameActionPerformed
 
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        pageController.goToPreviousPage();
+    }//GEN-LAST:event_backBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backBtn;
     private javax.swing.JButton buttonLogin;
     private javax.swing.JLabel labelAdmin;
     private javax.swing.JLabel labelDontHave;
