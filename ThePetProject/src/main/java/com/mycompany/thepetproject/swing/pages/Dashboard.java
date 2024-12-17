@@ -45,7 +45,10 @@ public class Dashboard extends PageBlueprint {
     }
 
     private void loadPetsToTable() {
-        List<Pet> pets =  PetList.getPets();
+        // Clear the table model before loading data
+        model.setRowCount(0);
+
+        List<Pet> pets = PetList.getPets();
         for (Pet pet : pets) {
             model.addRow(new Object[]{
                 pet.getId().toString(),
