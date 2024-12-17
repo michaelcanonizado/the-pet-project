@@ -7,9 +7,11 @@ package com.mycompany.thepetproject.swing.pages;
 import com.mycompany.thepetproject.main.Pet;
 import com.mycompany.thepetproject.main.PetList;
 import com.mycompany.thepetproject.utils.pages.PageBlueprint;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import com.mycompany.thepetproject.main.PetSex;
+import com.mycompany.thepetproject.main.PetType;
 import java.util.List;
+import java.util.UUID;
+
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -33,10 +35,18 @@ public class Dashboard extends PageBlueprint {
     }
     
     private void handleRowClick(int row) {
-        // Get the data from the selected row
-        String petName = (String) model.getValueAt(row, 1);
-        System.out.println("Row " + row + " clicked. Pet Name: " + petName);
         EditPet editPet = new EditPet();
+        UUID id = UUID.fromString((String) model.getValueAt(row, 0));
+        String name = (String) model.getValueAt(row, 1);
+        int age = Integer.parseInt((String) model.getValueAt(row, 2));
+        PetType type = PetType.valueOf((String) model.getValueAt(row, 3));
+        PetSex sex = PetSex.valueOf((String) model.getValueAt(row, 4));
+        String description = (String) model.getValueAt(row, 5);
+
+        // Set the pet details in the EditPet form
+        editPet.setPetDetails(id, name, age, type, sex, description);
+
+        // Display the EditPet form
         editPet.setVisible(true);
         editPet.pack();
         editPet.setLocationRelativeTo(null);
@@ -45,7 +55,10 @@ public class Dashboard extends PageBlueprint {
     }
 
     private void loadPetsToTable() {
-        List<Pet> pets =  PetList.getPets();
+        // Clear the table model before loading data
+        model.setRowCount(0);
+
+        List<Pet> pets = PetList.getPets();
         for (Pet pet : pets) {
             model.addRow(new Object[]{
                 pet.getId().toString(),
@@ -63,19 +76,16 @@ public class Dashboard extends PageBlueprint {
         model.addRow(dataRow);
     }
 
-//    private void addTableMouseListener() {
-//        petsTable.addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mouseClicked(MouseEvent e) {
-//                int row = petsTable.rowAtPoint(e.getPoint());
-//                int col = petsTable.columnAtPoint(e.getPoint());
-//                if (row >= 0 && col >= 0) {
-//                    // Handle the row click event
-//                    handleRowClick(row);
-//                }
-//            }
-//        });
-//    }
+    public static void updateRowInTable(UUID id, Object[] dataRow) {
+        for (int i = 0; i < model.getRowCount(); i++) {
+            if (model.getValueAt(i, 0).equals(id.toString())) {
+                for (int j = 0; j < dataRow.length; j++) {
+                    model.setValueAt(dataRow[j], i, j);
+                }
+                break;
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
