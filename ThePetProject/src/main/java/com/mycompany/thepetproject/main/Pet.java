@@ -54,6 +54,26 @@ public class Pet {
     public String getDescription() {
         return description;
     }
+
+    public UUID getPetById(UUID id) {
+        return this.id = id;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public void setType(PetType type) {
+        this.type = type;
+    }
+    public void setSex(PetSex sex) {
+        this.sex = sex;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     
     @Override
     public String toString() {
