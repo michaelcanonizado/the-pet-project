@@ -21,7 +21,9 @@ public class Pet {
     private String description;
     
     public Pet(Type type, String name, int age, Sex sex, String description) {
-        this.id = UUID.randomUUID();
+        do {
+            this.id = UUID.randomUUID();
+        } while (PetList.isPetInList(this.id));
         this.type = type;
         this.name = name;
         this.age = age;

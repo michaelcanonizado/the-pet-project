@@ -4,7 +4,7 @@
  */
 package com.mycompany.thepetproject.utils.auth.strategies;
 import com.mycompany.thepetproject.utils.auth.strategies.AuthenticationStrategy;
-import com.mycompany.thepetproject.main.admin.Pet;
+import com.mycompany.thepetproject.main.admin.Admin;
 import com.mycompany.thepetproject.main.admin.AdminList;
 import com.mycompany.thepetproject.utils.auth.Password;
 
@@ -15,9 +15,9 @@ import com.mycompany.thepetproject.utils.auth.Password;
 public class AdminAuthentication implements AuthenticationStrategy {
 
     @Override
-    public Pet authenticate(String username, String password) {
+    public Admin authenticate(String username, String password) {
        // Get user via entered username (Check by username)
-        Pet admin = AdminList.getAdmin(username);
+        Admin admin = AdminList.getAdmin(username);
         if (admin == null) return null;
         
         // If username is valid and user object is found, check entered password (Check by password)
