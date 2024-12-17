@@ -145,14 +145,6 @@ public class Authentication extends PageBlueprint {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 textFieldUsername2FocusGained(evt);
             }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                textFieldUsername2FocusLost(evt);
-            }
-        });
-        textFieldUsername2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                textFieldUsername2MouseClicked(evt);
-            }
         });
         textFieldUsername2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,12 +157,9 @@ public class Authentication extends PageBlueprint {
         textFieldPassword2.setForeground(new java.awt.Color(38, 50, 56));
         textFieldPassword2.setText("Enter password");
         textFieldPassword2.setPreferredSize(new java.awt.Dimension(297, 37));
-        textFieldPassword2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                textFieldPassword2MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                textFieldPassword2MouseEntered(evt);
+        textFieldPassword2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textFieldPassword2FocusGained(evt);
             }
         });
 
@@ -192,9 +181,9 @@ public class Authentication extends PageBlueprint {
         textFieldConfirmPassword.setForeground(new java.awt.Color(38, 50, 56));
         textFieldConfirmPassword.setText("Confirm password");
         textFieldConfirmPassword.setPreferredSize(new java.awt.Dimension(297, 37));
-        textFieldConfirmPassword.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                textFieldConfirmPasswordMouseClicked(evt);
+        textFieldConfirmPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textFieldConfirmPasswordFocusGained(evt);
             }
         });
         textFieldConfirmPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -322,6 +311,11 @@ public class Authentication extends PageBlueprint {
         panelLoginCard1.setMinimumSize(new java.awt.Dimension(361, 426));
         panelLoginCard1.setName(""); // NOI18N
         panelLoginCard1.setPreferredSize(new java.awt.Dimension(361, 426));
+        panelLoginCard1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                panelLoginCard1FocusGained(evt);
+            }
+        });
 
         textFieldUsername1.setBackground(new java.awt.Color(255, 255, 255));
         textFieldUsername1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -329,9 +323,9 @@ public class Authentication extends PageBlueprint {
         textFieldUsername1.setText("Enter username");
         textFieldUsername1.setAutoscrolls(false);
         textFieldUsername1.setPreferredSize(new java.awt.Dimension(297, 37));
-        textFieldUsername1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                textFieldUsername1MouseClicked(evt);
+        textFieldUsername1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textFieldUsername1FocusGained(evt);
             }
         });
         textFieldUsername1.addActionListener(new java.awt.event.ActionListener() {
@@ -340,6 +334,13 @@ public class Authentication extends PageBlueprint {
             }
         });
 
+<<<<<<< HEAD
+        textFieldPassword1.setBackground(new java.awt.Color(255, 255, 255));
+        textFieldPassword1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        textFieldPassword1.setForeground(new java.awt.Color(38, 50, 56));
+        textFieldPassword1.setText("Enter password");
+        textFieldPassword1.setPreferredSize(new java.awt.Dimension(297, 37));
+=======
 
         labelForgotPassword1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelForgotPassword1.setForeground(new java.awt.Color(226, 70, 43));
@@ -355,6 +356,7 @@ public class Authentication extends PageBlueprint {
 
             }
         });
+>>>>>>> c0455369ab127b5903b68b6e4e016dd1812dcb81
 
         labelDontHave.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelDontHave.setForeground(new java.awt.Color(38, 50, 56));
@@ -509,9 +511,9 @@ public class Authentication extends PageBlueprint {
         textFieldPassword.setForeground(new java.awt.Color(38, 50, 56));
         textFieldPassword.setText("Enter password");
         textFieldPassword.setPreferredSize(new java.awt.Dimension(297, 37));
-        textFieldPassword.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                textFieldPasswordMouseClicked(evt);
+        textFieldPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textFieldPasswordFocusGained(evt);
             }
         });
 
@@ -598,9 +600,9 @@ public class Authentication extends PageBlueprint {
         textFieldUsername.setText("Enter username");
         textFieldUsername.setAutoscrolls(false);
         textFieldUsername.setPreferredSize(new java.awt.Dimension(297, 37));
-        textFieldUsername.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                textFieldUsernameMouseClicked(evt);
+        textFieldUsername.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textFieldUsernameFocusGained(evt);
             }
         });
         textFieldUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -763,6 +765,35 @@ public class Authentication extends PageBlueprint {
         tabbedAuthPage.setSelectedIndex(1);
     }//GEN-LAST:event_loginBackBtnMouseClicked
 
+<<<<<<< HEAD
+    private void textFieldUsername2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldUsername2FocusGained
+        textFieldUsername.setText("");
+    }//GEN-LAST:event_textFieldUsername2FocusGained
+
+    private void textFieldPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldPasswordFocusGained
+       textFieldPassword.setText("");
+    }//GEN-LAST:event_textFieldPasswordFocusGained
+
+    private void textFieldUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldUsernameFocusGained
+        textFieldUsername.setText("");
+    }//GEN-LAST:event_textFieldUsernameFocusGained
+
+    private void textFieldUsername1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldUsername1FocusGained
+        textFieldUsername.setText("");
+    }//GEN-LAST:event_textFieldUsername1FocusGained
+
+    private void panelLoginCard1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelLoginCard1FocusGained
+        textFieldUsername.setText("");
+    }//GEN-LAST:event_panelLoginCard1FocusGained
+
+    private void textFieldPassword2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldPassword2FocusGained
+        textFieldPassword2.setText("");
+    }//GEN-LAST:event_textFieldPassword2FocusGained
+
+    private void textFieldConfirmPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldConfirmPasswordFocusGained
+        textFieldConfirmPassword.setText("");
+    }//GEN-LAST:event_textFieldConfirmPasswordFocusGained
+=======
     private void loginSubmitBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginSubmitBtnMouseClicked
         // TODO add your handling code here:
         String usernameLogin = textFieldUsername1.getText().trim();
@@ -786,6 +817,7 @@ public class Authentication extends PageBlueprint {
     private void labelLoginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLoginButtonMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_labelLoginButtonMouseClicked
+>>>>>>> c0455369ab127b5903b68b6e4e016dd1812dcb81
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
