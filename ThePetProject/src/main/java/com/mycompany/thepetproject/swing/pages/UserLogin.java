@@ -19,8 +19,7 @@ public class UserLogin extends javax.swing.JPanel {
      */
     public UserLogin() {
         initComponents();
-        PageController pageController = new PageController();
-        this.pageController = pageController;
+        this.pageController = PageController.getInstance();
     }
 
     /**
