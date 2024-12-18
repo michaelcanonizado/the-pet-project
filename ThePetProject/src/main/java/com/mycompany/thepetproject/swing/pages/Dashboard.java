@@ -5,6 +5,7 @@ import com.mycompany.thepetproject.main.Pet;
 import com.mycompany.thepetproject.main.PetList;
 import com.mycompany.thepetproject.utils.pages.PageBlueprint;
 import com.mycompany.thepetproject.main.PetSex;
+import com.mycompany.thepetproject.main.PetStatus;
 import com.mycompany.thepetproject.main.PetType;
 import com.mycompany.thepetproject.utils.auth.SessionManager;
 import com.mycompany.thepetproject.utils.pages.PageController;
@@ -40,10 +41,11 @@ public class Dashboard extends PageBlueprint {
         int age = Integer.parseInt((String) model.getValueAt(row, 2));
         PetType type = PetType.valueOf((String) model.getValueAt(row, 3));
         PetSex sex = PetSex.valueOf((String) model.getValueAt(row, 4));
-        String description = (String) model.getValueAt(row, 5);
+        PetStatus status = PetStatus.valueOf((String) model.getValueAt(row, 5));
+        String description = (String) model.getValueAt(row, 6);
 
         // Set the pet details in the EditPet form
-        editPet.setPetDetails(id, name, age, type, sex, description);
+        editPet.setPetDetails(id, name, age, type, sex, status, description);
 
         // Display the EditPet form
         editPet.setVisible(true);
@@ -65,6 +67,7 @@ public class Dashboard extends PageBlueprint {
                 String.valueOf(pet.getAge()),
                 pet.getType().toString(),
                 pet.getSex().toString(),
+                pet.getStatus().toString(),
                 pet.getDescription()
             });
         }
@@ -244,17 +247,18 @@ public class Dashboard extends PageBlueprint {
 
             },
             new String [] {
-                "ID", "Pet Name", "Age", "Type", "Sex", "Description"
+                "ID", "Pet Name", "Age", "Type", "Sex", "Status", "Description"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        petsTable.getTableHeader().setReorderingAllowed(false);
         petsTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 petsTableMouseClicked(evt);
@@ -579,7 +583,7 @@ public class Dashboard extends PageBlueprint {
         if (row >= 0 && col >= 0) {
             // Handle the row click event
             handleRowClick(row);
-        }        // TODO add your handling code here:
+        } 
     }//GEN-LAST:event_petsTableMouseClicked
 
 
