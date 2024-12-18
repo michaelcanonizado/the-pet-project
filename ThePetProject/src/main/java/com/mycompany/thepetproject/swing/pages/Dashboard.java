@@ -38,7 +38,7 @@ public class Dashboard extends PageBlueprint {
         EditPet editPet = new EditPet();
         UUID id = UUID.fromString((String) model.getValueAt(row, 0));
         String name = (String) model.getValueAt(row, 1);
-        int age = Integer.parseInt((String) model.getValueAt(row, 2));
+        int age = Integer.parseInt(model.getValueAt(row, 2).toString());
         PetType type = PetType.valueOf((String) model.getValueAt(row, 3));
         PetSex sex = PetSex.valueOf((String) model.getValueAt(row, 4));
         PetStatus status = PetStatus.valueOf((String) model.getValueAt(row, 5));
@@ -64,7 +64,7 @@ public class Dashboard extends PageBlueprint {
             model.addRow(new Object[]{
                 pet.getId().toString(),
                 pet.getName(),
-                String.valueOf(pet.getAge()),
+                pet.getAge(),
                 pet.getType().toString(),
                 pet.getSex().toString(),
                 pet.getStatus().toString(),
