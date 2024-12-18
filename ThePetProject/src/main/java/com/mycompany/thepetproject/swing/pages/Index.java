@@ -4,7 +4,7 @@
  */
 package com.mycompany.thepetproject.swing.pages;
 import com.mycompany.thepetproject.swing.pages.Home;
-import com.mycompany.thepetproject.swing.pages.AuthPage;
+import com.mycompany.thepetproject.swing.pages.AuthPanel;
 import com.mycompany.thepetproject.swing.pages.Dashboard;
 import com.mycompany.thepetproject.swing.pages.PetGallery;
 import com.mycompany.thepetproject.utils.pages.PageController;
