@@ -4,6 +4,11 @@
  */
 package com.mycompany.thepetproject.swing.components;
 
+import com.mycompany.thepetproject.main.PetSex;
+import com.mycompany.thepetproject.main.PetType;
+import com.mycompany.thepetproject.swing.components.PetModal;
+import java.util.UUID;
+
 /**
  *
  * @author deynklarys
@@ -18,11 +23,30 @@ package com.mycompany.thepetproject.swing.components;
  */
 public class PetCard extends javax.swing.JPanel {
 
+    private UUID id;
+    private String name;
+    private PetSex sex;
+    private PetType type;
+    private int age;
+    private String description;
+    
     /**
      * Creates new form PetCard
      */
-    public PetCard() {
+    public PetCard(UUID id, String name, PetSex sex, PetType type, int age, String description) {
         initComponents();
+        
+        this.id = id;
+        this.name = name;
+        this.sex = sex;
+        this.type = type;
+        this.age = age;
+        this.description = description;
+        
+        this.nameLabel.setText(name);
+        this.ageLabel.setText(String.valueOf(age));
+        this.sexLabel.setText(sex.toString());
+        this.id = id;
     }
 
     /**
@@ -34,17 +58,45 @@ public class PetCard extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         panelRound1 = new com.mycompany.thepetproject.swing.components.PanelRound();
         image = new javax.swing.JLabel();
-        name = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
         labelAge = new javax.swing.JLabel();
         labelSex = new javax.swing.JLabel();
-        age = new javax.swing.JLabel();
-        sex = new javax.swing.JLabel();
+        ageLabel = new javax.swing.JLabel();
+        sexLabel = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(251, 244, 191));
         setMaximumSize(new java.awt.Dimension(150, 230));
         setMinimumSize(new java.awt.Dimension(150, 230));
         setPreferredSize(new java.awt.Dimension(150, 230));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setOpaque(false);
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 230, Short.MAX_VALUE)
+        );
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 230));
 
         panelRound1.setBackground(new java.awt.Color(248, 208, 70));
         panelRound1.setMaximumSize(new java.awt.Dimension(150, 230));
@@ -55,9 +107,9 @@ public class PetCard extends javax.swing.JPanel {
         image.setText("image");
         image.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(38, 50, 56), 1, true));
 
-        name.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        name.setForeground(new java.awt.Color(38, 50, 56));
-        name.setText("name");
+        nameLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        nameLabel.setForeground(new java.awt.Color(38, 50, 56));
+        nameLabel.setText("name");
 
         labelAge.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         labelAge.setForeground(new java.awt.Color(38, 50, 56));
@@ -67,13 +119,13 @@ public class PetCard extends javax.swing.JPanel {
         labelSex.setForeground(new java.awt.Color(38, 50, 56));
         labelSex.setText("Sex:");
 
-        age.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        age.setForeground(new java.awt.Color(38, 50, 56));
-        age.setText("age");
+        ageLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ageLabel.setForeground(new java.awt.Color(38, 50, 56));
+        ageLabel.setText("age");
 
-        sex.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        sex.setForeground(new java.awt.Color(38, 50, 56));
-        sex.setText("sex");
+        sexLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        sexLabel.setForeground(new java.awt.Color(38, 50, 56));
+        sexLabel.setText("sex");
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
@@ -86,16 +138,16 @@ public class PetCard extends javax.swing.JPanel {
                         .addGap(6, 6, 6)
                         .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelRound1Layout.createSequentialGroup()
-                                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 46, Short.MAX_VALUE))
                             .addGroup(panelRound1Layout.createSequentialGroup()
                                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(labelSex, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(labelAge, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(age, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(sex, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(ageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(sexLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addComponent(image, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -104,39 +156,45 @@ public class PetCard extends javax.swing.JPanel {
             .addGroup(panelRound1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelAge)
-                    .addComponent(age))
+                    .addComponent(ageLabel))
                 .addGap(0, 0, 0)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSex)
-                    .addComponent(sex))
-                .addContainerGap(13, Short.MAX_VALUE))
+                    .addComponent(sexLabel))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-        );
+        add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 230));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formMouseClicked
+
+    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+        System.out.println("Card clicked! " + id);
+//        String id, String name, PetSex sex, PetType type, int age, String description
+        PetModal modal = new PetModal(id, name, sex, type, age, description);
+        modal.setVisible(true);
+        modal.pack();
+        modal.setLocationRelativeTo(null);
+        modal.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jPanel1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel age;
+    private javax.swing.JLabel ageLabel;
     private javax.swing.JLabel image;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelAge;
     private javax.swing.JLabel labelSex;
-    private javax.swing.JLabel name;
+    private javax.swing.JLabel nameLabel;
     private com.mycompany.thepetproject.swing.components.PanelRound panelRound1;
-    private javax.swing.JLabel sex;
+    private javax.swing.JLabel sexLabel;
     // End of variables declaration//GEN-END:variables
 }

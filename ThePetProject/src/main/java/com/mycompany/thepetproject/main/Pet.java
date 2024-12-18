@@ -58,6 +58,9 @@ public class Pet {
     public UUID getPetById(UUID id) {
         return this.id = id;
     }
+    public void setId(UUID id) {
+        this.id = id;
+    }
     public void setName(String name) {
         this.name = name;
     }
@@ -72,6 +75,9 @@ public class Pet {
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+    public void setStatus(PetStatus status) {
+        this.status = status;
     }
 
     

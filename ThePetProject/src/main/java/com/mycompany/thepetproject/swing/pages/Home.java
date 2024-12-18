@@ -94,7 +94,7 @@ public class Home extends PageBlueprint {
     }//GEN-LAST:event_loginBtnMouseClicked
 
     private void viewPetsBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewPetsBtnMouseClicked
-//        pageController.changePage("PetGallery");
+        pageController.changePage("PetGallery");
     }//GEN-LAST:event_viewPetsBtnMouseClicked
 
 

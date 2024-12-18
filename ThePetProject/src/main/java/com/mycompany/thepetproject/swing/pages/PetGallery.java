@@ -4,73 +4,53 @@
  */
 package com.mycompany.thepetproject.swing.pages;
 
+import com.mycompany.thepetproject.main.Pet;
+import com.mycompany.thepetproject.main.PetList;
+import com.mycompany.thepetproject.main.PetStatus;
 import com.mycompany.thepetproject.utils.pages.PageBlueprint;
 import com.mycompany.thepetproject.utils.pages.PageController;
 import com.mycompany.thepetproject.swing.components.PetCard;
-import java.awt.Dimension;
-import javax.swing.JPanel;
+import java.awt.GridLayout;
+import java.util.List;
 
 /**
  *
  * @author drioj
  */
 public class PetGallery extends PageBlueprint {
-    
     private PageController pageController;
-
-    private JPanel cardContainer;
 
     /**
      * Creates new form PetGall
      */
     public PetGallery() {
         initComponents();
-        addCustomComponents();
+        this.pageController = PageController.getInstance();
+        loadPetCards();
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        
     }
-    private void addCustomComponents() {
-        panelBody.setLayout(null); // Use absolute positioning
-
-        // Create a container panel for pet cards
-        cardContainer = new JPanel();
-        cardContainer.setLayout(null); // Use absolute positioning
-        cardContainer.setBackground(null); // Optional: Set background color for visibility
-
-        // Dynamically generate pet cards
-        generatePetCard();
-
-        // Add the container panel to panelBody
-        panelBody.add(cardContainer);
-    }
-    private void generatePetCard() {
-        int x = 10; // Starting x position
-        int y = 10; // Starting y position
-        int cardWidth = 150;
-        int cardHeight = 230;
-        int gap = 10; // Gap between cards
-        int numCards = 20; // Number of pet cards
-        int maxCardsPerRow = 5; // Maximum number of cards per row
-
-        for (int i = 1; i <= numCards; i++) {
-            PetCard card = new PetCard();
-            card.setBounds(x, y, cardWidth, cardHeight);
-            cardContainer.add(card);
-
-            // Update x and y for the next card
-            x += cardWidth + gap;
-            if (i % maxCardsPerRow == 0) { // Wrap to the next row after maxCardsPerRow cards
-                x = 10;
-                y += cardHeight + gap;
-            }
+    public static void loadPetCards() {
+        cardsContainer.removeAll();
+        PetList.loadPets();
+        List<Pet> pets = PetList.filterPets(PetStatus.FOR_ADOPTION);
+        
+        cardsContainer.setLayout(new GridLayout(0,4, 0, 40));
+        for (int i = 0; i < pets.size(); i++) {
+            Pet pet = pets.get(i);
+//            String id, String name, PetSex sex, PetType type, int age, String description
+            PetCard card = new PetCard(
+                    pet.getId(), 
+                    pet.getName(), 
+                    pet.getSex(),
+                    pet.getType(),
+                    pet.getAge(), 
+                    pet.getDescription()
+            );
+            cardsContainer.add(card);
         }
-
-        // Set the preferred size of the container panel to accommodate all cards
-        int containerWidth = maxCardsPerRow * (cardWidth + gap) + gap;
-        int containerHeight = ((numCards + maxCardsPerRow - 1) / maxCardsPerRow) * (cardHeight + gap) - gap;
-        cardContainer.setBounds(90, 100, containerWidth, containerHeight); // Move the cardContainer to (50, 50)
-        panelBody.setPreferredSize(new Dimension(containerWidth + 100, containerHeight + 100));
-        panelBody.revalidate();
-        panelBody.repaint();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -81,22 +61,37 @@ public class PetGallery extends PageBlueprint {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        modalContainer = new javax.swing.JPanel();
         PanelBack = new javax.swing.JPanel();
         panelTop = new javax.swing.JPanel();
         panelLogin = new com.mycompany.thepetproject.swing.components.PanelRound();
         jLabel1 = new javax.swing.JLabel();
         panelRound1 = new com.mycompany.thepetproject.swing.components.PanelRound();
         labelHome = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
         panelBody = new javax.swing.JPanel();
         labelPetAdoption = new javax.swing.JLabel();
-        labelCats = new javax.swing.JLabel();
-        labelDogs = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        cardsContainer = new javax.swing.JPanel();
 
         setMaximumSize(new java.awt.Dimension(1000, 710));
         setMinimumSize(new java.awt.Dimension(1000, 710));
         setPreferredSize(new java.awt.Dimension(1000, 710));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        modalContainer.setOpaque(false);
+
+        javax.swing.GroupLayout modalContainerLayout = new javax.swing.GroupLayout(modalContainer);
+        modalContainer.setLayout(modalContainerLayout);
+        modalContainerLayout.setHorizontalGroup(
+            modalContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1000, Short.MAX_VALUE)
+        );
+        modalContainerLayout.setVerticalGroup(
+            modalContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 710, Short.MAX_VALUE)
+        );
+
+        add(modalContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, -1, 1000, 710));
 
         panelTop.setBackground(new java.awt.Color(248, 208, 70));
 
@@ -164,7 +159,7 @@ public class PetGallery extends PageBlueprint {
                 .addComponent(panelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(690, Short.MAX_VALUE))
         );
         panelTopLayout.setVerticalGroup(
             panelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,65 +180,78 @@ public class PetGallery extends PageBlueprint {
         labelPetAdoption.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelPetAdoption.setText("Pets For Adoption");
 
-        labelCats.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        labelCats.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelCats.setText("Cats");
+        jScrollPane2.setBackground(new java.awt.Color(251, 244, 191));
 
-        labelDogs.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        labelDogs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelDogs.setText("Dogs");
+        cardsContainer.setBackground(new java.awt.Color(251, 244, 191));
+        cardsContainer.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        javax.swing.GroupLayout cardsContainerLayout = new javax.swing.GroupLayout(cardsContainer);
+        cardsContainer.setLayout(cardsContainerLayout);
+        cardsContainerLayout.setHorizontalGroup(
+            cardsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 996, Short.MAX_VALUE)
+        );
+        cardsContainerLayout.setVerticalGroup(
+            cardsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 541, Short.MAX_VALUE)
+        );
+
+        jScrollPane2.setViewportView(cardsContainer);
 
         javax.swing.GroupLayout panelBodyLayout = new javax.swing.GroupLayout(panelBody);
         panelBody.setLayout(panelBodyLayout);
         panelBodyLayout.setHorizontalGroup(
             panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBodyLayout.createSequentialGroup()
-                .addContainerGap(331, Short.MAX_VALUE)
+                .addContainerGap(161, Short.MAX_VALUE)
                 .addGroup(panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBodyLayout.createSequentialGroup()
-                        .addComponent(labelDogs, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labelCats, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(413, 413, 413))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 738, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(105, 105, 105))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBodyLayout.createSequentialGroup()
                         .addComponent(labelPetAdoption)
-                        .addGap(315, 315, 315))))
+                        .addGap(316, 316, 316))))
         );
         panelBodyLayout.setVerticalGroup(
             panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBodyLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelPetAdoption, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addGroup(panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelCats)
-                    .addComponent(labelDogs))
-                .addContainerGap(580, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
-
-        jScrollPane1.setViewportView(panelBody);
 
         javax.swing.GroupLayout PanelBackLayout = new javax.swing.GroupLayout(PanelBack);
         PanelBack.setLayout(PanelBackLayout);
         PanelBackLayout.setHorizontalGroup(
             PanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+            .addGroup(PanelBackLayout.createSequentialGroup()
+                .addComponent(panelTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(PanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PanelBackLayout.createSequentialGroup()
+                    .addComponent(panelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         PanelBackLayout.setVerticalGroup(
             PanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelBackLayout.createSequentialGroup()
-                .addComponent(panelTop, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 662, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(19, 19, 19)
+                .addComponent(panelTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(642, Short.MAX_VALUE))
+            .addGroup(PanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelBackLayout.createSequentialGroup()
+                    .addContainerGap(81, Short.MAX_VALUE)
+                    .addComponent(panelBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
 
         add(PanelBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelHomeMouseClicked
-
+        pageController.changePage("Home");
     }//GEN-LAST:event_labelHomeMouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -253,12 +261,12 @@ public class PetGallery extends PageBlueprint {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelBack;
+    public static javax.swing.JPanel cardsContainer;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel labelCats;
-    private javax.swing.JLabel labelDogs;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelHome;
     private javax.swing.JLabel labelPetAdoption;
+    public static javax.swing.JPanel modalContainer;
     private javax.swing.JPanel panelBody;
     private com.mycompany.thepetproject.swing.components.PanelRound panelLogin;
     private com.mycompany.thepetproject.swing.components.PanelRound panelRound1;
