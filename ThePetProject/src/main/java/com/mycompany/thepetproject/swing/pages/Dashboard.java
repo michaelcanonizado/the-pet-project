@@ -9,6 +9,8 @@ import com.mycompany.thepetproject.main.PetList;
 import com.mycompany.thepetproject.utils.pages.PageBlueprint;
 import com.mycompany.thepetproject.main.PetSex;
 import com.mycompany.thepetproject.main.PetType;
+import com.mycompany.thepetproject.utils.auth.SessionManager;
+import com.mycompany.thepetproject.utils.pages.PageController;
 import java.util.List;
 import java.util.UUID;
 
@@ -533,12 +535,17 @@ public class Dashboard extends PageBlueprint {
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
+       SessionManager sessionManager = SessionManager.getInstance();
+       sessionManager.logout();
+       PageController pageController = PageController.getInstance();
+       pageController.changePage("Home");
 
         // Add your other methods, variables, etc.
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+       SessionManager sessionManager = SessionManager.getInstance();
+       sessionManager.logout();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void addPetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPetBtnActionPerformed

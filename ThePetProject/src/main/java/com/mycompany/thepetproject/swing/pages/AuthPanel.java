@@ -4,6 +4,7 @@
  */
 package com.mycompany.thepetproject.swing.pages;
 
+
 import javax.swing.JOptionPane;
 
 import com.mycompany.thepetproject.utils.auth.SessionManager;
@@ -15,21 +16,19 @@ import com.mycompany.thepetproject.utils.pages.PageController;
 
 /**
  *
- * @author drioj
+ * @author deynklarys
  */
-public class AuthPage extends PageBlueprint {
+public class AuthPanel extends PageBlueprint {
     private PageController pageController;
     private SessionManager sessionManager;
 
     /**
-     * Creates new form Authentication
+     * Creates new form AuthPanel
      */
-    public AuthPage() {
+    public AuthPanel() {
         initComponents();
         this.pageController = PageController.getInstance();
-        tabbedAuthPage.setSelectedIndex(1);    
-        this.sessionManager = SessionManager.getInstance();
-    }
+        this.sessionManager = SessionManager.getInstance();    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,8 +39,6 @@ public class AuthPage extends PageBlueprint {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        tabbedAuthPage = new javax.swing.JTabbedPane();
         panelAdmin = new javax.swing.JPanel();
         panelLoginCard = new javax.swing.JPanel();
         labelWelcome = new javax.swing.JLabel();
@@ -55,14 +52,9 @@ public class AuthPage extends PageBlueprint {
         panelRound3 = new com.mycompany.thepetproject.swing.components.PanelRound();
         label1 = new java.awt.Label();
 
+        setMaximumSize(new java.awt.Dimension(1000, 710));
+        setMinimumSize(new java.awt.Dimension(1000, 710));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        tabbedAuthPage.setForeground(new java.awt.Color(255, 255, 255));
-        tabbedAuthPage.setMaximumSize(new java.awt.Dimension(1000, 710));
-        tabbedAuthPage.setMinimumSize(new java.awt.Dimension(1000, 710));
-        tabbedAuthPage.setPreferredSize(new java.awt.Dimension(1100, 710));
 
         panelAdmin.setBackground(new java.awt.Color(251, 245, 222));
         panelAdmin.setMaximumSize(new java.awt.Dimension(1000, 710));
@@ -144,7 +136,7 @@ public class AuthPage extends PageBlueprint {
             }
         });
 
-        passwordField2.setText("jPasswordField1");
+        passwordField2.setText("password");
         passwordField2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 passwordField2FocusGained(evt);
@@ -191,26 +183,20 @@ public class AuthPage extends PageBlueprint {
         panelLoginCardLayout.setHorizontalGroup(
             panelLoginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLoginCardLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(panelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelLoginCardLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addGroup(panelLoginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(passwordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelLoginCardLayout.createSequentialGroup()
-                        .addComponent(passwordField2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panelLoginCardLayout.createSequentialGroup()
-                        .addGroup(panelLoginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelLoginCardLayout.createSequentialGroup()
-                                .addComponent(panelLoginAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(textFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(panelLoginCardLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(panelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(panelLoginAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         panelLoginCardLayout.setVerticalGroup(
             panelLoginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,22 +230,52 @@ public class AuthPage extends PageBlueprint {
             .addGroup(panelAdminLayout.createSequentialGroup()
                 .addGap(332, 332, 332)
                 .addComponent(panelLoginCard, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(432, Short.MAX_VALUE))
+                .addContainerGap(332, Short.MAX_VALUE))
         );
         panelAdminLayout.setVerticalGroup(
             panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAdminLayout.createSequentialGroup()
-                .addGap(171, 171, 171)
+                .addGap(159, 159, 159)
                 .addComponent(panelLoginCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
-        tabbedAuthPage.addTab("tab1", panelAdmin);
-
-        jPanel1.add(tabbedAuthPage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -34, -1, 830));
-
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(panelAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void labelLoginAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLoginAdminMouseClicked
+        System.out.println("CLICK USER LOGIN");
+        String usernameLogin = textFieldUsername.getText().trim();
+        String passwordLogin = new String(passwordField2.getPassword());
+
+        System.out.println("Username: " + usernameLogin);
+        System.out.println("Password: " + passwordLogin);
+
+        AdminAuthentication authentication = new AdminAuthentication();
+        boolean isAuthenticated = sessionManager.authenticate(SessionRole.ADMIN, usernameLogin, passwordLogin, authentication);
+        if (isAuthenticated) {
+            pageController.changePage("AdminDashboard");
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid admin credentials", "Authentication Failed", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_labelLoginAdminMouseClicked
+
+    private void panelLoginAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelLoginAdminMouseClicked
+        System.out.println("CLICK ADMIN LOGIN");
+        String usernameLogin = textFieldUsername.getText().trim();
+        String passwordLogin = new String(passwordField2.getPassword());
+
+        System.out.println("Username: " + usernameLogin);
+        System.out.println("Password: " + passwordLogin);
+
+        AdminAuthentication authentication = new AdminAuthentication();
+        boolean isAuthenticated = sessionManager.authenticate(SessionRole.ADMIN, usernameLogin, passwordLogin, authentication);
+        if (isAuthenticated) {
+            pageController.changePage("AdminDashboard");
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid admin credentials", "Authentication Failed", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_panelLoginAdminMouseClicked
 
     private void textFieldUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldUsernameFocusGained
         textFieldUsername.setText("");
@@ -269,164 +285,21 @@ public class AuthPage extends PageBlueprint {
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldUsernameActionPerformed
 
-    private void labelLoginAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLoginAdminMouseClicked
-       pageController.changePage("AdminDashboard");
-    }//GEN-LAST:event_labelLoginAdminMouseClicked
-
-    private void panelLoginAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelLoginAdminMouseClicked
-        // TODO add your handling code here:
-         pageController.changePage("AdminDashboard");
-    }//GEN-LAST:event_panelLoginAdminMouseClicked
-
     private void passwordField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordField2FocusGained
         passwordField2.setText("");
     }//GEN-LAST:event_passwordField2FocusGained
 
     private void label1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label1MouseClicked
         pageController.goToPreviousPage();
-        tabbedAuthPage.setSelectedIndex(1);
     }//GEN-LAST:event_label1MouseClicked
 
     private void panelRound3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound3MouseClicked
         pageController.goToPreviousPage();
-        tabbedAuthPage.setSelectedIndex(1);
     }//GEN-LAST:event_panelRound3MouseClicked
-
-    private void labelUserLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelUserLoginMouseClicked
-        tabbedAuthPage.setSelectedIndex(1);
-    }//GEN-LAST:event_labelUserLoginMouseClicked
-
-    private void labelUserSignUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelUserSignUpMouseClicked
-        tabbedAuthPage.setSelectedIndex(0);
-    }//GEN-LAST:event_labelUserSignUpMouseClicked
-
-    private void panelRound12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound12MouseClicked
-        pageController.goToPreviousPage();
-        tabbedAuthPage.setSelectedIndex(1);
-    }//GEN-LAST:event_panelRound12MouseClicked
-
-    private void label10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label10MouseClicked
-        pageController.goToPreviousPage();
-        tabbedAuthPage.setSelectedIndex(1);
-    }//GEN-LAST:event_label10MouseClicked
-
-    private void labelLoginAdmin3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLoginAdmin3MouseClicked
-
-    }//GEN-LAST:event_labelLoginAdmin3MouseClicked
-
-    private void textFieldConfirmPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldConfirmPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldConfirmPasswordActionPerformed
-
-    private void textFieldConfirmPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldConfirmPasswordFocusGained
-        textFieldConfirmPassword.setText("");
-    }//GEN-LAST:event_textFieldConfirmPasswordFocusGained
-
-    private void labelLogin1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogin1MouseClicked
-        tabbedAuthPage.setSelectedIndex(1);
-    }//GEN-LAST:event_labelLogin1MouseClicked
-
-    private void textFieldPassword2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldPassword2FocusGained
-        textFieldPassword2.setText("");
-    }//GEN-LAST:event_textFieldPassword2FocusGained
-
-    private void textFieldUsername2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldUsername2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldUsername2ActionPerformed
-
-    private void textFieldUsername2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textFieldUsername2FocusGained
-        textFieldUsername2.setText("");
-    }//GEN-LAST:event_textFieldUsername2FocusGained
-
-    private void labelAdmin1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAdmin1MouseClicked
-        tabbedAuthPage.setSelectedIndex(2);
-    }//GEN-LAST:event_labelAdmin1MouseClicked
-
-    private void panelLoginCard1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelLoginCard1FocusGained
-        textFieldUsername.setText("");
-    }//GEN-LAST:event_panelLoginCard1FocusGained
-
-    private void panelRound8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound8MouseClicked
-        pageController.goToPreviousPage();
-        tabbedAuthPage.setSelectedIndex(1);
-    }//GEN-LAST:event_panelRound8MouseClicked
-
-    private void label6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label6MouseClicked
-        pageController.goToPreviousPage();
-        tabbedAuthPage.setSelectedIndex(1);
-    }//GEN-LAST:event_label6MouseClicked
-
-    private void passwordField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordField1FocusGained
-        passwordField1.setText("");
-    }//GEN-LAST:event_passwordField1FocusGained
-
-    private void panelRound1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound1MouseClicked
-
-    }//GEN-LAST:event_panelRound1MouseClicked
-
-    private void labelLoginAdmin1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLoginAdmin1MouseClicked
-        System.out.println("CLICK USER LOGIN");
-        String usernameLogin = textFieldUsername1.getText().trim();
-        String passwordLogin = new String(passwordField1.getPassword());
-
-        System.out.println("Username: " + usernameLogin);
-        System.out.println("Password: " + passwordLogin);
-
-        UserAuthentication authentication = new UserAuthentication();
-        boolean isAuthenticated = sessionManager.authenticate(SessionRole.USER, usernameLogin, passwordLogin, authentication);
-        if (isAuthenticated) {
-            pageController.changePage("AdminDashboard");
-        } else {
-        JOptionPane.showMessageDialog(this, "Invalid admin credentials", "Authentication Failed", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_labelLoginAdminMouseClicked
-
-    private void panelLoginAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelLoginAdminMouseClicked
-        System.out.println("CLICK ADMIN LOGIN");
-        String usernameLogin = textFieldUsername.getText().trim();
-        String passwordLogin = new String(passwordField2.getPassword());
-        
-        System.out.println("Username: " + usernameLogin);
-        System.out.println("Password: " + passwordLogin);
-        
-        AdminAuthentication authentication = new AdminAuthentication();
-        boolean isAuthenticated = sessionManager.authenticate(SessionRole.ADMIN, usernameLogin, passwordLogin, authentication);
-        if (isAuthenticated) {
-            pageController.changePage("AdminDashboard");
-        } else {
-        JOptionPane.showMessageDialog(this, "Invalid admin credentials", "Authentication Failed", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_panelLoginAdminMouseClicked
-
-    private void passwordField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordField2FocusGained
-        passwordField2.setText("");
-    }//GEN-LAST:event_passwordField2FocusGained
-
-    private void panelRound3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound3MouseClicked
-        pageController.goToPreviousPage();
-        tabbedAuthPage.setSelectedIndex(1);
-    }//GEN-LAST:event_panelRound3MouseClicked
-
-    private void label1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label1MouseClicked
-        pageController.goToPreviousPage();
-        tabbedAuthPage.setSelectedIndex(1);
-    }//GEN-LAST:event_label1MouseClicked
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
     private java.awt.Label label1;
-
-    private java.awt.Label label10;
-    private java.awt.Label label6;
-    private javax.swing.JLabel labelAdmin;
-    private javax.swing.JLabel labelAdmin1;
-    private javax.swing.JLabel labelAlreadyHave;
-    private javax.swing.JLabel labelDontHave;
-    private javax.swing.JLabel labelLogin;
-    private javax.swing.JLabel labelLogin1;
-
     private javax.swing.JLabel labelLoginAdmin;
     private javax.swing.JLabel labelLoginButton;
     private javax.swing.JLabel labelPassword;
@@ -436,14 +309,11 @@ public class AuthPage extends PageBlueprint {
     private com.mycompany.thepetproject.swing.components.PanelRound panelLoginAdmin;
     private javax.swing.JPanel panelLoginCard;
     private com.mycompany.thepetproject.swing.components.PanelRound panelRound3;
-
     private javax.swing.JPasswordField passwordField2;
-    private javax.swing.JTabbedPane tabbedAuthPage;
     private javax.swing.JTextField textFieldUsername;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void update() {
-        
     }
 }

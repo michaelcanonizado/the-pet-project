@@ -27,7 +27,7 @@ public class Index extends javax.swing.JFrame {
         
         pageController.setTabbedPane(tabbedPane);
         pageController.addPage(new Page(0, "Home", new Home()));
-        pageController.addPage(new Page(1, "Authentication", new AuthPage()));
+        pageController.addPage(new Page(1, "Authentication", new AuthPanel()));
         pageController.addPage(new Page(2, "AdminDashboard", new Dashboard()));
         pageController.addPage(new Page(3, "PetGallery", new PetGallery()));
     }

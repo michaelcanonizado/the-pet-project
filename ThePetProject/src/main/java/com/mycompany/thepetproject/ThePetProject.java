@@ -30,12 +30,15 @@ public class ThePetProject {
             Index pages = new Index();
             pages.setVisible(true);
         });
-        
+
+        UserList.loadUsers();
+        AdminSeeder.generateAdmins();
+
         PetList.loadPets();
         PetList.savePets();
         PetList.loadPets();
         PetList.savePets();
-        
+
         
 //        PetList.loadPets();
 //        PetList.savePets();
