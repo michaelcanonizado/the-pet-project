@@ -293,6 +293,7 @@ public class AddPet extends javax.swing.JFrame {
         nameField.setText("");
         ageField.setText("");
         descriptionField.setText("");
+        this.dispose();
     }//GEN-LAST:event_panelRound2MouseClicked
 
     private void label1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label1MouseClicked
@@ -339,6 +340,7 @@ public class AddPet extends javax.swing.JFrame {
         nameField.setText("");
         ageField.setText("");
         descriptionField.setText("");
+        this.dispose();
     }//GEN-LAST:event_label1MouseClicked
 
     private void statusComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusComboBoxActionPerformed
