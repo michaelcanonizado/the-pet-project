@@ -7,6 +7,7 @@ package com.mycompany.thepetproject.swing.components;
 import com.mycompany.thepetproject.main.PetSex;
 import com.mycompany.thepetproject.main.PetType;
 import com.mycompany.thepetproject.swing.components.PetModal;
+import java.util.UUID;
 
 /**
  *
@@ -22,7 +23,7 @@ import com.mycompany.thepetproject.swing.components.PetModal;
  */
 public class PetCard extends javax.swing.JPanel {
 
-    private String id;
+    private UUID id;
     private String name;
     private PetSex sex;
     private PetType type;
@@ -32,7 +33,7 @@ public class PetCard extends javax.swing.JPanel {
     /**
      * Creates new form PetCard
      */
-    public PetCard(String id, String name, PetSex sex, PetType type, int age, String description) {
+    public PetCard(UUID id, String name, PetSex sex, PetType type, int age, String description) {
         initComponents();
         
         this.id = id;
@@ -155,7 +156,7 @@ public class PetCard extends javax.swing.JPanel {
             .addGroup(panelRound1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(123, 123, 123)
+                .addGap(0, 0, 0)
                 .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -165,7 +166,7 @@ public class PetCard extends javax.swing.JPanel {
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSex)
                     .addComponent(sexLabel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 230));
@@ -176,7 +177,7 @@ public class PetCard extends javax.swing.JPanel {
     }//GEN-LAST:event_formMouseClicked
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
-        System.out.println("Card clicked!");
+        System.out.println("Card clicked! " + id);
 //        String id, String name, PetSex sex, PetType type, int age, String description
         PetModal modal = new PetModal(id, name, sex, type, age, description);
         modal.setVisible(true);

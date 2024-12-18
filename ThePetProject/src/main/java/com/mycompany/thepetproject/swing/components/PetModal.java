@@ -4,15 +4,20 @@
  */
 package com.mycompany.thepetproject.swing.components;
 
+import com.mycompany.thepetproject.main.PetList;
 import com.mycompany.thepetproject.main.PetSex;
+import com.mycompany.thepetproject.main.PetStatus;
 import com.mycompany.thepetproject.main.PetType;
+import com.mycompany.thepetproject.swing.pages.AdoptionForm;
+import com.mycompany.thepetproject.swing.pages.PetGallery;
+import java.util.UUID;
 
 /**
  *
  * @author lilac
  */
 public class PetModal extends javax.swing.JFrame {
-    private String id;
+    private UUID id;
     private String name;
     private PetSex sex;
     private PetType type;
@@ -25,7 +30,7 @@ public class PetModal extends javax.swing.JFrame {
     public PetModal(){
         initComponents();
     }
-    public PetModal(String id, String name, PetSex sex, PetType type, int age, String description) {
+    public PetModal(UUID id, String name, PetSex sex, PetType type, int age, String description) {
         initComponents();
         this.id = id;
         this.name = name;
@@ -91,6 +96,11 @@ public class PetModal extends javax.swing.JFrame {
         submitBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         submitBtn.setForeground(new java.awt.Color(0, 0, 0));
         submitBtn.setText("Adopt!");
+        submitBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                submitBtnMouseClicked(evt);
+            }
+        });
         submitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitBtnActionPerformed(evt);
@@ -165,6 +175,21 @@ public class PetModal extends javax.swing.JFrame {
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_submitBtnActionPerformed
+
+    private void submitBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitBtnMouseClicked
+//        AdoptionForm adoptionForm = new AdoptionForm(id, name, sex, type, age, description);
+//        adoptionForm.setVisible(true);
+//        adoptionForm.pack();
+//        adoptionForm.setLocationRelativeTo(null);
+//        adoptionForm.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
+
+        PetList.setPetStatus(id, PetStatus.PENDING);
+        PetGallery.loadPetCards();
+        System.out.println(id);
+        System.out.println(PetList.getPet(id));
+
+        this.dispose();
+    }//GEN-LAST:event_submitBtnMouseClicked
 
     /**
      * @param args the command line arguments

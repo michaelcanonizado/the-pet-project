@@ -26,6 +26,15 @@ public class PetList {
         savePets();
     }
     
+    public static void setPetStatus(UUID id, PetStatus status) {
+        for (Pet pet : pets) {
+            if (pet.getId().equals(id)) {
+                pet.setStatus(status);
+            }
+        }
+        savePets();
+    }
+    
     // Get pet methods
     public static Pet getPet(UUID id) {
         for (Pet pet : pets) {
@@ -51,6 +60,7 @@ public class PetList {
     
     public static List<Pet> filterPets(PetStatus status) {
         List<Pet> filteredPets = new ArrayList<>();
+        loadPets();
         for (Pet pet : pets) {
             if (pet.getStatus().equals(status)) {
                 filteredPets.add(pet);
@@ -119,6 +129,7 @@ public class PetList {
             String description = row[6];
             
             Pet pet = new Pet(type, name, age, sex, status, description);
+            pet.setId(UUID.fromString(row[0]));
             pets.add(pet);
         }
     }

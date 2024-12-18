@@ -6,6 +6,7 @@ package com.mycompany.thepetproject.swing.pages;
 
 import com.mycompany.thepetproject.main.Pet;
 import com.mycompany.thepetproject.main.PetList;
+import com.mycompany.thepetproject.main.PetStatus;
 import com.mycompany.thepetproject.utils.pages.PageBlueprint;
 import com.mycompany.thepetproject.utils.pages.PageController;
 import com.mycompany.thepetproject.swing.components.PetCard;
@@ -29,14 +30,17 @@ public class PetGallery extends PageBlueprint {
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         
     }
-    private void loadPetCards() {
-        List<Pet> pets = PetList.getPets();
+    public static void loadPetCards() {
+        cardsContainer.removeAll();
+        PetList.loadPets();
+        List<Pet> pets = PetList.filterPets(PetStatus.FOR_ADOPTION);
+        
         cardsContainer.setLayout(new GridLayout(0,4, 0, 40));
         for (int i = 0; i < pets.size(); i++) {
             Pet pet = pets.get(i);
 //            String id, String name, PetSex sex, PetType type, int age, String description
             PetCard card = new PetCard(
-                    pet.getId().toString(), 
+                    pet.getId(), 
                     pet.getName(), 
                     pet.getSex(),
                     pet.getType(),
@@ -257,7 +261,7 @@ public class PetGallery extends PageBlueprint {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelBack;
-    private javax.swing.JPanel cardsContainer;
+    public static javax.swing.JPanel cardsContainer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelHome;

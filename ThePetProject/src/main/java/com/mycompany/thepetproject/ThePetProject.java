@@ -31,7 +31,11 @@ public class ThePetProject {
             pages.setVisible(true);
         });
         
-        UserList.loadUsers();
+        PetList.loadPets();
+        PetList.savePets();
+        PetList.loadPets();
+        PetList.savePets();
+        
         
 //        PetList.loadPets();
 //        PetList.savePets();
