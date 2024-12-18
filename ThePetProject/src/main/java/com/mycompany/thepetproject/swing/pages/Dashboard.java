@@ -274,11 +274,6 @@ public class Dashboard extends PageBlueprint {
                 addPetBtnMouseClicked(evt);
             }
         });
-        addPetBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addPetBtnActionPerformed(evt);
-            }
-        });
         panelRound1.add(addPetBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -535,23 +530,16 @@ public class Dashboard extends PageBlueprint {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        // TODO add your handling code here:
        SessionManager sessionManager = SessionManager.getInstance();
        sessionManager.logout();
        PageController pageController = PageController.getInstance();
        pageController.changePage("Home");
-
-        // Add your other methods, variables, etc.
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
        SessionManager sessionManager = SessionManager.getInstance();
        sessionManager.logout();
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void addPetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPetBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addPetBtnActionPerformed
 
     private void addPetBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPetBtnMouseClicked
         AddPet addPet = new AddPet();
@@ -562,18 +550,15 @@ public class Dashboard extends PageBlueprint {
     }//GEN-LAST:event_addPetBtnMouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(0);
         
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-        // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_jLabel10MouseClicked
 
