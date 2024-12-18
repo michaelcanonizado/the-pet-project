@@ -7,6 +7,7 @@ import com.mycompany.thepetproject.main.PetSex;
 import java.util.UUID;
 import javax.swing.JOptionPane;
 import com.mycompany.thepetproject.main.PetType;
+import com.mycompany.thepetproject.main.PetStatus;
 
 /**
  *
@@ -22,7 +23,7 @@ public class EditPet extends javax.swing.JFrame {
         initComponents();
     }
 
-    public void setPetDetails(UUID id, String name, int age, PetType type, PetSex sex, String description) {
+    public void setPetDetails(UUID id, String name, int age, PetType type, PetSex sex, PetStatus status, String description) {
         this.petId = id;
         nameField.setText(name);
         ageField.setText(Integer.toString(age));
@@ -35,6 +36,13 @@ public class EditPet extends javax.swing.JFrame {
             sexComboBox.setSelectedItem("Female");
         } else if (sex == PetSex.MALE) {
             sexComboBox.setSelectedItem("Male");
+        }
+        if (status == PetStatus.ADOPTED) {
+            statusComboBox.setSelectedItem("Adopted");
+        } else if (status == PetStatus.FOR_ADOPTION) {
+            statusComboBox.setSelectedItem("For adoption");
+        } else if (status == PetStatus.PENDING) {
+            statusComboBox.setSelectedItem("Pending");
         }
         descriptionField.setText(description);
     }
@@ -63,6 +71,8 @@ public class EditPet extends javax.swing.JFrame {
         typeComboBox = new javax.swing.JComboBox<>();
         panelRound1 = new com.mycompany.thepetproject.swing.components.PanelRound();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        statusComboBox = new javax.swing.JComboBox<>();
 
         jLabel5.setText("jLabel5");
 
@@ -142,14 +152,32 @@ public class EditPet extends javax.swing.JFrame {
             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
         );
 
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel9.setText("Status");
+
+        statusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Adopted", "For adoption", "Pending" }));
+        statusComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statusComboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(130, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(statusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -169,17 +197,13 @@ public class EditPet extends javax.swing.JFrame {
                             .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(descriptionField, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(138, 138, 138))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addGap(40, 40, 40)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -199,9 +223,13 @@ public class EditPet extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(typeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(statusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -256,6 +284,15 @@ public class EditPet extends javax.swing.JFrame {
             sex = PetSex.FEMALE;
         }
 
+        PetStatus status = PetStatus.FOR_ADOPTION;
+        if (statusComboBox.getSelectedItem().toString().equals("Adopted")) {
+            status = PetStatus.ADOPTED;
+        } else if (statusComboBox.getSelectedItem().toString().equals("For adoption")) {
+            status = PetStatus.FOR_ADOPTION;
+        } else if (statusComboBox.getSelectedItem().toString().equals("Pending")) {
+            status = PetStatus.PENDING;
+        }
+
         // Update the pet details in the PetList
         Pet pet = PetList.getPet(this.petId);
         if (pet != null) {
@@ -263,6 +300,7 @@ public class EditPet extends javax.swing.JFrame {
             pet.setAge(age);
             pet.setType(type);
             pet.setSex(sex);
+            pet.setStatus(status);
             pet.setDescription(description);
         
             // Update the corresponding row in the Dashboard table
@@ -272,6 +310,7 @@ public class EditPet extends javax.swing.JFrame {
                 age,
                 type.toString(),
                 sex.toString(),
+                status.toString(),
                 description
             });
         } else {
@@ -307,6 +346,15 @@ public class EditPet extends javax.swing.JFrame {
             sex = PetSex.FEMALE;
         }
 
+        PetStatus status = PetStatus.FOR_ADOPTION;
+        if (statusComboBox.getSelectedItem().toString().equals("Adopted")) {
+            status = PetStatus.ADOPTED;
+        } else if (statusComboBox.getSelectedItem().toString().equals("For adoption")) {
+            status = PetStatus.FOR_ADOPTION;
+        } else if (statusComboBox.getSelectedItem().toString().equals("Pending")) {
+            status = PetStatus.PENDING;
+        }
+
         // Update the pet details in the PetList
         Pet pet = PetList.getPet(this.petId);
         if (pet != null) {
@@ -314,6 +362,7 @@ public class EditPet extends javax.swing.JFrame {
             pet.setAge(age);
             pet.setType(type);
             pet.setSex(sex);
+            pet.setStatus(status);
             pet.setDescription(description);
         
             // Update the corresponding row in the Dashboard table
@@ -323,6 +372,7 @@ public class EditPet extends javax.swing.JFrame {
                 age,
                 type.toString(),
                 sex.toString(),
+                status.toString(),
                 description
             });
         } else {
@@ -331,6 +381,10 @@ public class EditPet extends javax.swing.JFrame {
         }
         this.dispose();
     }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void statusComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_statusComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -378,12 +432,12 @@ public class EditPet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private java.awt.Label label1;
     private javax.swing.JTextField nameField;
     private com.mycompany.thepetproject.swing.components.PanelRound panelRound1;
-    private com.mycompany.thepetproject.swing.components.PanelRound panelRound2;
     private javax.swing.JComboBox<String> sexComboBox;
+    private javax.swing.JComboBox<String> statusComboBox;
     private javax.swing.JComboBox<String> typeComboBox;
     // End of variables declaration//GEN-END:variables
 }
