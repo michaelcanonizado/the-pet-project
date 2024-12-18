@@ -7,9 +7,11 @@ package com.mycompany.thepetproject.swing.pages;
 import com.mycompany.thepetproject.main.Pet;
 import com.mycompany.thepetproject.main.PetList;
 import com.mycompany.thepetproject.utils.pages.PageBlueprint;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import com.mycompany.thepetproject.main.PetSex;
+import com.mycompany.thepetproject.main.PetType;
 import java.util.List;
+import java.util.UUID;
+
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -33,10 +35,18 @@ public class Dashboard extends PageBlueprint {
     }
     
     private void handleRowClick(int row) {
-        // Get the data from the selected row
-        String petName = (String) model.getValueAt(row, 1);
-        System.out.println("Row " + row + " clicked. Pet Name: " + petName);
         EditPet editPet = new EditPet();
+        UUID id = UUID.fromString((String) model.getValueAt(row, 0));
+        String name = (String) model.getValueAt(row, 1);
+        int age = Integer.parseInt((String) model.getValueAt(row, 2));
+        PetType type = PetType.valueOf((String) model.getValueAt(row, 3));
+        PetSex sex = PetSex.valueOf((String) model.getValueAt(row, 4));
+        String description = (String) model.getValueAt(row, 5);
+
+        // Set the pet details in the EditPet form
+        editPet.setPetDetails(id, name, age, type, sex, description);
+
+        // Display the EditPet form
         editPet.setVisible(true);
         editPet.pack();
         editPet.setLocationRelativeTo(null);
@@ -45,7 +55,10 @@ public class Dashboard extends PageBlueprint {
     }
 
     private void loadPetsToTable() {
-        List<Pet> pets =  PetList.getPets();
+        // Clear the table model before loading data
+        model.setRowCount(0);
+
+        List<Pet> pets = PetList.getPets();
         for (Pet pet : pets) {
             model.addRow(new Object[]{
                 pet.getId().toString(),
@@ -63,19 +76,16 @@ public class Dashboard extends PageBlueprint {
         model.addRow(dataRow);
     }
 
-//    private void addTableMouseListener() {
-//        petsTable.addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mouseClicked(MouseEvent e) {
-//                int row = petsTable.rowAtPoint(e.getPoint());
-//                int col = petsTable.columnAtPoint(e.getPoint());
-//                if (row >= 0 && col >= 0) {
-//                    // Handle the row click event
-//                    handleRowClick(row);
-//                }
-//            }
-//        });
-//    }
+    public static void updateRowInTable(UUID id, Object[] dataRow) {
+        for (int i = 0; i < model.getRowCount(); i++) {
+            if (model.getValueAt(i, 0).equals(id.toString())) {
+                for (int j = 0; j < dataRow.length; j++) {
+                    model.setValueAt(dataRow[j], i, j);
+                }
+                break;
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -91,12 +101,7 @@ public class Dashboard extends PageBlueprint {
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        addPetBtn = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -107,6 +112,7 @@ public class Dashboard extends PageBlueprint {
         canvas1 = new java.awt.Canvas();
         jScrollPane1 = new javax.swing.JScrollPane();
         petsTable = new javax.swing.JTable();
+        addPetBtn = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         panelRound2 = new com.mycompany.thepetproject.swing.components.PanelRound();
         panelRound3 = new com.mycompany.thepetproject.swing.components.PanelRound();
@@ -145,42 +151,6 @@ public class Dashboard extends PageBlueprint {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Dashboard");
 
-        jButton1.setText("Manage Pets");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Pending Adoptions");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("Adopted Pets");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
-            }
-        });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
         jButton4.setBackground(new java.awt.Color(226, 70, 43));
         jButton4.setText("Log out");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -194,39 +164,18 @@ public class Dashboard extends PageBlueprint {
             }
         });
 
-        addPetBtn.setText("Add pet");
-        addPetBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addPetBtnMouseClicked(evt);
-            }
-        });
-        addPetBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addPetBtnActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel7.setText("Add Pet  ➤");
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
-            }
-        });
-
         jLabel8.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel8.setText("Manage Pets ➤");
+        jLabel8.setText("Manage Pets      ➤");
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel8MouseClicked(evt);
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel9.setText("Pending Adoptions   ➤");
+        jLabel9.setText("Pending              ➤");
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel9MouseClicked(evt);
@@ -235,7 +184,7 @@ public class Dashboard extends PageBlueprint {
 
         jLabel10.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel10.setText("Adopted Pets  ➤");
+        jLabel10.setText("Adopted Pets     ➤");
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel10MouseClicked(evt);
@@ -251,20 +200,11 @@ public class Dashboard extends PageBlueprint {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(jLabel10)
-                    .addComponent(jLabel7)
                     .addComponent(jLabel8)
-                    .addComponent(addPetBtn)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addComponent(jButton4))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton2)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jButton1))
-                            .addComponent(jButton3))))
+                        .addComponent(jButton4)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -272,23 +212,13 @@ public class Dashboard extends PageBlueprint {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addGap(47, 47, 47)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(55, 55, 55)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel9)
-                .addGap(49, 49, 49)
+                .addGap(33, 33, 33)
                 .addComponent(jLabel10)
-                .addGap(46, 46, 46)
-                .addComponent(addPetBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 272, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addGap(104, 104, 104))
         );
@@ -334,6 +264,19 @@ public class Dashboard extends PageBlueprint {
         jScrollPane1.setViewportView(petsTable);
 
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 750, 490));
+
+        addPetBtn.setText("Add pet");
+        addPetBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addPetBtnMouseClicked(evt);
+            }
+        });
+        addPetBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPetBtnActionPerformed(evt);
+            }
+        });
+        panelRound1.add(addPetBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -588,34 +531,6 @@ public class Dashboard extends PageBlueprint {
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jButton1MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(1);
-    }//GEN-LAST:event_jButton2MouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(2);
-    }//GEN-LAST:event_jButton3MouseClicked
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
 
@@ -644,15 +559,6 @@ public class Dashboard extends PageBlueprint {
         
     }//GEN-LAST:event_jLabel8MouseClicked
 
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        // TODO add your handling code here:
-        AddPet addPet = new AddPet();
-        addPet.setVisible(true);
-        addPet.pack();
-        addPet.setLocationRelativeTo(null);
-        addPet.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_jLabel7MouseClicked
-
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(1);
@@ -677,9 +583,6 @@ public class Dashboard extends PageBlueprint {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addPetBtn;
     private java.awt.Canvas canvas1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -688,7 +591,6 @@ public class Dashboard extends PageBlueprint {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
