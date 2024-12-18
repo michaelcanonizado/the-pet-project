@@ -32,6 +32,7 @@ public class ThePetProject {
         });
         
         UserList.loadUsers();
+        AdminSeeder.generateAdmins();
         
 //        PetList.loadPets();
 //        PetList.savePets();
