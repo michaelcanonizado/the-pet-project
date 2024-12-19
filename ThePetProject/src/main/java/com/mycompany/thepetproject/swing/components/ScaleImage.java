@@ -55,7 +55,7 @@ public class ScaleImage {
         }
     }
     
-    public void ScaleImage(String filePath, JLabel image) {
+    public void scaleImage(String filePath, JLabel image) {
         SwingUtilities.invokeLater(() -> loadImage(filePath, image));
     }
 }

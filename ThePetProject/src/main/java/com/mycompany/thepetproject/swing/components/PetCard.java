@@ -9,6 +9,8 @@ import com.mycompany.thepetproject.main.PetType;
 import com.mycompany.thepetproject.swing.components.PetModal;
 import java.util.UUID;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author deynklarys
@@ -29,11 +31,12 @@ public class PetCard extends javax.swing.JPanel {
     private PetType type;
     private int age;
     private String description;
+    private String imagePath;
     
     /**
      * Creates new form PetCard
      */
-    public PetCard(UUID id, String name, PetSex sex, PetType type, int age, String description) {
+    public PetCard(UUID id, String name, PetSex sex, PetType type, int age, String description, String imagePath) {
         initComponents();
         
         this.id = id;
@@ -42,11 +45,14 @@ public class PetCard extends javax.swing.JPanel {
         this.type = type;
         this.age = age;
         this.description = description;
+        this.imagePath = imagePath;
         
         this.nameLabel.setText(name);
         this.ageLabel.setText(String.valueOf(age));
         this.sexLabel.setText(sex.toString());
         this.id = id;
+        ScaleImage scaleImage = new ScaleImage();
+        scaleImage.scaleImage(imagePath, this.image);
     }
 
     /**
@@ -104,8 +110,6 @@ public class PetCard extends javax.swing.JPanel {
         panelRound1.setPreferredSize(new java.awt.Dimension(150, 130));
 
         image.setForeground(new java.awt.Color(38, 50, 56));
-        image.setText("image");
-        image.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(38, 50, 56), 1, true));
 
         nameLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         nameLabel.setForeground(new java.awt.Color(38, 50, 56));
@@ -179,7 +183,7 @@ public class PetCard extends javax.swing.JPanel {
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
         System.out.println("Card clicked! " + id);
 //        String id, String name, PetSex sex, PetType type, int age, String description
-        PetModal modal = new PetModal(id, name, sex, type, age, description);
+        PetModal modal = new PetModal(id, name, sex, type, age, description, imagePath);
         modal.setVisible(true);
         modal.pack();
         modal.setLocationRelativeTo(null);
