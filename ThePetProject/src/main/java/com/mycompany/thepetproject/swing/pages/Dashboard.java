@@ -88,6 +88,18 @@ public class Dashboard extends PageBlueprint {
             }
         }
     }
+
+    public static void removeRowFromTable(UUID id) {
+        for (int i = 0; i < model.getRowCount(); i++) {
+            if (model.getValueAt(i, 0).equals(id.toString())) {
+                model.removeRow(i);
+                break;
+            }
+        }
+        // Repaint the table to reflect the changes
+        petsTable.repaint();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
