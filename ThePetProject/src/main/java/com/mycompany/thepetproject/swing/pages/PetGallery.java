@@ -13,6 +13,7 @@ import com.mycompany.thepetproject.swing.components.PetCard;
 import java.awt.GridLayout;
 import java.io.File;
 import java.util.List;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -39,7 +40,7 @@ public class PetGallery extends PageBlueprint {
         cardsContainer.setLayout(new GridLayout(0,4, 0, 40));
         for (int i = 0; i < pets.size(); i++) {
             Pet pet = pets.get(i);
-          
+            String imagePath = "images/pets-id/" + pet.getId().toString() + ".jpg";
 //            String id, String name, PetSex sex, PetType type, int age, String description
             PetCard card = new PetCard(
                     pet.getId(), 
@@ -47,7 +48,8 @@ public class PetGallery extends PageBlueprint {
                     pet.getSex(),
                     pet.getType(),
                     pet.getAge(), 
-                    pet.getDescription()
+                    pet.getDescription(),
+                    imagePath
             );
             cardsContainer.add(card);
         }
