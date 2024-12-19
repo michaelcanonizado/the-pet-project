@@ -11,6 +11,7 @@ import com.mycompany.thepetproject.utils.pages.PageBlueprint;
 import com.mycompany.thepetproject.utils.pages.PageController;
 import com.mycompany.thepetproject.swing.components.PetCard;
 import java.awt.GridLayout;
+import java.io.File;
 import java.util.List;
 
 /**
@@ -33,11 +34,12 @@ public class PetGallery extends PageBlueprint {
     public static void loadPetCards() {
         cardsContainer.removeAll();
         PetList.loadPets();
-        List<Pet> pets = PetList.filterPets(PetStatus.FOR_ADOPTION);
-        
+        List<Pet> pets = PetList.getPets();
+                
         cardsContainer.setLayout(new GridLayout(0,4, 0, 40));
         for (int i = 0; i < pets.size(); i++) {
             Pet pet = pets.get(i);
+          
 //            String id, String name, PetSex sex, PetType type, int age, String description
             PetCard card = new PetCard(
                     pet.getId(), 
