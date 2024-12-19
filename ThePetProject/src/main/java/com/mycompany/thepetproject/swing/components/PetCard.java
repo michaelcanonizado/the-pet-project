@@ -31,6 +31,7 @@ public class PetCard extends javax.swing.JPanel {
     private PetType type;
     private int age;
     private String description;
+    private String imagePath;
     
     /**
      * Creates new form PetCard
@@ -44,6 +45,7 @@ public class PetCard extends javax.swing.JPanel {
         this.type = type;
         this.age = age;
         this.description = description;
+        this.imagePath = imagePath;
         
         this.nameLabel.setText(name);
         this.ageLabel.setText(String.valueOf(age));
@@ -181,7 +183,7 @@ public class PetCard extends javax.swing.JPanel {
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
         System.out.println("Card clicked! " + id);
 //        String id, String name, PetSex sex, PetType type, int age, String description
-        PetModal modal = new PetModal(id, name, sex, type, age, description);
+        PetModal modal = new PetModal(id, name, sex, type, age, description, imagePath);
         modal.setVisible(true);
         modal.pack();
         modal.setLocationRelativeTo(null);

@@ -30,7 +30,7 @@ public class PetModal extends javax.swing.JFrame {
     public PetModal(){
         initComponents();
     }
-    public PetModal(UUID id, String name, PetSex sex, PetType type, int age, String description) {
+    public PetModal(UUID id, String name, PetSex sex, PetType type, int age, String description, String imagePath) {
         initComponents();
         this.id = id;
         this.name = name;
@@ -43,6 +43,9 @@ public class PetModal extends javax.swing.JFrame {
         sexLabel.setText(sex.toString());
         ageLabel.setText(String.valueOf(age));
         descriptionLabel.setText(description);
+
+        ScaleImage scaleImage = new ScaleImage();
+        scaleImage.scaleImage(imagePath, this.image);
     }
 
     /**
@@ -56,7 +59,7 @@ public class PetModal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         nameLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        image = new javax.swing.JLabel();
         sexLabel = new javax.swing.JLabel();
         ageLabel = new javax.swing.JLabel();
         age1 = new javax.swing.JLabel();
@@ -70,31 +73,22 @@ public class PetModal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(248, 208, 70));
 
         nameLabel.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        nameLabel.setForeground(new java.awt.Color(0, 0, 0));
         nameLabel.setText("Name");
 
-        jLabel1.setText("image");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         sexLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        sexLabel.setForeground(new java.awt.Color(0, 0, 0));
         sexLabel.setText("Sex");
 
         ageLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        ageLabel.setForeground(new java.awt.Color(0, 0, 0));
         ageLabel.setText("Age");
 
         age1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        age1.setForeground(new java.awt.Color(0, 0, 0));
         age1.setText("-");
 
         age2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        age2.setForeground(new java.awt.Color(0, 0, 0));
         age2.setText("Years old");
 
         submitBtn.setBackground(new java.awt.Color(226, 70, 43));
         submitBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        submitBtn.setForeground(new java.awt.Color(0, 0, 0));
         submitBtn.setText("Adopt!");
         submitBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -131,7 +125,7 @@ public class PetModal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(image, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 252, Short.MAX_VALUE))
@@ -142,7 +136,7 @@ public class PetModal extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(nameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -231,7 +225,7 @@ public class PetModal extends javax.swing.JFrame {
     private javax.swing.JLabel age2;
     private javax.swing.JLabel ageLabel;
     private javax.swing.JTextArea descriptionLabel;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel image;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nameLabel;
