@@ -101,8 +101,12 @@ public class PetModal extends javax.swing.JFrame {
             }
         });
 
+        descriptionLabel.setEditable(false);
+        descriptionLabel.setBackground(new java.awt.Color(255, 252, 238));
         descriptionLabel.setColumns(20);
+        descriptionLabel.setLineWrap(true);
         descriptionLabel.setRows(5);
+        descriptionLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(descriptionLabel);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
